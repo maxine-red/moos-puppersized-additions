@@ -30,14 +30,42 @@
 
 ## Blocks
 
-- [ ] add bees wax storage block, burnable for 0 items
+- [ ] add bees wax storage block, burnable for 9 items
 
 ## Fluids
 
 - only virtual fluids (not placable in world)
-- look at how create does fluids
+
+### Magical
+
+- requires special jar to handle, no bucket available
+- [ ] add void essence
+- [ ] add liquid souls
+
+### Juice
+
+- has bucket (not drinkable from)
+- is drinkale (from bottle)
+- works like potion, but is food item (think honey bottle)
+- uses thin texture
+
+### Jam
+
+- has bucket (not drinkable)
+- has special bottle variant (but is otherwise same as bottle)
+- uses thick texture
 - [ ] add jam variants (red, yellow, purple)
+
+### Misc
+
+- has bucket, nothing more
 - [ ] add gelatin
+
+### Cookables
+
+- have bucket (not edible)
+- have bowl (handled by other mods)
+- don't share textures (base thick texture)
 - [ ] add mushroom stew
 - [ ] add tomato sauce
 - [ ] add beetroot soup
@@ -52,5 +80,4 @@
 - [ ] add pumpkin pie filling
 - [ ] add gooseberry pie filling
 - [ ] add apple pie filling
-- [ ] add dog food filling
-- [ ] add void essence
+- [ ] add dog food

@@ -14,5 +14,4 @@ Strawberry Twirl Companion adds content, that cannot be added through other mean
 
 ### Project specific content
 
-- Project icon and textures (under /kubejs/assets/kubejs/textures) are made by [Ulvra](https://www.furaffinity.net/user/ulvra)
-
+- Project icon and textures are made by [Ulvra](https://www.furaffinity.net/user/ulvra) (except fluid textures)
