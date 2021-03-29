@@ -10,7 +10,7 @@ getVersion() {
 
 getVersion
 git checkout main && git merge development && git push && \
-  git tag -a "$full_version"  -F CHANGELOG.md && \
+  git tag "$full_version"  -F CHANGELOG.md && \
   echo "Created tag $full_version" && \
   git push origin "$full_version" && git checkout development && \
   echo "Pushed new tag $full_version"
