@@ -17,5 +17,5 @@ git checkout development && git pull && \
   echo "Pushed new tag $full_version" && \
   ./gradlew build &&
   echo "Built release jar" && \
-  gh release create "$full_version" -F CHANGELOD.md && \
+  gh release create "$full_version" -F CHANGELOG.md && \
   gh release upload build/libsStrawberryTwirlCompanion-"$full_version".jar
