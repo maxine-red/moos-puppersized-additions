@@ -18,6 +18,6 @@ git checkout development && git pull && \
   git push origin "$full_version" && git checkout development && \
   echo "Pushed new tag $full_version" && \
   cd build/libs && \
-  gh release create "$full_version" -F CHANGELOG.md \
+  gh release create "$full_version" -F ../../CHANGELOG.md \
   StrawberryTwirlCompanion-"$(echo $full_version|sed 's/v//')".jar && \
   echo "Created release for $full_version"
