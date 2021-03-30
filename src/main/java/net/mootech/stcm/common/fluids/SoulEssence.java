@@ -1,0 +1,61 @@
+package net.mootech.stcm.common.fluids;
+
+import net.minecraft.fluid.FluidState;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.StrawberryFluids;
+import net.mootech.stcm.common.StrawberryItems;
+import net.mootech.stcm.util.Color;
+
+public abstract class SoulEssence extends ForgeFlowingFluid {
+	
+	public static final String ID = "soul_essence";
+	
+	public static final int COLOR = new Color(0.6, 99, 84, 77).combine();
+	public static final Properties PROPERTIES = new Properties(StrawberryFluids.SOUL_ESSENCE, StrawberryFluids.SOUL_ESSENCE_FLOW,
+			FluidAttributes.builder(new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still"), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing"))
+                    .color(COLOR)).bucket(StrawberryItems.SOUL_ESSENCE_BUCKET);
+
+	protected SoulEssence(Properties properties) {
+		super(properties);
+	}
+
+	public static class Flowing extends SoulEssence {
+
+		public Flowing(Properties properties) {
+			super(properties);
+		}
+
+        @Override
+        public int getAmount(FluidState fluidState) {
+            return 0;
+        }
+
+        @Override
+        public boolean isSource(FluidState state) {
+            return false;
+        }
+		
+	}
+	
+	public static class Source extends SoulEssence {
+
+		public Source(Properties properties) {
+			super(properties);
+		}
+
+        @Override
+        public int getAmount(FluidState fluidState) {
+            return 0;
+        }
+
+        @Override
+        public boolean isSource(FluidState state) {
+            return true;
+        }
+		
+	}
+
+}

@@ -19,9 +19,9 @@ package net.mootech.stcm.client;
 
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.fluids.VoidEssence;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.item.BucketItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,9 +29,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = StrawberryTwirlCompanion.ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class StrawberryClientInitializer {
 
-	static final IItemColor VOID_ESSENCE_COLOR = (stack, tintIndex) -> {
+	static final IItemColor FLUID_COLOR = (stack, tintIndex) -> {
 		if (tintIndex == 0) {
-			return VoidEssence.COLOR;
+			return ((BucketItem)(stack.getItem())).getFluid().getAttributes().getColor();
 		}
 		else {
 			return 0xFFFFFFFF;
@@ -39,7 +39,8 @@ public class StrawberryClientInitializer {
 	};
 	@SubscribeEvent
 	public static void registerItemColor(ColorHandlerEvent.Item event) {
-		event.getItemColors().register(VOID_ESSENCE_COLOR, StrawberryItems.VOID_ESSENCE_BUCKET.get());
+		event.getItemColors().register(FLUID_COLOR, StrawberryItems.VOID_ESSENCE_BUCKET.get());
+		event.getItemColors().register(FLUID_COLOR, StrawberryItems.SOUL_ESSENCE_BUCKET.get());
 	}
 
 }

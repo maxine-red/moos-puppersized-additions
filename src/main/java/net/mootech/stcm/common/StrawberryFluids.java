@@ -28,6 +28,8 @@ import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
+import net.mootech.stcm.common.fluids.SoulEssence;
+import net.mootech.stcm.common.fluids.VirtualFluid;
 import net.mootech.stcm.common.fluids.VoidEssence;
 
 public class StrawberryFluids {
@@ -36,8 +38,11 @@ public class StrawberryFluids {
 	
 	// TODO: Unify fluid creation and put as much into a common class, then have the rest done here.
 
-    public static final RegistryObject<FlowingFluid> VOID_ESSENCE = FLUIDS.register(VoidEssence.ID, () -> new VoidEssence.Source(VoidEssence.PROPERTIES));
-    public static final RegistryObject<FlowingFluid> VOID_ESSENCE_FLOW = FLUIDS.register(VoidEssence.ID + "_flowing", () -> new VoidEssence.Flowing(VoidEssence.PROPERTIES));
+    public static final RegistryObject<FlowingFluid> VOID_ESSENCE = FLUIDS.register(VoidEssence.ID, () -> new VirtualFluid.Source(VoidEssence.PROPERTIES));
+    public static final RegistryObject<FlowingFluid> VOID_ESSENCE_FLOW = FLUIDS.register(VoidEssence.ID + "_flowing", () -> new VirtualFluid.Flowing(VoidEssence.PROPERTIES));
+    
+    public static final RegistryObject<FlowingFluid> SOUL_ESSENCE = FLUIDS.register(SoulEssence.ID, () -> new VirtualFluid.Source(SoulEssence.PROPERTIES));
+    public static final RegistryObject<FlowingFluid> SOUL_ESSENCE_FLOW = FLUIDS.register(SoulEssence.ID + "_flowing", () -> new VirtualFluid.Flowing(SoulEssence.PROPERTIES));
     private static final Logger LOGGER = LogManager.getLogger();
     
 

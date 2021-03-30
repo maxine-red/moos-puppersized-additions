@@ -31,6 +31,7 @@
 ## Blocks
 
 - [ ] add bees wax storage block, burnable for 9 items
+- [ ] add jello blocks, work like slime blocks
 
 ## Fluids
 

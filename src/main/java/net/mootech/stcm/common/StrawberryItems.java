@@ -17,6 +17,9 @@
  */
 package net.mootech.stcm.common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,13 +33,17 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.fluids.VoidEssence;
+import net.mootech.stcm.common.fluids.SoulEssence;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
 
+	public static final List<BucketItem> BUCKETS = new ArrayList<BucketItem>();
+	// TODO Combine items for tinting and also remove magic fluid buckets
 	public static final Item GLASS_BUCKET = new Item(new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.UNCOMMON).stacksTo(16));
 	public static final RegistryObject<Item> EMPTY_GLASS_BUCKET = ITEMS.register("bucket_glass_empty", () -> GLASS_BUCKET);
 	public static final RegistryObject<BucketItem> VOID_ESSENCE_BUCKET = ITEMS.register("bucket_" + VoidEssence.ID, () -> new BucketItem(StrawberryFluids.VOID_ESSENCE, new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.EPIC).stacksTo(1).craftRemainder(GLASS_BUCKET)));
+	public static final RegistryObject<BucketItem> SOUL_ESSENCE_BUCKET = ITEMS.register("bucket_" + SoulEssence.ID, () -> new BucketItem(StrawberryFluids.SOUL_ESSENCE, new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.EPIC).stacksTo(1).craftRemainder(GLASS_BUCKET)));
     private static final Logger LOGGER = LogManager.getLogger();
     
 
