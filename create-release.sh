@@ -18,4 +18,4 @@ git checkout development && git pull && \
   ./gradlew build &&
   echo "Built release jar" && \
   gh release create "$full_version" -F CHANGELOG.md && \
-  gh release upload "$full_version" build/libsStrawberryTwirlCompanion-"$full_version".jar
+  gh release upload "$full_version" build/libs/StrawberryTwirlCompanion-"$full_version".jar
