@@ -26,7 +26,7 @@ import net.mootech.stcm.common.StrawberryFluids;
 import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.util.Color;
 
-public abstract class VoidEssence extends ForgeFlowingFluid {
+public class VoidEssence {
 	
 	public static final String ID = "void_essence";
 	
@@ -34,45 +34,4 @@ public abstract class VoidEssence extends ForgeFlowingFluid {
 	public static final Properties PROPERTIES = new Properties(StrawberryFluids.VOID_ESSENCE, StrawberryFluids.VOID_ESSENCE_FLOW,
 			FluidAttributes.builder(new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still"), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing"))
                     .color(COLOR)).bucket(StrawberryItems.VOID_ESSENCE_BUCKET);
-	
-	protected VoidEssence(Properties properties) {
-		super(properties);
-	}
-
-	public static class Flowing extends VoidEssence {
-
-		public Flowing(Properties properties) {
-			super(properties);
-		}
-
-        @Override
-        public int getAmount(FluidState fluidState) {
-            return 0;
-        }
-
-        @Override
-        public boolean isSource(FluidState state) {
-            return false;
-        }
-		
-	}
-	
-	public static class Source extends VoidEssence {
-
-		public Source(Properties properties) {
-			super(properties);
-		}
-
-        @Override
-        public int getAmount(FluidState fluidState) {
-            return 0;
-        }
-
-        @Override
-        public boolean isSource(FluidState state) {
-            return true;
-        }
-		
-	}
-
 }

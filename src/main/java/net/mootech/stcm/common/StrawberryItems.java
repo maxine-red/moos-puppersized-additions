@@ -46,8 +46,6 @@ public class StrawberryItems {
 	public static final RegistryObject<BucketItem> SOUL_ESSENCE_BUCKET = ITEMS.register("bucket_" + SoulEssence.ID, () -> new BucketItem(StrawberryFluids.SOUL_ESSENCE, new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.EPIC).stacksTo(1).craftRemainder(GLASS_BUCKET)));
     private static final Logger LOGGER = LogManager.getLogger();
     
-
-
     public static void init(IEventBus modEventBus) {
     	LOGGER.info("Registering strawberry items");
         ITEMS.register(modEventBus);
