@@ -26,19 +26,19 @@ package net.mootech.stcm.util;
  */
 public class Color {
 	
-	private float alpha;
+	private double alpha;
 	private int red;
 	private int green;
 	private int blue;
 	
 	/**
 	 * Represents a color in argb format
-	 * @param a alpha channel value as a float between 0.0 and 1.9
+	 * @param a alpha channel value as a double between 0.0 and 1.9
 	 * @param r red channel value as an int between 0 and 255
 	 * @param g green channel value as an int between 0 and 255
 	 * @param b blue channel value as an int between 0 and 255
 	 */
-	public Color(float a, int r, int g, int b) {
+	public Color(double a, int r, int g, int b) {
 		alpha(a);
 		red(r);
 		green(g);
@@ -58,7 +58,7 @@ public class Color {
 	 * @param a alpha channel as a float between 0.0 and 1.0
 	 * @return this object
 	 */
-	public Color alpha(float a) {
+	public Color alpha(double a) {
 		alpha = a;
 		if (a > 1.0) {
 			alpha = 1;
