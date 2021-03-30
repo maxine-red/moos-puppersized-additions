@@ -14,7 +14,7 @@ public class SoulEssence {
 	public static final String ID = "soul_essence";
 	
 	public static final int COLOR = new Color(0.6, 99, 84, 77).combine();
-	public static final Properties PROPERTIES = new Properties(StrawberryFluids.SOUL_ESSENCE, StrawberryFluids.SOUL_ESSENCE_FLOW,
+	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.SOUL_ESSENCE, StrawberryFluids.SOUL_ESSENCE_FLOW,
 			FluidAttributes.builder(new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still"), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing"))
                     .color(COLOR)).bucket(StrawberryItems.SOUL_ESSENCE_BUCKET);
 }
