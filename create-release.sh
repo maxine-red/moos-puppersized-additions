@@ -11,11 +11,14 @@ getVersion() {
 getVersion
 git checkout development && git pull && \
   git checkout main && git merge development && git push && \
-  git tag "$full_version"  -F CHANGELOG.md && \
+  git tag "$full_version" -m "# $full_version" && \
   echo "Created tag $full_version" && \
+  ./gradlew build && \
+  echo "Built release jar" && \
   git push origin "$full_version" && git checkout development && \
   echo "Pushed new tag $full_version" && \
-  ./gradlew build &&
-  echo "Built release jar" && \
   gh release create "$full_version" -F CHANGELOG.md && \
-  gh release upload "$full_version" build/libs/StrawberryTwirlCompanion-"$full_version".jar
+  echo "Created release for $full_version"
+  gh release upload "$full_version" \
+  build/libs/StrawberryTwirlCompanion-"$(echo $full_version|sed 's/v//')".jar && \
+  echo "Uploaded mod file for $full_version"
