@@ -11,7 +11,7 @@ getVersion() {
 getVersion
 git checkout development && git pull && \
   git checkout main && git merge development && git push && \
-  git tag "$full_version" -m "# $full_version" && \
+  git tag "$full_version" -m "$full_version" && \
   echo "Created tag $full_version" && \
   ./gradlew build && \
   echo "Built release jar" && \
