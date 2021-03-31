@@ -15,21 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
-package net.mootech.stcm.common;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraft.item.Item.Properties;
-import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
+package net.mootech.stcm.common.fluids.juice;
 
-public class StrawberryBlocks {
-	
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, StrawberryTwirlCompanion.ID);
-	
-	//public static final RegistryObject<FlowingFluidBlock> SEA_WATER = BLOCKS.register(VoidEssence.ID, SeaWaterBlock::new);
+/**
+ * @author Maxine Red
+ *
+ */
+public class AppleJuiceFluid {
 
 }

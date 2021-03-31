@@ -1,6 +1,12 @@
 {
   "itemGroup.strawberrytwirl": "Strawberry Twirl",
   "fluid.strawberrytwirl.void_essence": "Void Essence",
+  "fluid.strawberrytwirl.soul_essence": "Soul Essence",
+  "fluid.strawberrytwirl.melon_juice": "Melon Juice",
+  "fluid.strawberrytwirl.melon_jam": "Melon Jam",
   "item.strawberrytwirl.bucket_glass_empty": "Empty Jug",
-  "item.strawberrytwirl.bucket_void_essence": "Void Essence Jug"
+  "item.strawberrytwirl.bucket_void_essence": "Void Essence Jug",
+  "item.strawberrytwirl.bucket_soul_essence": "Soul Essence Jug",
+  "item.strawberrytwirl.bucket_melon_juice": "Melon Juice Bucket",
+  "item.strawberrytwirl.bucket_melon_jam": "Melon Jam Bucket"
 }

@@ -15,23 +15,20 @@
  * You should have received a copy of the GNU General Public License
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 package net.mootech.stcm.common.fluids;
 
-import net.minecraft.fluid.FluidState;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.FluidAttributes;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.StrawberryFluids;
-import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.util.Color;
 
-public class VoidEssence {
-	
-	public static final String ID = "void_essence";
-	
-	public static final int COLOR = new Color(0.4, 6, 0, 10).combine();
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.VOID_ESSENCE, StrawberryFluids.VOID_ESSENCE_FLOW,
-			FluidAttributes.builder(new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still"), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing"))
-                    .color(COLOR)).bucket(StrawberryItems.VOID_ESSENCE_BUCKET);
+/**
+ * @author Maxine Red
+ *
+ */
+public class JamFluidDefinition extends BucketFluidDefinition {
+	protected static final String group = "_jam";
+	protected static final double alpha = 1.0;
+	protected static final ResourceLocation STILL_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still");
+	protected static final ResourceLocation FLOWING_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing");
+
 }

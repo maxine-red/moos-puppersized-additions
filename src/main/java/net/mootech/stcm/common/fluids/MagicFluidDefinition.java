@@ -15,21 +15,19 @@
  * You should have received a copy of the GNU General Public License
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
-package net.mootech.stcm.common;
+package net.mootech.stcm.common.fluids;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraft.item.Item.Properties;
+import net.minecraft.item.Item;
+import net.minecraft.item.Rarity;
+import net.minecraft.util.ResourceLocation;
 import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
+import net.mootech.stcm.common.StrawberryInitializer;
+import net.mootech.stcm.common.StrawberryItems;
 
-public class StrawberryBlocks {
+public class MagicFluidDefinition {
 	
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, StrawberryTwirlCompanion.ID);
-	
-	//public static final RegistryObject<FlowingFluidBlock> SEA_WATER = BLOCKS.register(VoidEssence.ID, SeaWaterBlock::new);
+	public static final Item.Properties BUCKET_PROPERTIES = new Item.Properties().fireResistant().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.EPIC).stacksTo(1).craftRemainder(StrawberryItems.GLASS_BUCKET);
+	protected static final ResourceLocation STILL_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still");
+	protected static final ResourceLocation FLOWING_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing");
 
 }

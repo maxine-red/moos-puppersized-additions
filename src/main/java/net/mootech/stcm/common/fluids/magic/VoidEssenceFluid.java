@@ -15,21 +15,19 @@
  * You should have received a copy of the GNU General Public License
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
-package net.mootech.stcm.common;
+package net.mootech.stcm.common.fluids.magic;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraft.item.Item.Properties;
-import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
+import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.mootech.stcm.common.StrawberryFluids;
+import net.mootech.stcm.common.fluids.MagicFluidDefinition;
+import net.mootech.stcm.util.Color;
 
-public class StrawberryBlocks {
+public class VoidEssenceFluid extends MagicFluidDefinition {
 	
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, StrawberryTwirlCompanion.ID);
+	public static final String ID = "void_essence";
 	
-	//public static final RegistryObject<FlowingFluidBlock> SEA_WATER = BLOCKS.register(VoidEssence.ID, SeaWaterBlock::new);
-
+	public static final int COLOR = new Color(1.0, 45, 0, 45).combine();
+	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.VOID_ESSENCE, StrawberryFluids.VOID_ESSENCE_FLOW,
+			FluidAttributes.builder(STILL_RESOURCE, FLOWING_RESOURCE).color(COLOR));
 }

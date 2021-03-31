@@ -19,6 +19,8 @@ package net.mootech.stcm.client;
 
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
+import net.mootech.stcm.common.fluids.magic.SoulEssenceFluid;
+import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.BucketItem;
@@ -37,10 +39,28 @@ public class StrawberryClientInitializer {
 			return 0xFFFFFFFF;
 		}
 	};
+	static final IItemColor VOID_ESSENCE_FLUID_COLOR = (stack, tintIndex) -> {
+		if (tintIndex == 0) {
+			return VoidEssenceFluid.COLOR;
+		}
+		else {
+			return 0xFFFFFFFF;
+		}
+	};
+	static final IItemColor SOUL_ESSENCE_FLUID_COLOR = (stack, tintIndex) -> {
+		if (tintIndex == 0) {
+			return SoulEssenceFluid.COLOR;
+		}
+		else {
+			return 0xFFFFFFFF;
+		}
+	};
 	@SubscribeEvent
 	public static void registerItemColor(ColorHandlerEvent.Item event) {
-		event.getItemColors().register(FLUID_COLOR, StrawberryItems.VOID_ESSENCE_BUCKET.get());
-		event.getItemColors().register(FLUID_COLOR, StrawberryItems.SOUL_ESSENCE_BUCKET.get());
+		event.getItemColors().register(VOID_ESSENCE_FLUID_COLOR, StrawberryItems.VOID_ESSENCE_BUCKET.get());
+		event.getItemColors().register(SOUL_ESSENCE_FLUID_COLOR, StrawberryItems.SOUL_ESSENCE_BUCKET.get());
+		event.getItemColors().register(FLUID_COLOR, StrawberryItems.MELON_JUICE_BUCKET.get());
+		event.getItemColors().register(FLUID_COLOR, StrawberryItems.MELON_JAM_BUCKET.get());
 	}
 
 }

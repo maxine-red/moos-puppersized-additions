@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "strawberrytwirl:bucket_void_essence"
+      "item": "strawberrytwirl:bucket_melon_juice"
     }
   ],
   "result": {
-    "item": "minecraft:diamond"
+    "item": "minecraft:melon_slice"
   }
 }

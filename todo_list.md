@@ -37,6 +37,19 @@
 
 - only virtual fluids (not placable in world)
 
+New additions
+jam_jar_contents
+jam_jar_labelled_filled
+jam_jar_labelled_contents
+jelly_tintable
+juice_flask_contents
+juice_flask_labelled_contents
+sandwich_jam_empty
+sandwich_jam_filler
+
+
+The juice_flask ones are with the grey scaling. I'd like moo to try it out with this first to see how it looks.
+
 ### Magical
 
 - requires special jar to handle, no bucket available
