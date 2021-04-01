@@ -34,6 +34,6 @@ public class MelonJuiceFluid extends JuiceFluidDefinition {
 	public static final String ID = "melon" + group;
 	
 	public static final int COLOR = new Color(alpha, 45, 240, 31).combine();
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.MELON_JUICE, StrawberryFluids.MELON_JUICE_FLOW,
-			FluidAttributes.builder(STILL_RESOURCE, FLOWING_RESOURCE).color(COLOR)).bucket(StrawberryItems.MELON_JUICE_BUCKET);
+	//public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.MELON_JUICE, StrawberryFluids.MELON_JUICE_FLOW,
+	//		FluidAttributes.builder(STILL_RESOURCE, FLOWING_RESOURCE).color(COLOR)).bucket(StrawberryItems.MELON_JUICE_BUCKET);
 }

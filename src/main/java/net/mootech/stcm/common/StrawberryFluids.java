@@ -21,36 +21,28 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.mootech.stcm.common.fluids.VirtualFluid;
-import net.mootech.stcm.common.fluids.jam.MelonJamFluid;
-import net.mootech.stcm.common.fluids.juice.MelonJuiceFluid;
-import net.mootech.stcm.common.fluids.magic.SoulEssenceFluid;
-import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
+import net.mootech.stcm.util.Color;
 
 public class StrawberryFluids {
 	
 	private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, StrawberryTwirlCompanion.ID);
+	public static final List<VirtualFluid> REGISTERED_FLUIDS = new ArrayList<>();
 	
 	// TODO: Unify fluid creation and put as much into a common class, then have the rest done here.
 
-    public static final RegistryObject<FlowingFluid> VOID_ESSENCE = FLUIDS.register(VoidEssenceFluid.ID, () -> new VirtualFluid.Source(VoidEssenceFluid.PROPERTIES));
-    public static final RegistryObject<FlowingFluid> VOID_ESSENCE_FLOW = FLUIDS.register(VoidEssenceFluid.ID + "_flowing", () -> new VirtualFluid.Flowing(VoidEssenceFluid.PROPERTIES));
-    
-    public static final RegistryObject<FlowingFluid> SOUL_ESSENCE = FLUIDS.register(SoulEssenceFluid.ID, () -> new VirtualFluid.Source(SoulEssenceFluid.PROPERTIES));
-    public static final RegistryObject<FlowingFluid> SOUL_ESSENCE_FLOW = FLUIDS.register(SoulEssenceFluid.ID + "_flowing", () -> new VirtualFluid.Flowing(SoulEssenceFluid.PROPERTIES));
-    
-    public static final RegistryObject<FlowingFluid> MELON_JUICE = FLUIDS.register(MelonJuiceFluid.ID, () -> new VirtualFluid.Source(MelonJuiceFluid.PROPERTIES));
-    public static final RegistryObject<FlowingFluid> MELON_JUICE_FLOW = FLUIDS.register(MelonJuiceFluid.ID + "_flowing", () -> new VirtualFluid.Flowing(MelonJuiceFluid.PROPERTIES));
-    
-    public static final RegistryObject<FlowingFluid> MELON_JAM = FLUIDS.register(MelonJamFluid.ID, () -> new VirtualFluid.Source(MelonJamFluid.PROPERTIES));
-    public static final RegistryObject<FlowingFluid> MELON_JAM_FLOW = FLUIDS.register(MelonJamFluid.ID + "_flowing", () -> new VirtualFluid.Flowing(MelonJamFluid.PROPERTIES));
+    public static final VirtualFluid VOID_ESSENCE = new VirtualFluid("void_essence", new Color(6, 0, 10));
+    public static final VirtualFluid SOUL_ESSENCE = new VirtualFluid("soul_essence", new Color(99, 86, 71));
+    public static final VirtualFluid MELON_JUICE = new VirtualFluid("melon_juice", new Color(240, 45, 31));
+    public static final VirtualFluid MELON_JAM = new VirtualFluid("melon_jam", new Color(179, 22, 11));
     
     private static final Logger LOGGER = LogManager.getLogger();
     
@@ -58,6 +50,10 @@ public class StrawberryFluids {
 
     public static void init(IEventBus modEventBus) {
     	LOGGER.info("Registering strawberry fluids");
+    	for (VirtualFluid fluid : REGISTERED_FLUIDS) {
+    		LOGGER.info("Registering: " + fluid.getID());
+    		FLUIDS.register(fluid.getID(), () -> fluid);
+    	}
         FLUIDS.register(modEventBus);
     }
 

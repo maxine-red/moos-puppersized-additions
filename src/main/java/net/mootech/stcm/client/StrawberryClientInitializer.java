@@ -17,28 +17,24 @@
  */
 package net.mootech.stcm.client;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.fluids.magic.SoulEssenceFluid;
 import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
+import net.mootech.stcm.common.items.StrawberryBucketItem;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.item.BucketItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = StrawberryTwirlCompanion.ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class StrawberryClientInitializer {
-
-	static final IItemColor FLUID_COLOR = (stack, tintIndex) -> {
-		if (tintIndex == 0) {
-			return ((BucketItem)(stack.getItem())).getFluid().getAttributes().getColor();
-		}
-		else {
-			return 0xFFFFFFFF;
-		}
-	};
+    
+	private static final Logger LOGGER = LogManager.getLogger();
 	static final IItemColor VOID_ESSENCE_FLUID_COLOR = (stack, tintIndex) -> {
 		if (tintIndex == 0) {
 			return VoidEssenceFluid.COLOR;
@@ -57,10 +53,17 @@ public class StrawberryClientInitializer {
 	};
 	@SubscribeEvent
 	public static void registerItemColor(ColorHandlerEvent.Item event) {
-		event.getItemColors().register(VOID_ESSENCE_FLUID_COLOR, StrawberryItems.VOID_ESSENCE_BUCKET.get());
-		event.getItemColors().register(SOUL_ESSENCE_FLUID_COLOR, StrawberryItems.SOUL_ESSENCE_BUCKET.get());
-		event.getItemColors().register(FLUID_COLOR, StrawberryItems.MELON_JUICE_BUCKET.get());
-		event.getItemColors().register(FLUID_COLOR, StrawberryItems.MELON_JAM_BUCKET.get());
+    	for (StrawberryBucketItem bucket : StrawberryItems.BUCKETS) {
+    		LOGGER.info("Registering: " + bucket.id());
+    		event.getItemColors().register((stack, tintIndex) -> {
+    			if (tintIndex == 0) {
+    				return bucket.getColor();
+    			}
+    			else {
+    				return 0xFFFFFFFF;
+    			}
+    		}, bucket);
+    	}
 	}
 
 }

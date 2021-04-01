@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "strawberrytwirl:bucket_melon_juice"
+      "item": "strawberrytwirl:melon_juice_bucket"
     }
   ],
   "result": {

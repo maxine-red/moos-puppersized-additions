@@ -23,7 +23,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Properties;
 import net.minecraft.item.Rarity;
@@ -32,30 +31,24 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.fluids.juice.MelonJuiceFluid;
-import net.mootech.stcm.common.fluids.magic.SoulEssenceFluid;
-import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
-import net.mootech.stcm.common.fluids.jam.MelonJamFluid;
+import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
 
-	public static final List<BucketItem> BUCKETS = new ArrayList<BucketItem>();
+	public static final List<StrawberryBucketItem> BUCKETS = new ArrayList<>();
 	// TODO Combine items for tinting and also remove magic fluid buckets
 	public static final Item GLASS_BUCKET = new Item(new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.UNCOMMON).stacksTo(16));
 	public static final RegistryObject<Item> EMPTY_GLASS_BUCKET = ITEMS.register("bucket_glass_empty", () -> GLASS_BUCKET);
-	
-	public static final RegistryObject<Item> VOID_ESSENCE_BUCKET = ITEMS.register("bucket_" + VoidEssenceFluid.ID, () -> new Item(VoidEssenceFluid.BUCKET_PROPERTIES));
-	public static final RegistryObject<Item> SOUL_ESSENCE_BUCKET = ITEMS.register("bucket_" + SoulEssenceFluid.ID, () -> new Item(SoulEssenceFluid.BUCKET_PROPERTIES));
-
-	public static final RegistryObject<BucketItem> MELON_JUICE_BUCKET = ITEMS.register("bucket_" + MelonJuiceFluid.ID, () -> new BucketItem(StrawberryFluids.MELON_JUICE, MelonJuiceFluid.BUCKET_PROPERTIES));
-	
-	public static final RegistryObject<BucketItem> MELON_JAM_BUCKET = ITEMS.register("bucket_" + MelonJamFluid.ID, () -> new BucketItem(StrawberryFluids.MELON_JAM, MelonJamFluid.BUCKET_PROPERTIES));
     
 	private static final Logger LOGGER = LogManager.getLogger();
     
     public static void init(IEventBus modEventBus) {
     	LOGGER.info("Registering strawberry items");
+    	for (StrawberryBucketItem bucket : BUCKETS) {
+    		LOGGER.info("Registering: " + bucket.id());
+    		ITEMS.register(bucket.id(), () -> bucket);
+    	}
         ITEMS.register(modEventBus);
     }
 }

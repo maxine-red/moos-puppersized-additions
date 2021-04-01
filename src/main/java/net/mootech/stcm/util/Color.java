@@ -32,17 +32,34 @@ public class Color {
 	private int blue;
 	
 	/**
-	 * Represents a color in argb format
-	 * @param a alpha channel value as a double between 0.0 and 1.9
-	 * @param r red channel value as an int between 0 and 255
-	 * @param g green channel value as an int between 0 and 255
-	 * @param b blue channel value as an int between 0 and 255
+	 * Solid white color contructor
 	 */
-	public Color(double a, int r, int g, int b) {
-		alpha(a);
-		red(r);
-		green(g);
-		blue(b);
+	public Color() {
+		this(1.0, 255, 255, 255);
+	}
+	
+	/**
+	 * Represents a color in argb format
+	 * @param red red channel value as an int between 0 and 255
+	 * @param green green channel value as an int between 0 and 255
+	 * @param bblue blue channel value as an int between 0 and 255
+	 */
+	public Color(int red, int green, int blue) {
+		this(1.0, red, green, blue);
+	}
+	
+	/**
+	 * Represents a color in argb format
+	 * @param alpha alpha channel value as a double between 0.0 and 1.9
+	 * @param red red channel value as an int between 0 and 255
+	 * @param green green channel value as an int between 0 and 255
+	 * @param bblue blue channel value as an int between 0 and 255
+	 */
+	public Color(double alpha, int red, int green, int blue) {
+		this.alpha = alpha;
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
 	}
 	
 	/**
@@ -51,6 +68,14 @@ public class Color {
 	 */
 	public int combine() {
 		return (int)(alpha * 255) << 24 | red << 16 | green << 8 | blue;
+	}
+	
+	/**
+	 * Combine all channels into an int, as a fully opaque color
+	 * @return Interger to be used in other functions.
+	 */
+	public int combine_rgb() {
+		return (int)(255) << 24 | red << 16 | green << 8 | blue;
 	}
 	
 	/**

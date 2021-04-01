@@ -33,6 +33,6 @@ public class MelonJamFluid extends JamFluidDefinition {
 	public static final String ID = "melon" + group;
 	
 	public static final int COLOR = new Color(alpha, 22, 179, 11).combine();
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.MELON_JAM, StrawberryFluids.MELON_JAM_FLOW,
-			FluidAttributes.builder(STILL_RESOURCE, FLOWING_RESOURCE).color(COLOR)).bucket(StrawberryItems.MELON_JAM_BUCKET);
+	//public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.MELON_JAM, StrawberryFluids.MELON_JAM_FLOW,
+	//		FluidAttributes.builder(STILL_RESOURCE, FLOWING_RESOURCE).color(COLOR)).bucket(StrawberryItems.MELON_JAM_BUCKET);
 }

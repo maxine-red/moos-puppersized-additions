@@ -28,6 +28,6 @@ public class VoidEssenceFluid extends MagicFluidDefinition {
 	public static final String ID = "void_essence";
 	
 	public static final int COLOR = new Color(1.0, 45, 0, 45).combine();
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.VOID_ESSENCE, StrawberryFluids.VOID_ESSENCE_FLOW,
-			FluidAttributes.builder(STILL_RESOURCE, FLOWING_RESOURCE).color(COLOR));
+	//public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.VOID_ESSENCE, StrawberryFluids.VOID_ESSENCE_FLOW,
+	//		FluidAttributes.builder(STILL_RESOURCE, FLOWING_RESOURCE).color(COLOR));
 }

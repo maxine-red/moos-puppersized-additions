@@ -23,3 +23,6 @@ run
 
 # Files from Forge MDK
 forge*changelog.txt
+
+# Project specific
+src/main/resources/assets/strawberrytwirl/textures/fluids/templates
