@@ -16,19 +16,48 @@
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.mootech.stcm.common.fluids;
+package net.mootech.stcm.common.items;
 
-import net.minecraft.util.ResourceLocation;
-import net.mootech.stcm.StrawberryTwirlCompanion;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.mootech.stcm.common.StrawberryInitializer;
 
 /**
  * @author Maxine Red
  *
  */
-public class JamFluidDefinition extends BucketFluidDefinition {
-	protected static final String group = "_jam";
-	protected static final double alpha = 1.0;
-	protected static final ResourceLocation STILL_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still");
-	protected static final ResourceLocation FLOWING_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing");
+public class StrawberryItem extends Item {
+
+	protected final String id;
+	protected final int burn_time;
+	
+	public StrawberryItem(String id) {
+		this(id, new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP));
+	}
+	
+	public StrawberryItem(String id, Properties properties) {
+		this(id, properties, -1);
+	}
+	
+	public StrawberryItem(String id, Properties properties, int burn_time) {
+		super(properties);
+		this.id = id;
+		this.burn_time = burn_time;
+	}
+	
+	/**
+	 * String ID for this bucket
+	 * @return String
+	 */
+	public String id() {
+		return this.id;
+	}
+
+	@Override
+	public int getBurnTime(ItemStack itemStack)
+	{
+		return burn_time;
+	}
 
 }

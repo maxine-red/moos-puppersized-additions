@@ -15,19 +15,38 @@
  * You should have received a copy of the GNU General Public License
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
-package net.mootech.stcm.common.fluids;
+
+package net.mootech.stcm.common.items;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.Rarity;
-import net.minecraft.util.ResourceLocation;
-import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.minecraft.item.Items;
 import net.mootech.stcm.common.StrawberryInitializer;
-import net.mootech.stcm.common.StrawberryItems;
+import net.mootech.stcm.common.fluids.StrawberryFluid;
 
-public class MagicFluidDefinition {
+/**
+ * @author Maxine Red
+ *
+ */
+public class StrawberryBottleItem extends StrawberryItem {
+	protected final int color;
+	public StrawberryBottleItem(String id, StrawberryFluid fluid) {
+		this(id, fluid, new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.GLASS_BOTTLE));
+	}
+
+	public StrawberryBottleItem(String id, StrawberryFluid fluid, Properties properties) {
+		this(id, fluid, properties, -1);
+	}
 	
-	public static final Item.Properties BUCKET_PROPERTIES = new Item.Properties().fireResistant().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.EPIC).stacksTo(1).craftRemainder(StrawberryItems.GLASS_BUCKET);
-	protected static final ResourceLocation STILL_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_still");
-	protected static final ResourceLocation FLOWING_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/thick_flowing");
-
+	public StrawberryBottleItem(String id, StrawberryFluid fluid, Properties properties, int burn_time) {
+		super(id + "_bottle", properties, burn_time);
+		this.color = fluid.getColor();
+	}
+	
+	/**
+	 * Get color information from fluid
+	 * @return integer
+	 */
+	public int getColor() {
+		return color;
+	}
 }

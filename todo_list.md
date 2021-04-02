@@ -27,11 +27,14 @@
 - [ ] add buttered bread variants
 - [ ] add jam sandwich variants
 - [ ] add black tear
+- [ ] add cheese slices and cheese wedges
+- [ ] add sausage
 
 ## Blocks
 
 - [ ] add bees wax storage block, burnable for 9 items
 - [ ] add jello blocks, work like slime blocks
+- [ ] make cake like cheese block, that has 4 pieces
 
 ## Fluids
 
@@ -82,6 +85,7 @@ The juice_flask ones are with the grey scaling. I'd like moo to try it out with 
 - don't share textures (base thick texture)
 - [ ] add mushroom stew
 - [ ] add tomato sauce
+- [ ] add mayonaise
 - [ ] add beetroot soup
 - [ ] add rabbit stew
 - [ ] add vegetable soup

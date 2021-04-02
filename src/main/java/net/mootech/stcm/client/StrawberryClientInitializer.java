@@ -22,11 +22,9 @@ import org.apache.logging.log4j.Logger;
 
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.fluids.magic.SoulEssenceFluid;
-import net.mootech.stcm.common.fluids.magic.VoidEssenceFluid;
+import net.mootech.stcm.common.items.StrawberryBottleItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,26 +33,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class StrawberryClientInitializer {
     
 	private static final Logger LOGGER = LogManager.getLogger();
-	static final IItemColor VOID_ESSENCE_FLUID_COLOR = (stack, tintIndex) -> {
-		if (tintIndex == 0) {
-			return VoidEssenceFluid.COLOR;
-		}
-		else {
-			return 0xFFFFFFFF;
-		}
-	};
-	static final IItemColor SOUL_ESSENCE_FLUID_COLOR = (stack, tintIndex) -> {
-		if (tintIndex == 0) {
-			return SoulEssenceFluid.COLOR;
-		}
-		else {
-			return 0xFFFFFFFF;
-		}
-	};
 	@SubscribeEvent
 	public static void registerItemColor(ColorHandlerEvent.Item event) {
     	for (StrawberryBucketItem bucket : StrawberryItems.BUCKETS) {
-    		LOGGER.info("Registering: " + bucket.id());
+    		LOGGER.info("Registering color tinting for: " + bucket.id());
     		event.getItemColors().register((stack, tintIndex) -> {
     			if (tintIndex == 0) {
     				return bucket.getColor();
@@ -63,6 +45,17 @@ public class StrawberryClientInitializer {
     				return 0xFFFFFFFF;
     			}
     		}, bucket);
+    	}
+    	for (StrawberryBottleItem bottle : StrawberryItems.BOTTLES) {
+    		LOGGER.info("Registering color tinting for: " + bottle.id());
+    		event.getItemColors().register((stack, tintIndex) -> {
+    			if (tintIndex == 0) {
+    				return bottle.getColor();
+    			}
+    			else {
+    				return 0xFFFFFFFF;
+    			}
+    		}, bottle);
     	}
 	}
 

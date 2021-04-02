@@ -29,20 +29,21 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.fluid.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.mootech.stcm.common.fluids.VirtualFluid;
+import net.mootech.stcm.common.fluids.MagicEssenceFluid;
+import net.mootech.stcm.common.fluids.StrawberryFluid;
 import net.mootech.stcm.util.Color;
 
 public class StrawberryFluids {
 	
 	private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, StrawberryTwirlCompanion.ID);
-	public static final List<VirtualFluid> REGISTERED_FLUIDS = new ArrayList<>();
+	public static final List<StrawberryFluid> REGISTERED_FLUIDS = new ArrayList<>();
 	
 	// TODO: Unify fluid creation and put as much into a common class, then have the rest done here.
 
-    public static final VirtualFluid VOID_ESSENCE = new VirtualFluid("void_essence", new Color(6, 0, 10));
-    public static final VirtualFluid SOUL_ESSENCE = new VirtualFluid("soul_essence", new Color(99, 86, 71));
-    public static final VirtualFluid MELON_JUICE = new VirtualFluid("melon_juice", new Color(240, 45, 31));
-    public static final VirtualFluid MELON_JAM = new VirtualFluid("melon_jam", new Color(179, 22, 11));
+    public static final StrawberryFluid VOID_ESSENCE = new MagicEssenceFluid("void", new Color(6, 0, 10));
+    public static final StrawberryFluid SOUL_ESSENCE = new MagicEssenceFluid("soul", new Color(99, 86, 71));
+    public static final StrawberryFluid MELON_JUICE = new StrawberryFluid("melon_juice", new Color(240, 45, 31));
+    public static final StrawberryFluid MELON_JAM = new StrawberryFluid("melon_jam", new Color(179, 22, 11));
     
     private static final Logger LOGGER = LogManager.getLogger();
     
@@ -50,7 +51,7 @@ public class StrawberryFluids {
 
     public static void init(IEventBus modEventBus) {
     	LOGGER.info("Registering strawberry fluids");
-    	for (VirtualFluid fluid : REGISTERED_FLUIDS) {
+    	for (StrawberryFluid fluid : REGISTERED_FLUIDS) {
     		LOGGER.info("Registering: " + fluid.getID());
     		FLUIDS.register(fluid.getID(), () -> fluid);
     	}

@@ -45,15 +45,15 @@ import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 import net.mootech.stcm.util.Color;
 
-public class VirtualFluid extends FlowingFluid {
+public class StrawberryFluid extends FlowingFluid {
 	/**
 	 * Parts of this class are inspired by IEFluid, from the ImmersiveEngineering project, created by luSunrize.
 	 */
 	
-	public static final Collection<VirtualFluid> VIRTUAL_FLUIDS = new ArrayList<>();
+	public static final Collection<StrawberryFluid> VIRTUAL_FLUIDS = new ArrayList<>();
 	
-	protected VirtualFluid flowing;
-	protected VirtualFluid source;
+	protected StrawberryFluid flowing;
+	protected StrawberryFluid source;
 	
 	protected final String id;
 	protected final ResourceLocation still_resource;
@@ -72,7 +72,7 @@ public class VirtualFluid extends FlowingFluid {
     private static final Logger LOGGER = LogManager.getLogger();
 	
 	protected StrawberryBucketItem bucket;
-	protected static final Item.Properties BUCKET_PORPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.BUCKET);
+	protected static final Item.Properties BUCKET_PROPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.BUCKET);
 	
 	/**
 	 * Constructor for VirtualFluid
@@ -80,7 +80,7 @@ public class VirtualFluid extends FlowingFluid {
 	 * Simplest constructor, that assumes textures are under '<modid>:fluids/<id>'
 	 * @param id String Fluid ID
 	 */
-	public VirtualFluid(String id) {
+	public StrawberryFluid(String id) {
 		this(id, new Color());
 	}
 
@@ -91,7 +91,7 @@ public class VirtualFluid extends FlowingFluid {
 	 * @param id String Fluid ID
 	 * @param color Color Color to use for this fluid (only effects containers)
 	 */
-	public VirtualFluid(String id, Color color) {
+	public StrawberryFluid(String id, Color color) {
 		this(id, color, new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id + "_flow"));
 	}
 	
@@ -102,7 +102,7 @@ public class VirtualFluid extends FlowingFluid {
 	 * @param still_resource ResourceLocation for still resource
 	 * @param flowing_resource ResourceLocation for flowing resource
 	 */
-	public VirtualFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource) {
+	public StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource) {
 		this(id, color, still_resource, flowing_resource, true);
 	}
 	
@@ -114,7 +114,33 @@ public class VirtualFluid extends FlowingFluid {
 	 * @param flowing_resource ResourceLocation for flowing resource
 	 * @param is_source Boolean wether this fluid is a source or not
 	 */
-	public VirtualFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, boolean is_source) {
+	public StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, boolean is_source) {
+		this(id, color, still_resource, flowing_resource, is_source, -1);
+	}
+	
+	/**
+	 * Most advanced constructor
+	 * @param id String Fluid ID
+	 * @param color Color Color to use for this fluid (only effects containers)
+	 * @param still_resource ResourceLocation for still resource
+	 * @param flowing_resource ResourceLocation for flowing resource
+	 * @param is_source Boolean wether this fluid is a source or not
+	 * @param burn_time Furnace burning time of this fluid
+	 */
+	public StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, boolean is_source, int burn_time) {
+		this(id, color, still_resource, flowing_resource, is_source, burn_time, true);
+	}
+	
+	/**
+	 * Most advanced constructor
+	 * @param id String Fluid ID
+	 * @param color Color Color to use for this fluid (only effects containers)
+	 * @param still_resource ResourceLocation for still resource
+	 * @param flowing_resource ResourceLocation for flowing resource
+	 * @param burn_time Furnace burning time of this fluid
+	 * @param has_bucket Make standard bucket item or not
+	 */
+	protected StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, boolean is_source, int burn_time, boolean has_bucket) {
 		this.still_resource = still_resource;
 		this.flowing_resource = flowing_resource;
 		this.is_source = is_source;
@@ -127,8 +153,10 @@ public class VirtualFluid extends FlowingFluid {
 		else {
 			this.id = id;
 			this.source = this;
-			this.bucket = new StrawberryBucketItem(() -> this.source, BUCKET_PORPERTIES);
-			StrawberryItems.BUCKETS.add(this.bucket);
+			if (has_bucket ) {
+				this.bucket = new StrawberryBucketItem(() -> this, BUCKET_PROPERTIES, burn_time);
+				StrawberryItems.BUCKETS.add(this.bucket);
+			}
 			this.flowing = createFlowingFromSource();
 			VIRTUAL_FLUIDS.add(this);
 		}
@@ -139,8 +167,8 @@ public class VirtualFluid extends FlowingFluid {
 	 * @param virtualFluid
 	 * @return
 	 */
-	protected VirtualFluid createFlowingFromSource() {
-		VirtualFluid r = new VirtualFluid(id, color, still_resource, flowing_resource, false);
+	protected StrawberryFluid createFlowingFromSource() {
+		StrawberryFluid r = new StrawberryFluid(id, color, still_resource, flowing_resource, false);
 		r.source = this;
 		r.bucket = this.bucket;
 		return r;

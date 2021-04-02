@@ -31,23 +31,29 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.items.StrawberryBottleItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
 
 	public static final List<StrawberryBucketItem> BUCKETS = new ArrayList<>();
+	public static final List<StrawberryBottleItem> BOTTLES = new ArrayList<>();
 	// TODO Combine items for tinting and also remove magic fluid buckets
 	public static final Item GLASS_BUCKET = new Item(new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.UNCOMMON).stacksTo(16));
 	public static final RegistryObject<Item> EMPTY_GLASS_BUCKET = ITEMS.register("bucket_glass_empty", () -> GLASS_BUCKET);
     
 	private static final Logger LOGGER = LogManager.getLogger();
-    
+	
     public static void init(IEventBus modEventBus) {
     	LOGGER.info("Registering strawberry items");
     	for (StrawberryBucketItem bucket : BUCKETS) {
     		LOGGER.info("Registering: " + bucket.id());
     		ITEMS.register(bucket.id(), () -> bucket);
+    	}
+    	for (StrawberryBottleItem bottle : BOTTLES) {
+    		LOGGER.info("Registering: " + bottle.id());
+    		ITEMS.register(bottle.id(), () -> bottle);
     	}
         ITEMS.register(modEventBus);
     }

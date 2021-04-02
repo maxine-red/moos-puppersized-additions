@@ -20,17 +20,28 @@ package net.mootech.stcm.common.items;
 
 import java.util.function.Supplier;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BucketItem;
-import net.mootech.stcm.common.fluids.VirtualFluid;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
+import net.mootech.stcm.common.fluids.StrawberryFluid;
 
 /**
  * @author Maxine Red
  *
  */
 public class StrawberryBucketItem extends BucketItem {
+	/**
+	 * Parts of this class are inspired by IEFluid, from the ImmersiveEngineering project, created by luSunrize.
+	 */
 	
 	protected final String id;
+	protected final int burn_time;
 	
 	private final int color;
 
@@ -39,10 +50,15 @@ public class StrawberryBucketItem extends BucketItem {
 	 * @param fluid VirtualFluid that is contained by this bucket
 	 * @param properties Item properties for this bucket
 	 */
-	public StrawberryBucketItem(Supplier<VirtualFluid> fluid, Properties properties) {
+	public StrawberryBucketItem(Supplier<StrawberryFluid> fluid, Properties properties) {
+		this(fluid, properties, -1);
+	}
+	
+	public StrawberryBucketItem(Supplier<StrawberryFluid> fluid, Properties properties, int burn_time) {
 		super((Supplier<? extends Fluid>)fluid, properties);
 		this.id = fluid.get().getID() + "_bucket";
 		this.color = fluid.get().getColor();
+		this.burn_time = burn_time;
 	}
 	
 	/**
@@ -59,6 +75,27 @@ public class StrawberryBucketItem extends BucketItem {
 	 */
 	public int getColor() {
 		return color;
+	}
+	
+	@Override
+	public ItemStack getContainerItem(ItemStack itemStack) {
+		return new ItemStack(Items.BUCKET);
+	}
+	
+	@Override
+	public boolean hasContainerItem(ItemStack itemStack) {
+		return true;
+	}
+	
+	@Override
+	public ICapabilityProvider initCapabilities(ItemStack itemStack, @Nullable CompoundNBT nbt) {
+		return new FluidBucketWrapper(itemStack);
+	}
+
+	@Override
+	public int getBurnTime(ItemStack itemStack)
+	{
+		return burn_time;
 	}
 
 }
