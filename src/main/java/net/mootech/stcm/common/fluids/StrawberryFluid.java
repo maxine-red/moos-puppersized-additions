@@ -17,9 +17,6 @@
  */
 package net.mootech.stcm.common.fluids;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,21 +38,20 @@ import net.minecraftforge.fluids.FluidAttributes;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryFluids;
 import net.mootech.stcm.common.StrawberryInitializer;
-import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 import net.mootech.stcm.util.Color;
+import net.mootech.stcm.util.StringID;
 
 public class StrawberryFluid extends FlowingFluid {
 	/**
 	 * Parts of this class are inspired by IEFluid, from the ImmersiveEngineering project, created by luSunrize.
 	 */
 	
-	public static final Collection<StrawberryFluid> VIRTUAL_FLUIDS = new ArrayList<>();
-	
 	protected StrawberryFluid flowing;
 	protected StrawberryFluid source;
 	
 	protected final String id;
+	protected final String name;
 	protected final ResourceLocation still_resource;
 	protected final ResourceLocation flowing_resource;
 	protected final boolean is_source;
@@ -69,7 +65,7 @@ public class StrawberryFluid extends FlowingFluid {
 	
 	protected final Color color;
     
-    private static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LogManager.getLogger();
 	
 	protected StrawberryBucketItem bucket;
 	protected static final Item.Properties BUCKET_PROPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.BUCKET);
@@ -144,6 +140,7 @@ public class StrawberryFluid extends FlowingFluid {
 		this.still_resource = still_resource;
 		this.flowing_resource = flowing_resource;
 		this.is_source = is_source;
+		this.name = StringID.idToName(id);
 		this.color = color;
 		StrawberryFluids.REGISTERED_FLUIDS.add(this);
 		if (!this.is_source) {
@@ -155,12 +152,22 @@ public class StrawberryFluid extends FlowingFluid {
 			this.source = this;
 			if (has_bucket ) {
 				this.bucket = new StrawberryBucketItem(() -> this, BUCKET_PROPERTIES, burn_time);
-				StrawberryItems.BUCKETS.add(this.bucket);
 			}
 			this.flowing = createFlowingFromSource();
-			VIRTUAL_FLUIDS.add(this);
+			StrawberryFluids.SOURCE_FLUIDS.add(this);
 		}
 		LOGGER.debug("Created fluid: " + id);
+	}
+	
+	/**
+	 * Constructor for sub classes
+	 * @param id String ID of fluid
+	 * @param color Color for item tinting
+	 * @param burn_time Time this lasts in a furnace
+	 * @param has_bucket Create default bucket, if set to true
+	 */
+	protected StrawberryFluid(String id, Color color, int burn_time, boolean has_bucket) {
+		this(id, color, new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id + "_flow"), true, burn_time, has_bucket);
 	}
 
 	/**
@@ -179,6 +186,13 @@ public class StrawberryFluid extends FlowingFluid {
 	 */
 	public String getID() {
 		return id;
+	}
+
+	/**
+	 * @return String Name of fluid
+	 */
+	public String getName() {
+		return name;
 	}
 	
 	/**

@@ -18,13 +18,8 @@
 
 package net.mootech.stcm.common.fluids;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
-import net.minecraft.util.ResourceLocation;
-import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.items.StrawberryBottleItem;
@@ -39,27 +34,26 @@ import net.mootech.stcm.util.Color;
 // TODO remove ability to construct with custom textures with sub classes and instead use id, set instead
 public class MagicEssenceFluid extends StrawberryFluid {
 	
-	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(StrawberryItems.GLASS_BUCKET);;
-	private static final String suffix = "_essence";
-
-    
-    private static final Logger LOGGER = LogManager.getLogger();
-	/**
+	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(StrawberryItems.FLASK_ITEM);
+	
+    /**
 	 * Constructor for magic essences
 	 * @param id ID of essence ("essence" is added automatically)
 	 * @param color Color of essence, used for bucket tinting
-	 */
+	 */	
 	public MagicEssenceFluid(String id, Color color) {
-		this(id, color, new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id + suffix), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id + suffix + "_flow"));
+		this(id, color, -1);
 	}
 	
-	public MagicEssenceFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource) {
-		this(id, color, still_resource, flowing_resource, -1);
-	}
-	
-	public MagicEssenceFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, int burn_time) {
-		super(id + suffix, color, still_resource, flowing_resource, true, burn_time, false);
-		StrawberryItems.BOTTLES.add(new StrawberryBottleItem(this.id, source, BOTTLE_PROPERTIES, burn_time));
+	/**
+	 * Constructor for magic essences
+	 * @param id String id of essence
+	 * @param color Item tinting color
+	 * @param burn_time Burn time in furnace
+	 */
+	public MagicEssenceFluid(String id, Color color, int burn_time) {
+		super(id + "_essence", color, burn_time, false);
+		new StrawberryBottleItem(this.id + "_flask", source, BOTTLE_PROPERTIES, burn_time);
 		LOGGER.debug("Created essence: " + this.id);
 	}
 

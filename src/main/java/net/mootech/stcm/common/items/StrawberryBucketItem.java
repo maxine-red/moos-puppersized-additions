@@ -29,6 +29,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
+import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.fluids.StrawberryFluid;
 
 /**
@@ -42,6 +43,7 @@ public class StrawberryBucketItem extends BucketItem {
 	
 	protected final String id;
 	protected final int burn_time;
+	protected final String name;
 	
 	private final int color;
 
@@ -57,16 +59,26 @@ public class StrawberryBucketItem extends BucketItem {
 	public StrawberryBucketItem(Supplier<StrawberryFluid> fluid, Properties properties, int burn_time) {
 		super((Supplier<? extends Fluid>)fluid, properties);
 		this.id = fluid.get().getID() + "_bucket";
+		this.name = fluid.get().getName() + " Bucket";
 		this.color = fluid.get().getColor();
 		this.burn_time = burn_time;
+		StrawberryItems.BUCKETS.add(this);
 	}
 	
 	/**
 	 * String ID for this bucket
 	 * @return String
 	 */
-	public String id() {
+	public String getId() {
 		return this.id;
+	}
+	
+	/**
+	 * Get in-game name of item
+	 * @return String
+	 */
+	public String getName() {
+		return this.name;
 	}
 	
 	/**

@@ -5,6 +5,9 @@
 - make adding items, blocks and fluids as easy as possible
 - making it configurable is optional, but would also make the mod more accessible for others (at least groups to enable disable might be a thought)
 
+- additional goals (optional), make veggy variants, like add soy beans, soya milk and tofu
+- also additional, optional, add a little bit of smithing mechanics
+
 ## Items
 
 - [ ] create salt as a food item, always edible, 1 hunger, 0 saturation, high chance of hunger effect
@@ -29,6 +32,11 @@
 - [ ] add black tear
 - [ ] add cheese slices and cheese wedges
 - [ ] add sausage
+- [ ] add fish sticks
+- [ ] add chicken wings/nuggets
+- [ ] add fries!!!
+- [ ] add fish'n'chips
+- [ ] add pupper dindins
 
 ## Blocks
 
@@ -56,8 +64,8 @@ The juice_flask ones are with the grey scaling. I'd like moo to try it out with 
 ### Magical
 
 - requires special jar to handle, no bucket available
-- [ ] add void essence
-- [ ] add liquid souls
+- [x] add void essence
+- [x] add liquid souls
 
 ### Juice
 
@@ -77,6 +85,7 @@ The juice_flask ones are with the grey scaling. I'd like moo to try it out with 
 
 - has bucket, nothing more
 - [ ] add gelatin
+- [ ] add vegetable oil (burnable in furnace, burns 12 items)
 
 ### Cookables
 

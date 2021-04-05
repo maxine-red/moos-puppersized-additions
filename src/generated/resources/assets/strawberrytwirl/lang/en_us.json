@@ -1,0 +1,20 @@
+{
+  "fluid.strawberrytwirl.chorus_jam": "Chorus Jam",
+  "fluid.strawberrytwirl.chorus_juice": "Chorus Juice",
+  "fluid.strawberrytwirl.melon_jam": "Melon Jam",
+  "fluid.strawberrytwirl.melon_juice": "Melon Juice",
+  "fluid.strawberrytwirl.soul_essence": "Soul Essence",
+  "fluid.strawberrytwirl.void_essence": "Void Essence",
+  "item.strawberrytwirl.chorus_jam": "Chorus Jam",
+  "item.strawberrytwirl.chorus_jam_bucket": "Chorus Jam Bucket",
+  "item.strawberrytwirl.chorus_juice": "Chorus Juice",
+  "item.strawberrytwirl.chorus_juice_bucket": "Chorus Juice Bucket",
+  "item.strawberrytwirl.empty_flask": "Empty Flask",
+  "item.strawberrytwirl.melon_jam": "Melon Jam",
+  "item.strawberrytwirl.melon_jam_bucket": "Melon Jam Bucket",
+  "item.strawberrytwirl.melon_juice": "Melon Juice",
+  "item.strawberrytwirl.melon_juice_bucket": "Melon Juice Bucket",
+  "item.strawberrytwirl.soul_essence_flask": "Soul Essence Flask",
+  "item.strawberrytwirl.void_essence_flask": "Void Essence Flask",
+  "itemGroup.strawberrytwirl": "Strawberry Twirl"
+}

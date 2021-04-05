@@ -16,39 +16,31 @@
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.mootech.stcm.common.items;
+package net.mootech.stcm.common.fluids;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.fluids.StrawberryFluid;
+import net.mootech.stcm.common.items.StrawberryBottleItem;
+import net.mootech.stcm.util.Color;
 
 /**
  * @author Maxine Red
  *
  */
-public class StrawberryBottleItem extends StrawberryItem {
-	protected final int color;
-	public StrawberryBottleItem(String id, StrawberryFluid fluid) {
-		this(id, fluid, new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.GLASS_BOTTLE));
-	}
+public class JuiceFluid extends StrawberryFluid {
 
-	public StrawberryBottleItem(String id, StrawberryFluid fluid, Properties properties) {
-		this(id, fluid, properties, -1);
-	}
-	
-	public StrawberryBottleItem(String id, StrawberryFluid fluid, Properties properties, int burn_time) {
-		super(id, properties, burn_time);
-		this.color = fluid.getColor();
-		StrawberryItems.BOTTLES.add(this);
-	}
+	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(16).craftRemainder(StrawberryItems.FLASK_ITEM);;
+
 	
 	/**
-	 * Get color information from fluid
-	 * @return integer
+	 * @param id String ID of juice
+	 * @param color Item tinting color
 	 */
-	public int getColor() {
-		return color;
+	public JuiceFluid(String id, Color color) {
+		super(id + "_juice", color, -1, true);
+		new StrawberryBottleItem(this.id, source, BOTTLE_PROPERTIES, -1);
+		LOGGER.debug("Created juice: " + this.id);
 	}
+
 }

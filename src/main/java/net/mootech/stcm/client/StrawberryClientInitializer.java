@@ -36,9 +36,9 @@ public class StrawberryClientInitializer {
 	@SubscribeEvent
 	public static void registerItemColor(ColorHandlerEvent.Item event) {
     	for (StrawberryBucketItem bucket : StrawberryItems.BUCKETS) {
-    		LOGGER.info("Registering color tinting for: " + bucket.id());
+    		LOGGER.info("Registering color tinting for: " + bucket.getId());
     		event.getItemColors().register((stack, tintIndex) -> {
-    			if (tintIndex == 0) {
+    			if (tintIndex == 1) {
     				return bucket.getColor();
     			}
     			else {
@@ -47,9 +47,9 @@ public class StrawberryClientInitializer {
     		}, bucket);
     	}
     	for (StrawberryBottleItem bottle : StrawberryItems.BOTTLES) {
-    		LOGGER.info("Registering color tinting for: " + bottle.id());
+    		LOGGER.info("Registering color tinting for: " + bottle.getID());
     		event.getItemColors().register((stack, tintIndex) -> {
-    			if (tintIndex == 0) {
+    			if (tintIndex == 1) {
     				return bottle.getColor();
     			}
     			else {

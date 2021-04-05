@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:bucket_glass_empty"
+    },
+    {
+      "fluid": "strawberrytwirl:void_essence",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "strawberrytwirl:void_essence_bottle",
+      "count": 1
+    }
+  ]
+}

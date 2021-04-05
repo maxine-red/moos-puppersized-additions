@@ -18,10 +18,11 @@
 
 package net.mootech.stcm.common.items;
 
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.mootech.stcm.common.StrawberryInitializer;
+import net.mootech.stcm.common.StrawberryItems;
+import net.mootech.stcm.util.StringID;
 
 /**
  * @author Maxine Red
@@ -31,6 +32,7 @@ public class StrawberryItem extends Item {
 
 	protected final String id;
 	protected final int burn_time;
+	protected final String name;
 	
 	public StrawberryItem(String id) {
 		this(id, new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP));
@@ -43,15 +45,25 @@ public class StrawberryItem extends Item {
 	public StrawberryItem(String id, Properties properties, int burn_time) {
 		super(properties);
 		this.id = id;
+		this.name = StringID.idToName(id);
 		this.burn_time = burn_time;
+		StrawberryItems.REGISTERED_ITEMS.add(this);
 	}
 	
 	/**
 	 * String ID for this bucket
 	 * @return String
 	 */
-	public String id() {
+	public String getID() {
 		return this.id;
+	}
+	
+	/**
+	 * Get in-game name of item
+	 * @return String
+	 */
+	public String getName() {
+		return this.name;
 	}
 
 	@Override

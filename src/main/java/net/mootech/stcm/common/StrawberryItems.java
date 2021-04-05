@@ -27,33 +27,33 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.Properties;
 import net.minecraft.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.items.StrawberryBottleItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
+import net.mootech.stcm.common.items.StrawberryItem;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
-
+	public static final List<StrawberryItem> REGISTERED_ITEMS = new ArrayList<>();
+	
 	public static final List<StrawberryBucketItem> BUCKETS = new ArrayList<>();
 	public static final List<StrawberryBottleItem> BOTTLES = new ArrayList<>();
 	// TODO Combine items for tinting and also remove magic fluid buckets
-	public static final Item GLASS_BUCKET = new Item(new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.UNCOMMON).stacksTo(16));
-	public static final RegistryObject<Item> EMPTY_GLASS_BUCKET = ITEMS.register("bucket_glass_empty", () -> GLASS_BUCKET);
+	public static final StrawberryItem FLASK_ITEM = new StrawberryItem("empty_flask", new Properties().tab(StrawberryInitializer.ITEM_GROUP).rarity(Rarity.UNCOMMON).stacksTo(16));
     
 	private static final Logger LOGGER = LogManager.getLogger();
 	
     public static void init(IEventBus modEventBus) {
-    	LOGGER.info("Registering strawberry items");
+    	LOGGER.debug("Registering strawberry items");
     	for (StrawberryBucketItem bucket : BUCKETS) {
-    		LOGGER.info("Registering: " + bucket.id());
-    		ITEMS.register(bucket.id(), () -> bucket);
+    		LOGGER.debug("Registering: " + bucket.getId());
+    		ITEMS.register(bucket.getId(), () -> bucket);
     	}
-    	for (StrawberryBottleItem bottle : BOTTLES) {
-    		LOGGER.info("Registering: " + bottle.id());
-    		ITEMS.register(bottle.id(), () -> bottle);
+    	for (StrawberryItem item : REGISTERED_ITEMS) {
+    		LOGGER.debug("Registering: " + item.getID());
+    		ITEMS.register(item.getID(), () -> item);
     	}
         ITEMS.register(modEventBus);
     }

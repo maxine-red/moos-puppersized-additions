@@ -16,7 +16,6 @@
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
 package net.mootech.stcm.util;
-
 /**
  * 
  * @author Maxine Michalski
@@ -27,12 +26,13 @@ package net.mootech.stcm.util;
 public class Color {
 	
 	private double alpha;
-	private int red;
-	private int green;
-	private int blue;
+	
+	private float hue;
+	private float saturation;
+	private float luminosity;
 	
 	/**
-	 * Solid white color contructor
+	 * Solid white color constructor
 	 */
 	public Color() {
 		this(1.0, 255, 255, 255);
@@ -57,9 +57,11 @@ public class Color {
 	 */
 	public Color(double alpha, int red, int green, int blue) {
 		this.alpha = alpha;
-		this.red = red;
-		this.green = green;
-		this.blue = blue;
+		float hsb[] = java.awt.Color.RGBtoHSB(red, green, blue, null);
+		
+		this.hue = hsb[0];
+		this.saturation = hsb[1];
+		this.luminosity = hsb[2];
 	}
 	
 	/**
@@ -67,87 +69,79 @@ public class Color {
 	 * @return Interger to be used in other functions.
 	 */
 	public int combine() {
-		return (int)(alpha * 255) << 24 | red << 16 | green << 8 | blue;
+		return (int)(alpha * 255) << 24 | java.awt.Color.HSBtoRGB(hue, saturation, luminosity);
 	}
 	
 	/**
 	 * Combine all channels into an int, as a fully opaque color
-	 * @return Interger to be used in other functions.
+	 * @return Integer to be used in other functions.
 	 */
 	public int combine_rgb() {
-		return (int)(255) << 24 | red << 16 | green << 8 | blue;
+		return (int)(255) << 24 | java.awt.Color.HSBtoRGB(hue, saturation, luminosity);
 	}
 	
 	/**
-	 * Set alpha channel individually
-	 * @param a alpha channel as a float between 0.0 and 1.0
-	 * @return this object
+	 * Darken the color by a certain percentage.
+	 * @param percent Amount to darken color, must be > 0
 	 */
-	public Color alpha(double a) {
-		alpha = a;
-		if (a > 1.0) {
-			alpha = 1;
-		}
-		else if (a < 0.0) {
-			alpha = 0;
+	public Color darken(double percent) {
+		this.luminosity -= percent;
+		if (this.luminosity < 0.0) {
+			this.luminosity = 0;
 		}
 		return this;
 	}
 	
 	/**
-	 * Comfort method to set all channels at once
-	 * @param r red channel as an int between 0 and 255
-	 * @param g green channel as an int between 0 and 255
-	 * @param b blue channel as an int between 0 and 255
-	 * @return this object
+	 * Lighten the color by a certain percentage.
+	 * @param percent Amount to darken color, must be > 0
 	 */
-	public Color rgb(int r, int g, int b) {
-		red = r & 0xff;
-		green = g & 0xff;
-		blue = b & 0xff;
+	public Color lighten(double percent) {
+		this.luminosity += percent;
+		if (this.luminosity > 1.0) {
+			this.luminosity = 1;
+		}
 		return this;
 	}
 	
 	/**
-	 * Comfort method to set all channels (except alpha)
-	 * @param rgb integer that includes color information as 0xRRGGBB
-	 * @return this object
+	 * Saturate the color by a certain percentage.
+	 * @param percent Amount to darken color, must be > 0
 	 */
-	public Color rgb(int rgb) {
-		red = (rgb & 0xff0000) >> 16;
-		green = (rgb & 0xff00) >> 8;
-		blue = (rgb & 0xff);
+	public Color saturate(double percent) {
+		this.saturation += percent;
+		if (this.saturation > 1.0) {
+			this.saturation = 1;
+		}
 		return this;
 	}
 	
 	/**
-	 * Set red channel individually
-	 * @param r red channel as an int between 0 and 255
-	 * @return this object
+	 * Desaturate the color by a certain percentage.
+	 * @param percent Amount to darken color, must be > 0
 	 */
-	public Color red(int r) {
-		red = r & 0xff;
+	public Color desaturate(double percent) {
+		this.saturation -= percent;
+		if (this.saturation < 0.0) {
+			this.saturation = 0;
+		}
 		return this;
 	}
 	
 	/**
-	 * Set blue channel individually
-	 * @param b blue channel as an int between 0 and 255
-	 * @return this object
+	 * Shift Hue of color. This method takes care of degrees.
+	 * @param hue Hue to shift color by
 	 */
-	public Color green(int g) {
-		green = g & 0xff;
+	public Color shiftHue(int hue) {
+		if (hue >= 0) {
+			this.hue = (this.hue + hue) % 360;
+		}
+		else {
+			this.hue -= Math.abs(hue) % 360;
+			if (this.hue < 0) {
+				this.hue += 360;
+			}
+		}
 		return this;
 	}
-	
-	/**
-	 * Set green channel individually
-	 * @param g green channel as an int between 0 and 255
-	 * @return this object
-	 */
-	public Color blue(int b) {
-		blue = b & 0xff;
-		return this;
-	}
-
 }

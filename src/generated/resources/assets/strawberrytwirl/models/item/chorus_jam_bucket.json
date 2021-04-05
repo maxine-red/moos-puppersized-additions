@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "strawberrytwirl:item/bucket_base",
+    "layer1": "strawberrytwirl:item/bucket_overlay_thin"
+  }
+}
