@@ -1,6 +1,6 @@
 # Strawberry Twirl Companion
 
-![Strawberry Twirl icon by Ulvra](https://github.com/maxine-red/strawberry-twirl-companion/raw/main/project_icon.png)
+![Strawberry Twirl icon by Ulvra](src/main/resources/project_icon.png)
 
 ## About the mod
 
