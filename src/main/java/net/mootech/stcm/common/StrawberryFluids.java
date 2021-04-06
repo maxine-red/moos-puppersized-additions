@@ -30,6 +30,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.fluid.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.mootech.stcm.common.fluids.JamFluid;
 import net.mootech.stcm.common.fluids.JuiceFluid;
 import net.mootech.stcm.common.fluids.MagicEssenceFluid;
@@ -72,16 +73,18 @@ public class StrawberryFluids {
     	fruits.put("chorus", new Color(143, 102, 141));
     	fruits.put("sweet_berry", new Color(130, 11, 5));
     	
-    	// Fruit trees fruits
-    	fruits.put("cherry", new Color(235, 52, 49));
-    	fruits.put("redlove", new Color(182, 29, 29));
-    	fruits.put("citron", new Color(191, 177, 67));
-    	fruits.put("grapefruit", new Color(254, 155, 60));
-    	fruits.put("lemon", new Color(219, 203, 93));
-    	fruits.put("lime", new Color(144, 191, 63));
-    	fruits.put("mandarin", new Color(240, 154, 42));
-    	fruits.put("orange", new Color(227, 104, 25));
-    	fruits.put("pomelo", new Color(231, 207, 76));
+    	// Fruit trees fruits (Only add if FrtuiTrees mod is actually loaded)
+    	if (ModList.get().isLoaded("fruittrees")) {
+	    	fruits.put("cherry", new Color(235, 52, 49));
+	    	fruits.put("redlove", new Color(182, 29, 29));
+	    	fruits.put("citron", new Color(191, 177, 67));
+	    	fruits.put("grapefruit", new Color(254, 155, 60));
+	    	fruits.put("lemon", new Color(219, 203, 93));
+	    	fruits.put("lime", new Color(144, 191, 63));
+	    	fruits.put("mandarin", new Color(240, 154, 42));
+	    	fruits.put("orange", new Color(227, 104, 25));
+	    	fruits.put("pomelo", new Color(231, 207, 76));
+    	}
     	
     	
     	for (String fruit : fruits.keySet()) {
