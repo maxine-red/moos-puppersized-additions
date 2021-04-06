@@ -21,4 +21,4 @@ These mods are not necessary, but unlock additional content for this mos. That c
 
 ### Project specific content
 
-- Project icon and textures are made by [Ulvra](https://www.furaffinity.net/user/ulvra) (except fluid textures)
+- Project icon and item textures are made by [Ulvra](https://www.furaffinity.net/user/ulvra)
