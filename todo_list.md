@@ -38,6 +38,8 @@
 - [ ] add fish'n'chips
 - [ ] add pupper dindins
 
+- [ ] add fake egg recipe with 2x dried kelp + orange dye + white dye + diorite (source of calcium chloride)
+
 ## Blocks
 
 - [ ] add bees wax storage block, burnable for 9 items
@@ -48,17 +50,6 @@
 
 - only virtual fluids (not placable in world)
 
-New additions
-jam_jar_contents
-jam_jar_labelled_filled
-jam_jar_labelled_contents
-jelly_tintable
-juice_flask_contents
-juice_flask_labelled_contents
-sandwich_jam_empty
-sandwich_jam_filler
-
-
 The juice_flask ones are with the grey scaling. I'd like moo to try it out with this first to see how it looks.
 
 ### Magical
@@ -66,6 +57,7 @@ The juice_flask ones are with the grey scaling. I'd like moo to try it out with 
 - requires special jar to handle, no bucket available
 - [x] add void essence
 - [x] add liquid souls
+- [ ] add liquid experience (mayve also add ways to crystalize)
 
 ### Juice
 
@@ -73,38 +65,52 @@ The juice_flask ones are with the grey scaling. I'd like moo to try it out with 
 - is drinkale (from bottle)
 - works like potion, but is food item (think honey bottle)
 - uses thin texture
+- [x] add apple juice
+- [x] add golden apple juice
+- [x] add melon juice
+- [x] add chorus juice
+- [x] add sweet berry juice
+
+- [x] add orange juice
+- [x] add lemon juice
+- [x] add mandarin juice
+- [x] add pomelo juice
+- [x] add citron juice
+- [x] add grapefruit juice
+- [x] add cherry juice
+- [x] add redlove juice
+- [ ] add carrot juice
+
+- [ ] add juice making recipes, that create juice liquid (available only when create is also available)
+	- amount of juice created is based on food value of fruit (rounded to bottles or half/quarter bottles, to make working easier)
 
 ### Jam
 
 - has bucket (not drinkable)
 - has special bottle variant (but is otherwise same as bottle)
 - uses thick texture
-- [ ] add jam variants (red, yellow, purple)
+
+- [x] add apple jam
+- [x] add golden apple jam
+- [x] add melon jam
+- [x] add chorus jam
+- [x] add sweet berry jam
+
+- [x] add orange jam
+- [x] add lemon jam
+- [x] add mandarin jam
+- [x] add pomelo jam
+- [x] add citron jam
+- [x] add grapefruit jam
+- [x] add cherry jam
+- [x] add redlove jam
+
+- [ ] add recipes for juice to jam, always same amount and sugar (add to farmer's delight cooking pot though and create heated basin mixing, if they are available)
+	- 2 bottles of juice + 3 sugar = 1 jar of jams
 
 ### Misc
 
 - has bucket, nothing more
 - [ ] add gelatin
 - [ ] add vegetable oil (burnable in furnace, burns 12 items)
-
-### Cookables
-
-- have bucket (not edible)
-- have bowl (handled by other mods)
-- don't share textures (base thick texture)
-- [ ] add mushroom stew
-- [ ] add tomato sauce
 - [ ] add mayonaise
-- [ ] add beetroot soup
-- [ ] add rabbit stew
-- [ ] add vegetable soup
-- [ ] add fish stew
-- [ ] add pumpkin soup
-- [ ] add baked cod stew
-- [ ] add chicken soup
-- [ ] add sweet berry cheesecake filling
-- [ ] add potato stuffing
-- [ ] add pumpkin pie filling
-- [ ] add gooseberry pie filling
-- [ ] add apple pie filling
-- [ ] add dog food
