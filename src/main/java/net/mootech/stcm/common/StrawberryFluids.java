@@ -30,12 +30,12 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.fluid.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.mootech.stcm.common.fluids.JamFluid;
 import net.mootech.stcm.common.fluids.JuiceFluid;
 import net.mootech.stcm.common.fluids.MagicEssenceFluid;
 import net.mootech.stcm.common.fluids.StrawberryFluid;
 import net.mootech.stcm.util.Color;
+import net.mootech.stcm.util.ModTest;
 
 public class StrawberryFluids {
 	
@@ -74,7 +74,7 @@ public class StrawberryFluids {
     	fruits.put("sweet_berry", new Color(130, 11, 5));
     	
     	// Fruit trees fruits (Only add if FrtuiTrees mod is actually loaded)
-    	if (ModList.get().isLoaded("fruittrees")) {
+    	if (ModTest.isPresent("fruittrees")) {
 	    	fruits.put("cherry", new Color(235, 52, 49));
 	    	fruits.put("redlove", new Color(182, 29, 29));
 	    	fruits.put("citron", new Color(191, 177, 67));
