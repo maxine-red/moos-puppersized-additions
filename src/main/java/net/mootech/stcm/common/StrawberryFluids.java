@@ -65,8 +65,25 @@ public class StrawberryFluids {
      */
     private static void prepareFruits() {
     	HashMap<String, Color> fruits = new HashMap<>();
-    	fruits.put("melon", new Color(240, 45, 31));
+    	// Minecraft vanilla fruits
+    	fruits.put("apple", new Color(219, 162, 19));
+    	fruits.put("golden_apple", new Color(234, 238, 87));
+    	fruits.put("melon", new Color(193, 60, 45));
     	fruits.put("chorus", new Color(143, 102, 141));
+    	fruits.put("sweet_berry", new Color(130, 11, 5));
+    	
+    	// Fruit trees fruits
+    	fruits.put("cherry", new Color(235, 52, 49));
+    	fruits.put("redlove", new Color(182, 29, 29));
+    	fruits.put("citron", new Color(191, 177, 67));
+    	fruits.put("grapefruit", new Color(254, 155, 60));
+    	fruits.put("lemon", new Color(219, 203, 93));
+    	fruits.put("lime", new Color(144, 191, 63));
+    	fruits.put("mandarin", new Color(240, 154, 42));
+    	fruits.put("orange", new Color(227, 104, 25));
+    	fruits.put("pomelo", new Color(231, 207, 76));
+    	
+    	
     	for (String fruit : fruits.keySet()) {
         	LOGGER.debug("Adding juice and jam for " + fruit + " to registry.");
         	new JuiceFluid(fruit, fruits.get(fruit));
