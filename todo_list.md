@@ -52,6 +52,8 @@
 
 The juice_flask ones are with the grey scaling. I'd like moo to try it out with this first to see how it looks.
 
+- [ ] change fluid and item making code to allow for easy setting of custom names (IDs are not really relevant, as they aren't visible to players)
+
 ### Magical
 
 - requires special jar to handle, no bucket available
