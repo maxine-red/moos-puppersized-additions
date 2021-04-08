@@ -39,7 +39,7 @@ public class StrawberryBottleItem extends StrawberryItem {
 	}
 	
 	public StrawberryBottleItem(String id, StrawberryFluid fluid, Properties properties, int burn_time) {
-		super(id, properties, burn_time);
+		super(id + "_bottle", properties, burn_time);
 		this.color = fluid.getColor();
 		StrawberryItems.BOTTLES.add(this);
 	}
