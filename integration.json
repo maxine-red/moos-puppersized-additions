@@ -1,0 +1,28 @@
+{
+  "create": {
+    "filling": [
+      {"name": "apple_juice.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item":"strawberrytwirl:apple_juice_bottle"}]},
+      {"name": "golden_apple_juice.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:golden_apple_juice_bottle"}]},
+      {"name": "melon_juice.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:melon_juice_bottle"}]},
+      {"name": "chorus_juice.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:chorus_juice_bottle"}]},
+      {"name": "sweet_berry_juice.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:sweet_berry_juice_bottle"}]},
+      {"name": "apple_jam.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:apple_jam_bottle"}]},
+      {"name": "golden_apple_jam.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:golden_apple_jam_bottle"}]},
+      {"name": "melon_jam.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:melon_jam_bottle"}]},
+      {"name": "chorus_jam.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:chorus_jam_bottle"}]},
+      {"name": "sweet_berry_jam.json", "ingredients": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "results": [{"item": "strawberrytwir:sweet_berry_jam_bottle"}]}
+    ], 
+    "emptying": [
+      {"name": "apple_juice.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:apple_juice_bottle"}]},
+      {"name": "golden_apple_juice.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:golden_apple_juice_bottle"}]},
+      {"name": "melon_juice.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:melon_juice_bottle"}]},
+      {"name": "chorus_juice.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:chorus_juice_bottle"}]},
+      {"name": "sweet_berry_juice.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:sweet_berry_juice_bottle"}]},
+      {"name": "apple_jam.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:apple_jam_bottle"}]},
+      {"name": "golden_apple_jam.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:golden_apple_jam_bottle"}]},
+      {"name": "melon_jam.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:melon_jam_bottle"}]},
+      {"name": "chorus_jam.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:chorus_jam_bottle"}]},
+      {"name": "sweet_berry_jam.json", "results": [{"fluid": "strawberrytwirl:", "amount": 250}, {"item": "minecraft:glass_bottle"}], "ingredients": [{"item": "strawberrytwir:sweet_berry_jam_bottle"}]}
+    ]
+  }
+}
