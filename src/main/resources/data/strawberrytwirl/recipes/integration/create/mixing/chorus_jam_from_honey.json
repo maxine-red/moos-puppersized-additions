@@ -8,7 +8,7 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "fluid": "strawberrytwirl:chorus_juice_from_honey",
+      "fluid": "strawberrytwirl:chorus_juice",
       "amount": 500
     },
     {
@@ -18,7 +18,7 @@
   ],
   "results": [
     {
-      "fluid": "strawberrytwirl:chorus_jam_from_honey",
+      "fluid": "strawberrytwirl:chorus_jam",
       "amount": 250
     }
   ],

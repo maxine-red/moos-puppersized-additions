@@ -8,7 +8,7 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "fluid": "strawberrytwirl:sweet_berry_juice_from_honey",
+      "fluid": "strawberrytwirl:sweet_berry_juice",
       "amount": 500
     },
     {
@@ -18,7 +18,7 @@
   ],
   "results": [
     {
-      "fluid": "strawberrytwirl:sweet_berry_jam_from_honey",
+      "fluid": "strawberrytwirl:sweet_berry_jam",
       "amount": 250
     }
   ],

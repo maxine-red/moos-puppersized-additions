@@ -8,17 +8,17 @@
   "type": "farmersdelight:cooking",
   "ingredients": [
     {
-      "item": "strawberrytwirl:golden_apple_juice_from_honey_bottle"
+      "item": "strawberrytwirl:golden_apple_juice_bottle"
     },
     {
-      "item": "strawberrytwirl:golden_apple_juice_from_honey_bottle"
+      "item": "strawberrytwirl:golden_apple_juice_bottle"
     },
     {
       "item": "minecraft:honey_bottle"
     }
   ],
   "result": {
-    "item": "strawberrytwirl:golden_apple_jam_from_honey_bottle"
+    "item": "strawberrytwirl:golden_apple_jam_bottle"
   },
   "container": {
     "item": "minecraft:glass_bottle"

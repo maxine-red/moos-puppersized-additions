@@ -33,7 +33,7 @@ data.each do |k, v|
             i = i.first
           elsif m == 'mixing'
             ingredients = []
-            ingredients << {fluid: "#{mod}:#{i.sub('jam', 'juice')}", amount: 500}
+            ingredients << {fluid: "#{mod}:#{i.sub('jam', 'juice').sub('_from_honey', '')}", amount: 500}
             if i.match('_from_honey')
               ingredients << {fluid: "create:honey", amount: 250}
             else
@@ -42,12 +42,12 @@ data.each do |k, v|
               end
             end
             rec.store(:ingredients, ingredients)
-            rec.store(:results, [{fluid: "#{mod}:#{i}", amount: 250}])
+            rec.store(:results, [{fluid: "#{mod}:#{i.sub('_from_honey', '')}", amount: 250}])
             rec.store(:heatRequirement, 'heated')
           elsif m == 'cooking'
             ingredients = []
             2.times do
-              ingredients << {item: "#{mod}:#{i.sub('jam', 'juice')}_bottle"}
+              ingredients << {item: "#{mod}:#{i.sub('jam', 'juice').sub('_from_honey', '')}_bottle"}
             end
             if i.match('_from_honey')
                 ingredients << {item: 'minecraft:honey_bottle'}
@@ -57,7 +57,7 @@ data.each do |k, v|
               end
             end
             rec.store(:ingredients, ingredients)
-            rec.store(:result, {item: "#{mod}:#{i}_bottle"})
+            rec.store(:result, {item: "#{mod}:#{i.sub('_from_honey', '')}_bottle"})
             rec.store(:container, {item: 'minecraft:glass_bottle'})
             rec.store(:cookingtime, 100)
           end
