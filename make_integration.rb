@@ -54,8 +54,8 @@ data.each do |k, v|
     end
   end
 end
-Dir.chdir(pwd)
 ['create'].each do |omod|
+  Dir.chdir(pwd)
   dir = "src/main/resources/data/#{omod}/tags"
   dir.split('/').each do |d|
     Dir.mkdir(d) unless File.directory?(d)
@@ -63,6 +63,8 @@ Dir.chdir(pwd)
   end
   tags = {replace: false, values: []}
   if omod == 'create'
+    Dir.mkdir('items') unless File.directory?('items')
+    Dir.chdir('items')
     tags[:values] += data[omod]['filling'].map{|x|"#{mod}:#{x}_bottle"}
     File.write('upright_on_belt.json', JSON.pretty_generate(tags))
   end
