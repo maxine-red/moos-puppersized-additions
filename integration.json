@@ -12,7 +12,12 @@
       "golden_apple_jam",
       "melon_jam",
       "chorus_jam",
-      "sweet_berry_jam"
+      "sweet_berry_jam",
+      "apple_jam_from_honey",
+      "golden_apple_jam_from_honey",
+      "melon_jam_from_honey",
+      "chorus_jam_from_honey",
+      "sweet_berry_jam_from_honey"
     ],
     "filling": [
       "apple_juice",
@@ -45,7 +50,12 @@
       "golden_apple_jam",
       "melon_jam",
       "chorus_jam",
-      "sweet_berry_jam"
+      "sweet_berry_jam",
+      "apple_jam_from_honey",
+      "golden_apple_jam_from_honey",
+      "melon_jam_from_honey",
+      "chorus_jam_from_honey",
+      "sweet_berry_jam_from_honey"
     ]
   }
 }

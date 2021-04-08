@@ -32,7 +32,16 @@ data.each do |k, v|
             rec.store(:results, [{fluid: "#{mod}:#{i[0]}", amount: 1000}])
             i = i.first
           elsif m == 'mixing'
-            rec.store(:ingredients, [{fluid: "#{mod}:#{i.sub('jam', 'juice')}", amount: 500}, {item: 'minecraft:sugar'}, {item: 'minecraft:sugar'}, {item: 'minecraft:sugar'}])
+            ingredients = []
+            ingredients << {fluid: "#{mod}:#{i.sub('jam', 'juice')}", amount: 500}
+            if i.match('_from_honey')
+              ingredients << {fluid: "create:honey", amount: 250}
+            else
+              3.times do
+                ingredients << {item: 'minecraft:sugar'}
+              end
+            end
+            rec.store(:ingredients, ingredients)
             rec.store(:results, [{fluid: "#{mod}:#{i}", amount: 250}])
             rec.store(:heatRequirement, 'heated')
           elsif m == 'cooking'
@@ -40,8 +49,12 @@ data.each do |k, v|
             2.times do
               ingredients << {item: "#{mod}:#{i.sub('jam', 'juice')}_bottle"}
             end
-            3.times do 
-              ingredients << {item: 'minecraft:sugar'}
+            if i.match('_from_honey')
+                ingredients << {item: 'minecraft:honey_bottle'}
+            else
+              3.times do 
+                ingredients << {item: 'minecraft:sugar'}
+              end
             end
             rec.store(:ingredients, ingredients)
             rec.store(:result, {item: "#{mod}:#{i}_bottle"})

@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "strawberrytwirl:apple_juice_from_honey",
+      "amount": 500
+    },
+    {
+      "fluid": "create:honey",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "fluid": "strawberrytwirl:apple_jam_from_honey",
+      "amount": 250
+    }
+  ],
+  "heatRequirement": "heated"
+}
