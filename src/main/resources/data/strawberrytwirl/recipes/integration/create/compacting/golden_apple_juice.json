@@ -6,10 +6,26 @@
     }
   ],
   "type": "create:compacting",
-  "ingredients": {
-    "item": "minecraft:golden_apple",
-    "count": 6
-  },
+  "ingredients": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    }
+  ],
   "results": {
     "fluid": "strawberrytwirl:golden_apple_juice",
     "amount": 1000

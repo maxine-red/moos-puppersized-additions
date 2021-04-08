@@ -6,10 +6,26 @@
     }
   ],
   "type": "create:compacting",
-  "ingredients": {
-    "item": "minecraft:chorus_fruit",
-    "count": 6
-  },
+  "ingredients": [
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    }
+  ],
   "results": {
     "fluid": "strawberrytwirl:chorus_juice",
     "amount": 1000

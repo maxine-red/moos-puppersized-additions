@@ -22,13 +22,13 @@ data.each do |k, v|
         d.each do |i|
           rec = recipe.dup
           if m == 'filling'
-            rec.store(:ngredients, [{fluid: "#{mod}:#{i}", amount: 250}, {item: 'minecraft:glass_bottle'}])
+            rec.store(:ingredients, [{fluid: "#{mod}:#{i}", amount: 250}, {item: 'minecraft:glass_bottle'}])
             rec.store(:results, [{item: "#{mod}:#{i}_bottle"}])
           elsif m == 'emptying'
             rec.store(:ingredients, [{item: "#{mod}:#{i}_bottle"}])
             rec.store(:results, [{fluid: "#{mod}:#{i}", amount: 250}, {item: 'minecraft:glass_bottle'}])
           elsif m == 'compacting'
-            rec.store(:ingredients, {item: "minecraft:#{i[1]}", count: i[2]})
+            rec.store(:ingredients, [{item: "minecraft:#{i[1]}"}]* i[2])
             rec.store(:results, {fluid: "#{mod}:#{i[0]}", amount: 1000})
             i = i.first
           elsif m == 'mixing'

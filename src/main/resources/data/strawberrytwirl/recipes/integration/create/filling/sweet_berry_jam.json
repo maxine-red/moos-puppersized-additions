@@ -6,7 +6,7 @@
     }
   ],
   "type": "create:filling",
-  "ngredients": [
+  "ingredients": [
     {
       "fluid": "strawberrytwirl:sweet_berry_jam",
       "amount": 250

@@ -6,7 +6,7 @@
     }
   ],
   "type": "create:filling",
-  "ngredients": [
+  "ingredients": [
     {
       "fluid": "strawberrytwirl:chorus_juice",
       "amount": 250

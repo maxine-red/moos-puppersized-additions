@@ -6,10 +6,26 @@
     }
   ],
   "type": "create:compacting",
-  "ingredients": {
-    "item": "minecraft:apple",
-    "count": 6
-  },
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    }
+  ],
   "results": {
     "fluid": "strawberrytwirl:apple_juice",
     "amount": 1000
