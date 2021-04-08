@@ -1,28 +1,28 @@
 {
   "create": {
     "filling": [
-      {"result": "apple_juice_bottle", "ingredients": ["apple_juice", "minecraft:glass_bottle"]},
-      {"result": "golden_apple_juice_bottle", "ingredients": ["golden_apple_juice", "minecraft:glass_bottle"]},
-      {"result": "melon_juice_bottle", "ingredients": ["melon_juice", "minecraft:glass_bottle"]},
-      {"result": "chorus_juice_bottle", "ingredients": ["chorus_juice", "minecraft:glass_bottle"]},
-      {"result": "sweet_berry_juice_bottle", "ingredients": ["sweet_berry_juice", "minecraft:glass_bottle"]},
-      {"result": "apple_jam_bottle", "ingredients": ["apple_jam", "minecraft:glass_bottle"]},
-      {"result": "golden_apple_jam_bottle", "ingredients": ["golden_apple_jam", "minecraft:glass_bottle"]},
-      {"result": "melon_jam_bottle", "ingredients": ["melon_jam", "minecraft:glass_bottle"]},
-      {"result": "chorus_jam_bottle", "ingredients": ["chorus_jam", "minecraft:glass_bottle"]},
-      {"result": "sweet_berry_jam_bottle", "ingredients": ["sweet_berry_jam", "minecraft:glass_bottle"]}
+      "apple_juice",
+      "golden_apple_juice",
+      "melon_juice",
+      "chorus_juice",
+      "sweet_berry_juice",
+      "apple_jam",
+      "golden_apple_jam",
+      "melon_jam",
+      "chorus_jam",
+      "sweet_berry_jam"
     ], 
     "emptying": [
-      {"ingredients": "apple_juice_bottle", "results": ["apple_juice", "minecraft:glass_bottle"]},
-      {"ingredients": "golden_apple_juice_bottle", "results": ["golden_apple_juice", "minecraft:glass_bottle"]},
-      {"ingredients": "melon_juice_bottle", "results": ["melon_juice", "minecraft:glass_bottle"]},
-      {"ingredients": "chorus_juice_bottle", "results": ["chorus_juice", "minecraft:glass_bottle"]},
-      {"ingredients": "sweet_berry_juice_bottle", "results": ["sweet_berry_juice", "minecraft:glass_bottle"]},
-      {"ingredients": "apple_jam_bottle", "results": ["apple_jam", "minecraft:glass_bottle"]},
-      {"ingredients": "golden_apple_jam_bottle", "results": ["golden_apple_jam", "minecraft:glass_bottle"]},
-      {"ingredients": "melon_jam_bottle", "results": ["melon_jam", "minecraft:glass_bottle"]},
-      {"ingredients": "chorus_jam_bottle", "results": ["chorus_jam", "minecraft:glass_bottle"]},
-      {"ingredients": "sweet_berry_jam_bottle", "results": ["sweet_berry_jam", "minecraft:glass_bottle"]}
+      "apple_juice",
+      "golden_apple_juice",
+      "melon_juice",
+      "chorus_juice",
+      "sweet_berry_juice",
+      "apple_jam",
+      "golden_apple_jam",
+      "melon_jam",
+      "chorus_jam",
+      "sweet_berry_jam"
     ]
   }
 }

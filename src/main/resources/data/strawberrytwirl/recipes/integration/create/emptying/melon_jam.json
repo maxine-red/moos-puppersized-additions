@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:melon_jam_bottle"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "strawberrytwirl:melon_jam",
+      "amount": 250
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ]
+}

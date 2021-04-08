@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:golden_apple_juice_bottle"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "strawberrytwirl:golden_apple_juice",
+      "amount": 250
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ]
+}
