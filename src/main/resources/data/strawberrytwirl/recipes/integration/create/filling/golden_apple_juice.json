@@ -6,7 +6,7 @@
     }
   ],
   "type": "create:filling",
-  "ngredientss": [
+  "ngredients": [
     {
       "fluid": "strawberrytwirl:golden_apple_juice",
       "amount": 250

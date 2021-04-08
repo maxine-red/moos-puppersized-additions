@@ -6,7 +6,7 @@
     }
   ],
   "type": "create:filling",
-  "ngredientss": [
+  "ngredients": [
     {
       "fluid": "strawberrytwirl:melon_jam",
       "amount": 250
