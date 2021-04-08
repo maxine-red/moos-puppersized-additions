@@ -1,0 +1,17 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": {
+    "item": "minecraft:apple",
+    "count": 6
+  },
+  "results": {
+    "fluid": "strawberrytwirl:apple_juice",
+    "amount": 1000
+  }
+}

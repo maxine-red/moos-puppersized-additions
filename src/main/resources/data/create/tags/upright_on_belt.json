@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "apple_juice_bottle",
+    "golden_apple_juice_bottle",
+    "melon_juice_bottle",
+    "chorus_juice_bottle",
+    "sweet_berry_juice_bottle",
+    "apple_jam_bottle",
+    "golden_apple_jam_bottle",
+    "melon_jam_bottle",
+    "chorus_jam_bottle",
+    "sweet_berry_jam_bottle"
+  ]
+}

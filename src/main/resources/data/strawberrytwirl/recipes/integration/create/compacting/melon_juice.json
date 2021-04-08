@@ -1,0 +1,17 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": {
+    "item": "minecraft:melon_slice",
+    "count": 12
+  },
+  "results": {
+    "fluid": "strawberrytwirl:melon_juice",
+    "amount": 1000
+  }
+}

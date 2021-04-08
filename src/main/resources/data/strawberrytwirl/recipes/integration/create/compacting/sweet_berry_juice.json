@@ -1,0 +1,17 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": {
+    "item": "minecraft:sweet_berries",
+    "count": 12
+  },
+  "results": {
+    "fluid": "strawberrytwirl:sweet_berry_juice",
+    "amount": 1000
+  }
+}

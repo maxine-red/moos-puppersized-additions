@@ -1,5 +1,19 @@
 {
   "create": {
+    "compacting": [
+      ["apple_juice", "apple", 6],
+      ["golden_apple_juice", "golden_apple", 6],
+      ["melon_juice", "melon_slice", 12],
+      ["chorus_juice", "chorus_fruit", 6],
+      ["sweet_berry_juice", "sweet_berries", 12]
+    ],
+    "mixing": [
+      "apple_jam",
+      "golden_apple_jam",
+      "melon_jam",
+      "chorus_jam",
+      "sweet_berry_jam"
+    ],
     "filling": [
       "apple_juice",
       "golden_apple_juice",
@@ -18,6 +32,15 @@
       "melon_juice",
       "chorus_juice",
       "sweet_berry_juice",
+      "apple_jam",
+      "golden_apple_jam",
+      "melon_jam",
+      "chorus_jam",
+      "sweet_berry_jam"
+    ]
+  },
+  "farmersdelight": {
+    "cooking": [
       "apple_jam",
       "golden_apple_jam",
       "melon_jam",

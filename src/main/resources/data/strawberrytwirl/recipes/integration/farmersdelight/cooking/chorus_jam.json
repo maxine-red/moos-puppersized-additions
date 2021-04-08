@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:chorus_juice_bottle"
+    },
+    {
+      "item": "strawberrytwirl:chorus_juice_bottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "strawberrytwirl:chorus_jam_bottle"
+  },
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "cookingtime": 100
+}
