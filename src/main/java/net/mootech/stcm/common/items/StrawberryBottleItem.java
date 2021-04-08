@@ -51,4 +51,14 @@ public class StrawberryBottleItem extends StrawberryItem {
 	public int getColor() {
 		return color;
 	}
+	
+	/**
+	 * Set in-game name of item
+	 * @return this
+	 */
+	@Override
+	public StrawberryBottleItem setName(String name) {
+		this.name = name;
+		return this;
+	}
 }

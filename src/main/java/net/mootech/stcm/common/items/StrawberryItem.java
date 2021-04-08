@@ -32,7 +32,7 @@ public class StrawberryItem extends Item {
 
 	protected final String id;
 	protected final int burn_time;
-	protected final String name;
+	protected String name;
 	
 	public StrawberryItem(String id) {
 		this(id, new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP));
@@ -64,6 +64,15 @@ public class StrawberryItem extends Item {
 	 */
 	public String getName() {
 		return this.name;
+	}
+	
+	/**
+	 * Set in-game name of item
+	 * @return this
+	 */
+	public StrawberryItem setName(String name) {
+		this.name = name;
+		return this;
 	}
 
 	@Override

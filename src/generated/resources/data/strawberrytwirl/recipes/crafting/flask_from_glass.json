@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "g g",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "strawberrytwirl:empty_flask"
+  }
+}

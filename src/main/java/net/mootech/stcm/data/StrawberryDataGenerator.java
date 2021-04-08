@@ -43,5 +43,9 @@ public class StrawberryDataGenerator {
 			generator.addProvider(new StrawberryTranslator(generator, "en_us"));
 			generator.addProvider(new StrawberryItemModelProvider(generator, helper));
 		}
+		
+		if (event.includeServer()) {
+			generator.addProvider(new StrawberryRecipes(generator));
+		}
 	}
 }

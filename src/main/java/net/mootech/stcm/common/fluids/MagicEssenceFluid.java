@@ -28,10 +28,8 @@ import net.mootech.stcm.util.Color;
 /**
  * @author Maxine Red
  *
+ * Magic essences are magical fluids, that can be used in many ways with this mod.
  */
-
-// TODO Make a BottleFluid class, that this extends. Juie and Jam will extend it too, but in a different way. All of them add a suffix and create a bottle item, jam and juice also add buckets though
-// TODO remove ability to construct with custom textures with sub classes and instead use id, set instead
 public class MagicEssenceFluid extends StrawberryFluid {
 	
 	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(StrawberryItems.FLASK_ITEM);
@@ -39,21 +37,46 @@ public class MagicEssenceFluid extends StrawberryFluid {
     /**
 	 * Constructor for magic essences
 	 * @param id ID of essence ("essence" is added automatically)
+	 * @param name Name of this fluid, in-game
+	 * @param color Color of essence, used for bucket tinting
+	 */	
+	public MagicEssenceFluid(String id, String name, Color color) {
+		this(id, name, color, -1);
+	}
+	
+    /**
+	 * Constructor for magic essences
+	 * @param id ID of essence ("essence" is added automatically)
 	 * @param color Color of essence, used for bucket tinting
 	 */	
 	public MagicEssenceFluid(String id, Color color) {
-		this(id, color, -1);
+		this(id, "", color, -1);
 	}
 	
 	/**
 	 * Constructor for magic essences
-	 * @param id String id of essence
+	 * @param id ID of essence ("essence" is added automatically)
+	 * @param name Name of this fluid, in-game
 	 * @param color Item tinting color
 	 * @param burn_time Burn time in furnace
 	 */
 	public MagicEssenceFluid(String id, Color color, int burn_time) {
+		this(id, "", color, burn_time);
+	}
+	
+	/**
+	 * Constructor for magic essences
+	 * @param id ID of essence ("essence" is added automatically)
+	 * @param name Name of this fluid, in-game
+	 * @param color Item tinting color
+	 * @param burn_time Burn time in furnace
+	 */
+	public MagicEssenceFluid(String id, String name, Color color, int burn_time) {
 		super(id + "_essence", color, burn_time, false);
-		new StrawberryBottleItem(this.id + "_flask", source, BOTTLE_PROPERTIES, burn_time);
+		if (!name.isEmpty()) {
+			this.name = name;
+		}
+		new StrawberryBottleItem(this.id + "_flask", source, BOTTLE_PROPERTIES, burn_time).setName("Flask of " + this.name);
 		LOGGER.debug("Created essence: " + this.id);
 	}
 

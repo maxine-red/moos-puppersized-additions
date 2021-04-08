@@ -51,7 +51,7 @@ public class StrawberryFluid extends FlowingFluid {
 	protected StrawberryFluid source;
 	
 	protected final String id;
-	protected final String name;
+	protected String name;
 	protected final ResourceLocation still_resource;
 	protected final ResourceLocation flowing_resource;
 	protected final boolean is_source;

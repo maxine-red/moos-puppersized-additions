@@ -19,8 +19,8 @@
 package net.mootech.stcm.common.fluids;
 
 import net.minecraft.item.Item;
-import net.mootech.stcm.common.StrawberryInitializer;
-import net.mootech.stcm.common.StrawberryItems;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Items;
 import net.mootech.stcm.common.items.StrawberryBottleItem;
 import net.mootech.stcm.util.Color;
 
@@ -30,7 +30,7 @@ import net.mootech.stcm.util.Color;
  */
 public class JuiceFluid extends StrawberryFluid {
 
-	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(16).craftRemainder(StrawberryItems.FLASK_ITEM);;
+	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE);
 
 	
 	/**
