@@ -44,8 +44,10 @@
       "item": "minecraft:sweet_berries"
     }
   ],
-  "results": {
-    "fluid": "strawberrytwirl:sweet_berry_juice",
-    "amount": 1000
-  }
+  "results": [
+    {
+      "fluid": "strawberrytwirl:sweet_berry_juice",
+      "amount": 1000
+    }
+  ]
 }

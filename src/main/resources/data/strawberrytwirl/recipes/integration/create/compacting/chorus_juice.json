@@ -26,8 +26,10 @@
       "item": "minecraft:chorus_fruit"
     }
   ],
-  "results": {
-    "fluid": "strawberrytwirl:chorus_juice",
-    "amount": 1000
-  }
+  "results": [
+    {
+      "fluid": "strawberrytwirl:chorus_juice",
+      "amount": 1000
+    }
+  ]
 }

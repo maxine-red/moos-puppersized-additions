@@ -29,7 +29,7 @@ data.each do |k, v|
             rec.store(:results, [{fluid: "#{mod}:#{i}", amount: 250}, {item: 'minecraft:glass_bottle'}])
           elsif m == 'compacting'
             rec.store(:ingredients, [{item: "minecraft:#{i[1]}"}]* i[2])
-            rec.store(:results, {fluid: "#{mod}:#{i[0]}", amount: 1000})
+            rec.store(:results, [{fluid: "#{mod}:#{i[0]}", amount: 1000}])
             i = i.first
           elsif m == 'mixing'
             rec.store(:ingredients, [{fluid: "#{mod}:#{i.sub('jam', 'juice')}", amount: 500}, {item: 'minecraft:sugar'}, {item: 'minecraft:sugar'}, {item: 'minecraft:sugar'}])

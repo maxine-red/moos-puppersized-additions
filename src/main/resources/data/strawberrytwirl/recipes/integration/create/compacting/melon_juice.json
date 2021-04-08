@@ -44,8 +44,10 @@
       "item": "minecraft:melon_slice"
     }
   ],
-  "results": {
-    "fluid": "strawberrytwirl:melon_juice",
-    "amount": 1000
-  }
+  "results": [
+    {
+      "fluid": "strawberrytwirl:melon_juice",
+      "amount": 1000
+    }
+  ]
 }
