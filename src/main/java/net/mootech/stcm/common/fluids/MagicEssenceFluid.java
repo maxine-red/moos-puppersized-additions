@@ -22,7 +22,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
 import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.StrawberryBottleItem;
+import net.mootech.stcm.common.items.StrawberryEdibleBottleItem;
 import net.mootech.stcm.util.Color;
 
 /**
@@ -32,7 +32,7 @@ import net.mootech.stcm.util.Color;
  */
 public class MagicEssenceFluid extends StrawberryFluid {
 	
-	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(StrawberryItems.FLASK_ITEM);
+	//private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(StrawberryItems.FLASK_ITEM);
 	
     /**
 	 * Constructor for magic essences
@@ -76,7 +76,7 @@ public class MagicEssenceFluid extends StrawberryFluid {
 		if (!name.isEmpty()) {
 			this.name = name;
 		}
-		new StrawberryBottleItem(this.id + "_flask", source, BOTTLE_PROPERTIES, burn_time).setName("Flask of " + this.name);
+		//new StrawberryBottleItem(this.id + "_flask", source, BOTTLE_PROPERTIES, burn_time).setName("Flask of " + this.name);
 		LOGGER.debug("Created essence: " + this.id);
 	}
 

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "strawberrytwirl:item/flask_base",
-    "layer1": "strawberrytwirl:item/flask_overlay"
-  }
-}

@@ -25,6 +25,7 @@ import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.util.StringID;
 
 /**
+ * Generic item class for all Strawberry items, except buckets
  * @author Maxine Red
  *
  */
@@ -43,9 +44,13 @@ public class StrawberryItem extends Item {
 	}
 	
 	public StrawberryItem(String id, Properties properties, int burn_time) {
+		this(id, properties, burn_time, StringID.idToName(id));
+	}
+	
+	public StrawberryItem(String id, Properties properties, int burn_time, String name) {
 		super(properties);
 		this.id = id;
-		this.name = StringID.idToName(id);
+		this.name = name;
 		this.burn_time = burn_time;
 		StrawberryItems.REGISTERED_ITEMS.add(this);
 	}
@@ -54,7 +59,7 @@ public class StrawberryItem extends Item {
 	 * String ID for this bucket
 	 * @return String
 	 */
-	public String getID() {
+	public String getId() {
 		return this.id;
 	}
 	

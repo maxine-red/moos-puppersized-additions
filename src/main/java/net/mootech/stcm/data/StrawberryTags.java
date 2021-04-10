@@ -16,23 +16,22 @@
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.mootech.stcm.common.fluids;
+package net.mootech.stcm.data;
 
-import net.mootech.stcm.util.Color;
+import javax.annotation.Nullable;
+
+import net.minecraft.data.BlockTagsProvider;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.ItemTagsProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 /**
  * @author Maxine Red
  *
  */
-public class JamFluid extends StrawberryFluid {
+public class StrawberryTags extends ItemTagsProvider {
 
-	/**
-	 * @param id String ID of juice
-	 * @param color item tinting color
-	 */
-	public JamFluid(String id, Color color) {
-		super(id + "_jam", color, -1, true);
-		LOGGER.debug("Created jam: " + this.id);
+	public StrawberryTags(DataGenerator gen, BlockTagsProvider blockTagProvider, String modId, @Nullable ExistingFileHelper existingFileHelper) {
+		super(gen, blockTagProvider, modId, existingFileHelper);
 	}
-
 }

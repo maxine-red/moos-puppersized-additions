@@ -17,10 +17,9 @@
  */
 package net.mootech.stcm.util;
 /**
+ * A utility class to handle colors more easily.
  * 
  * @author Maxine Michalski
- * 
- * A utility class to handle colors more easily.
  * 
  */
 public class Color {

@@ -18,28 +18,23 @@
 
 package net.mootech.stcm.common.fluids;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
-import net.mootech.stcm.common.items.StrawberryBottleItem;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.mootech.stcm.util.Color;
 
 /**
  * @author Maxine Red
  *
  */
-public class JuiceFluid extends StrawberryFluid {
-
-	private static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE);
-
-	
+public class JuiceFluid extends StrawberryFluid {	
+	private static final Logger LOGGER = LogManager.getLogger();
 	/**
 	 * @param id String ID of juice
 	 * @param color Item tinting color
 	 */
 	public JuiceFluid(String id, Color color) {
 		super(id + "_juice", color, -1, true);
-		new StrawberryBottleItem(this.id, source, BOTTLE_PROPERTIES, -1);
 		LOGGER.debug("Created juice: " + this.id);
 	}
 

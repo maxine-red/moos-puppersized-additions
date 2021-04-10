@@ -32,7 +32,6 @@ import net.minecraft.fluid.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.mootech.stcm.common.fluids.JamFluid;
 import net.mootech.stcm.common.fluids.JuiceFluid;
-import net.mootech.stcm.common.fluids.MagicEssenceFluid;
 import net.mootech.stcm.common.fluids.StrawberryFluid;
 import net.mootech.stcm.util.Color;
 
@@ -42,66 +41,53 @@ public class StrawberryFluids {
 	public static final List<StrawberryFluid> REGISTERED_FLUIDS = new ArrayList<>();
 	
 	public static final List<StrawberryFluid> SOURCE_FLUIDS = new ArrayList<>();
+
+	public static final Color APPLE_COLOR = new Color(219, 162, 19);
+	public static final Color GOLDEN_APPLE_COLOR = new Color(234, 238, 87);
+	public static final Color MELON_COLOR = new Color(193, 60, 45);
+	public static final Color CHORUS_COLOR = new Color(143, 102, 141);
+	public static final Color SWEET_BERRY_COLOR = new Color(130, 11, 5);
+	public static final Color CARROT_COLOR = new Color(255, 142, 9);
+	public static final Color GOLDEN_CARROT_COLOR = new Color(236, 203, 69);
     
     private static final Logger LOGGER = LogManager.getLogger();
-
-    /**
-     * Prepare magical essence fluids, to put all of them into one place
-     */
-    private static void prepareEssences() {
-    	HashMap<String, Color> essences = new HashMap<>();
-    	essences.put("void", new Color(6, 0, 10));
-    	for (String essence : essences.keySet()) {
-        	LOGGER.debug("Adding essence for " + essence + " to registry.");
-        	new MagicEssenceFluid(essence, essences.get(essence));
-    	}
-    	LOGGER.debug("Adding essence for soul to registry.");
-    	new MagicEssenceFluid("soul", "Liquid Souls", new Color(99, 86, 71));
-    	// Add more here, if special essences (e.g. with burn time are needed
-    	// new MagicEssenceFluid(essence, new Color(), 0);
-    }
     
     /**
      * Prepare fruit fluids, to put all of them into one place
      */
-    private static void prepareFruits() {
+    private static void prepareFluids() {
     	HashMap<String, Color> fruits = new HashMap<>();
+    	HashMap<String, Color> veggies = new HashMap<>();
     	// Minecraft vanilla fruits
-    	fruits.put("apple", new Color(219, 162, 19));
-    	fruits.put("golden_apple", new Color(234, 238, 87));
-    	fruits.put("melon", new Color(193, 60, 45));
-    	fruits.put("chorus", new Color(143, 102, 141));
-    	fruits.put("sweet_berry", new Color(130, 11, 5));
+    	fruits.put("apple", APPLE_COLOR);
+    	fruits.put("golden_apple", GOLDEN_APPLE_COLOR);
+    	fruits.put("melon", MELON_COLOR);
+    	fruits.put("chorus", CHORUS_COLOR);
+    	fruits.put("sweet_berry", SWEET_BERRY_COLOR);
     	
-    	// TODO: Move these into their own compat mod
-    	/*if (ModTest.isPresent("fruittrees")) {
-	    	fruits.put("cherry", new Color(235, 52, 49));
-	    	fruits.put("redlove", new Color(182, 29, 29));
-	    	fruits.put("citron", new Color(191, 177, 67));
-	    	fruits.put("grapefruit", new Color(254, 155, 60));
-	    	fruits.put("lemon", new Color(219, 203, 93));
-	    	fruits.put("lime", new Color(144, 191, 63));
-	    	fruits.put("mandarin", new Color(240, 154, 42));
-	    	fruits.put("orange", new Color(227, 104, 25));
-	    	fruits.put("pomelo", new Color(231, 207, 76));
-    	}*/
-    	
+    	// Minecraft vanilla veggies
+    	veggies.put("carrot", CARROT_COLOR);
+    	veggies.put("golden_carrot", GOLDEN_CARROT_COLOR);
     	
     	for (String fruit : fruits.keySet()) {
         	LOGGER.debug("Adding juice and jam for " + fruit + " to registry.");
         	new JuiceFluid(fruit, fruits.get(fruit));
         	new JamFluid(fruit, fruits.get(fruit).darken(0.239).saturate(0.068));
     	}
+    	
+    	for (String veggy : veggies.keySet()) {
+        	LOGGER.debug("Adding juice and jam for " + veggy + " to registry.");
+        	new JuiceFluid(veggy, veggies.get(veggy));
+    	}
     	// Add more here, if special juices or jams (e.g. with burn time are needed
     	// new MagicEssenceFluid(essence, new Color(), 0);
     }
 
     public static void init(IEventBus modEventBus) {
-    	prepareEssences();
-    	prepareFruits();
+    	prepareFluids();
     	LOGGER.debug("Registering strawberry fluids");
     	for (StrawberryFluid fluid : REGISTERED_FLUIDS) {
-    		LOGGER.info("Registering: " + fluid.getID());
+    		LOGGER.debug("Registering: " + fluid.getID());
     		FLUIDS.register(fluid.getID(), () -> fluid);
     	}
         FLUIDS.register(modEventBus);

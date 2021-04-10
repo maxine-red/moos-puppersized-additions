@@ -42,6 +42,8 @@ public class StrawberryDataGenerator {
 		if(event.includeClient()) {
 			generator.addProvider(new StrawberryTranslator(generator, "en_us"));
 			generator.addProvider(new StrawberryItemModelProvider(generator, helper));
+			//TODO: LOok into this later, but good to use for creating integration tags maybe and also own tags
+			//generator.addProvider(new StrawberryTags(generator, blockTags, FarmersDelight.MODID, helper));
 		}
 		
 		if (event.includeServer()) {

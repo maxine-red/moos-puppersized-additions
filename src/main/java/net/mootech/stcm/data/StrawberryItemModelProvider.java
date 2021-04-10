@@ -26,7 +26,8 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.StrawberryBottleItem;
+import net.mootech.stcm.common.items.StrawberryEdibleBottleItem;
+import net.mootech.stcm.common.items.StrawberryItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 /**
@@ -41,23 +42,20 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 	private static final ResourceLocation bucket_overlay_thin = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_overlay_thin");
 	private static final ResourceLocation bucket_overlay_drink = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_overlay_drink");
 	
-	private static final ResourceLocation flask_base = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/flask_base");
-	private static final ResourceLocation flask_overlay = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/flask_overlay");
-
 	private static final ResourceLocation bottle_base = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bottle_base");
 	private static final ResourceLocation bottle_overlay = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bottle_overlay");
 
-	private static final ResourceLocation jar_base = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/jar_base");
-	private static final ResourceLocation jar_overlay = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/jar_overlay");
+	//private static final ResourceLocation jar_base = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/jar_base");
+	//private static final ResourceLocation jar_overlay = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/jar_overlay");
 	
-	private static final Pattern essence_pattern = Pattern.compile("_essence");
 	private static final Pattern juice_pattern = Pattern.compile("_juice");
 	private static final Pattern jam_pattern = Pattern.compile("_jam");
+	private static final Pattern chorus_pattern = Pattern.compile("chorus");
 
 	/**
 	 * Item Model generator
 	 * @param generator Generator from generation event
-	 * @param existingFileHelper Helper to check if fiels exist
+	 * @param existingFileHelper Helper to check if files exist
 	 */
 	public StrawberryItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, StrawberryTwirlCompanion.ID, existingFileHelper);
@@ -65,8 +63,13 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
+		for (StrawberryItem item : StrawberryItems.REGISTERED_ITEMS) {
+			if(!(StrawberryItems.JUICES.contains(item))) {
+				withExistingParent(item.getId(), GENERATED).texture("layer0", "item/" + item.getId());
+			}
+			
+		}
 		for (StrawberryBucketItem bucket : StrawberryItems.BUCKETS) {
-			withExistingParent(StrawberryItems.FLASK_ITEM.getID(), GENERATED).texture("layer0", "item/flask_empty");
 			if (juice_pattern.matcher(bucket.getId()).find()) {
 				withExistingParent(bucket.getId(), GENERATED).texture("layer0", bucket_base);
 				withExistingParent(bucket.getId(), GENERATED).texture("layer1", bucket_overlay_drink);
@@ -77,20 +80,26 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 			}
 		}
 		
-		for (StrawberryBottleItem bottle : StrawberryItems.BOTTLES) {
-			if (essence_pattern.matcher(bottle.getID()).find()) {
-				withExistingParent(bottle.getID(), GENERATED).texture("layer0", flask_base);
-				withExistingParent(bottle.getID(), GENERATED).texture("layer1", flask_overlay);
+		for (StrawberryEdibleBottleItem bottle : StrawberryItems.JUICES) {
+			if (!chorus_pattern.matcher(bottle.getId()).find()) {
+				withExistingParent(bottle.getId(), GENERATED).texture("layer0", bottle_base);
+				withExistingParent(bottle.getId(), GENERATED).texture("layer1", bottle_overlay);
 			}
-			else if (juice_pattern.matcher(bottle.getID()).find()) {
-				withExistingParent(bottle.getID(), GENERATED).texture("layer0", bottle_base);
-				withExistingParent(bottle.getID(), GENERATED).texture("layer1", bottle_overlay);
-			}
-			else if (jam_pattern.matcher(bottle.getID()).find()) {
-				withExistingParent(bottle.getID(), GENERATED).texture("layer0", jar_base);
-				withExistingParent(bottle.getID(), GENERATED).texture("layer1", jar_overlay);
+			else {
+				withExistingParent(bottle.getId(), GENERATED).texture("layer0", "item/bottle_base_chorus");
+				withExistingParent(bottle.getId(), GENERATED).texture("layer1", "item/bottle_overlay_chorus");
 			}
 		}
+			/*else if (jam_pattern.matcher(bottle.getId()).find()) {
+				if (!chorus_pattern.matcher(bottle.getId()).find()) {
+					withExistingParent(bottle.getId(), GENERATED).texture("layer0", jar_base);
+					withExistingParent(bottle.getId(), GENERATED).texture("layer1", jar_overlay);
+				}
+				else {
+					withExistingParent(bottle.getId(), GENERATED).texture("layer0", "item/jar_base_chorus");
+					withExistingParent(bottle.getId(), GENERATED).texture("layer1", "item/jar_overlay_chorus");
+				}
+			}*/
 	}
 
 }

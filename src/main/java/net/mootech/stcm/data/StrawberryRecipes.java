@@ -28,10 +28,14 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
+import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
+import net.mootech.stcm.common.items.StrawberryJuiceItem;
+
+//import vectorwing;//.farmersdelight.data.builder.CookingPotRecipeBuilder;
 
 /**
  * @author Maxine Red
@@ -52,12 +56,24 @@ public class StrawberryRecipes extends RecipeProvider {
 
 	@Override
 	protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
-		addFlaskRecipe(consumer);
+		addGlassContainerRecipe(consumer);
+		addJuiceRecipes(consumer);
 	}
 	
-	private void addFlaskRecipe(Consumer<IFinishedRecipe> consumer) {
-		ShapedRecipeBuilder.shaped(StrawberryItems.FLASK_ITEM, 1).pattern("g g").pattern("ggg").define('g', Items.GLASS)
-			.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))
-			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/flask_from_glass"));
+	private void addGlassContainerRecipe(Consumer<IFinishedRecipe> consumer) {
+		ShapedRecipeBuilder.shaped(StrawberryItems.GLASS_FLASK, 4).pattern("g g").pattern("g g").define('g', Items.GLASS)
+		.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))
+		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/empty_juice_bottle"));
+		ShapedRecipeBuilder.shaped(StrawberryItems.GLASS_JAR, 4).pattern("g g").pattern("g g").pattern("ggg").define('g', Items.GLASS)
+		.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))
+		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/empty_jar"));
+	}
+	
+	private void addJuiceRecipes(Consumer<IFinishedRecipe> consumer) {
+		for (StrawberryJuiceItem juice : StrawberryItems.JUICES) {
+			ShapelessRecipeBuilder.shapeless(juice).requires(juice.getCraftingRemainderItem()).requires(juice.getCrop(), juice.getCraftAmount());
+			//CookingPotRecipeBuilder.
+		}
+		
 	}
 }
