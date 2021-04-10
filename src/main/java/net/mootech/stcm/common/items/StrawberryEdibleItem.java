@@ -51,7 +51,7 @@ public class StrawberryEdibleItem extends StrawberryItem {
 	public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity consumer) {
 		if (isChorus) {
 			boolean didTeleport = false;
-			for (int i = 0; i < 99; i++) {
+			for (int i = 0; i < 16; i++) {
 				if (!didTeleport) {
 					double cx = consumer.getRandomX(16.0);
 					double cy = MathHelper.floor(MathHelper.clamp(consumer.getRandomY(), 0.0, worldIn.getHeight()));
