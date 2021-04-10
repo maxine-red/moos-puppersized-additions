@@ -24,7 +24,6 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -34,7 +33,7 @@ public class StrawberryInitializer {
     public static final ItemGroup ITEM_GROUP = new ItemGroup(StrawberryTwirlCompanion.ID) {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(Blocks.DIRT);
+            return new ItemStack(StrawberryItems.GLASS_FLASK);
         }
     };
 	

@@ -26,8 +26,8 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.StrawberryEdibleBottleItem;
 import net.mootech.stcm.common.items.StrawberryItem;
+import net.mootech.stcm.common.items.JuiceItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 /**
@@ -80,14 +80,14 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 			}
 		}
 		
-		for (StrawberryEdibleBottleItem bottle : StrawberryItems.JUICES) {
-			if (!chorus_pattern.matcher(bottle.getId()).find()) {
-				withExistingParent(bottle.getId(), GENERATED).texture("layer0", bottle_base);
-				withExistingParent(bottle.getId(), GENERATED).texture("layer1", bottle_overlay);
+		for (JuiceItem juice : StrawberryItems.JUICES) {
+			if (!chorus_pattern.matcher(juice.getId()).find()) {
+				withExistingParent(juice.getId(), GENERATED).texture("layer0", bottle_base);
+				withExistingParent(juice.getId(), GENERATED).texture("layer1", bottle_overlay);
 			}
 			else {
-				withExistingParent(bottle.getId(), GENERATED).texture("layer0", "item/bottle_base_chorus");
-				withExistingParent(bottle.getId(), GENERATED).texture("layer1", "item/bottle_overlay_chorus");
+				withExistingParent(juice.getId(), GENERATED).texture("layer0", "item/bottle_base_chorus");
+				withExistingParent(juice.getId(), GENERATED).texture("layer1", "item/bottle_overlay_chorus");
 			}
 		}
 			/*else if (jam_pattern.matcher(bottle.getId()).find()) {

@@ -24,11 +24,13 @@ import javax.annotation.Nullable;
 
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BucketItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
+import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.fluids.StrawberryFluid;
 
@@ -46,6 +48,8 @@ public class StrawberryBucketItem extends BucketItem {
 	protected final String name;
 	
 	private final int color;
+	
+	protected static final Item.Properties DEFAULT_BUCKET_PROPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.BUCKET);
 
 	/**
 	 * Custom bucket class constructor, to allow for ID handling.

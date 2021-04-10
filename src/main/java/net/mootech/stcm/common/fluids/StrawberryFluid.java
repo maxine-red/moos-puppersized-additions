@@ -71,7 +71,7 @@ public class StrawberryFluid extends FlowingFluid {
 	protected static final Item.Properties BUCKET_PROPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.BUCKET);
 	
 	/**
-	 * Constructor for VirtualFluid
+	 * Constructor for StrawberryFluid
 	 * 
 	 * Simplest constructor, that assumes textures are under '<modid>:fluids/<id>'
 	 * @param id String Fluid ID
@@ -81,25 +81,24 @@ public class StrawberryFluid extends FlowingFluid {
 	}
 
 	/**
-	 * Constructor for VirtualFluid
+	 * Constructor for StrawberryFluid
 	 * 
 	 * Simplest constructor, that assumes textures are under '<modid>:fluids/<id>'
 	 * @param id String Fluid ID
 	 * @param color Color Color to use for this fluid (only effects containers)
 	 */
 	public StrawberryFluid(String id, Color color) {
-		this(id, color, new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id + "_flow"));
+		this(id, color, -1);
 	}
 	
 	/**
 	 * More advanced constructor
 	 * @param id String Fluid ID
 	 * @param color Color Color to use for this fluid (only effects containers)
-	 * @param still_resource ResourceLocation for still resource
-	 * @param flowing_resource ResourceLocation for flowing resource
+	 * @param burn_time Time, in ticks, this fluid's bucket smelts
 	 */
-	public StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource) {
-		this(id, color, still_resource, flowing_resource, true);
+	public StrawberryFluid(String id, Color color, int burn_time) {
+		this(id, color, true, burn_time);
 	}
 	
 	/**
@@ -110,8 +109,8 @@ public class StrawberryFluid extends FlowingFluid {
 	 * @param flowing_resource ResourceLocation for flowing resource
 	 * @param is_source Boolean wether this fluid is a source or not
 	 */
-	public StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, boolean is_source) {
-		this(id, color, still_resource, flowing_resource, is_source, -1);
+	public StrawberryFluid(String id, Color color, boolean is_source) {
+		this(id, color, is_source, -1);
 	}
 	
 	/**
@@ -123,8 +122,8 @@ public class StrawberryFluid extends FlowingFluid {
 	 * @param is_source Boolean wether this fluid is a source or not
 	 * @param burn_time Furnace burning time of this fluid
 	 */
-	public StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, boolean is_source, int burn_time) {
-		this(id, color, still_resource, flowing_resource, is_source, burn_time, true);
+	public StrawberryFluid(String id, Color color, boolean is_source, int burn_time) {
+		this(id, color, is_source, burn_time, true);
 	}
 	
 	/**
@@ -136,9 +135,9 @@ public class StrawberryFluid extends FlowingFluid {
 	 * @param burn_time Furnace burning time of this fluid
 	 * @param has_bucket Make standard bucket item or not
 	 */
-	protected StrawberryFluid(String id, Color color, ResourceLocation still_resource, ResourceLocation flowing_resource, boolean is_source, int burn_time, boolean has_bucket) {
-		this.still_resource = still_resource;
-		this.flowing_resource = flowing_resource;
+	protected StrawberryFluid(String id, Color color, boolean is_source, int burn_time, boolean has_bucket) {
+		this.still_resource = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id);
+		this.flowing_resource = new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id + "_flow");
 		this.is_source = is_source;
 		this.name = StringID.idToName(id);
 		this.color = color;
@@ -167,15 +166,11 @@ public class StrawberryFluid extends FlowingFluid {
 	 * @param has_bucket Create default bucket, if set to true
 	 */
 	protected StrawberryFluid(String id, Color color, int burn_time, boolean has_bucket) {
-		this(id, color, new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + id + "_flow"), true, burn_time, has_bucket);
+		this(id, color, true, burn_time, has_bucket);
 	}
-
-	/**
-	 * @param virtualFluid
-	 * @return
-	 */
+	
 	protected StrawberryFluid createFlowingFromSource() {
-		StrawberryFluid r = new StrawberryFluid(id, color, still_resource, flowing_resource, false);
+		StrawberryFluid r = new StrawberryFluid(id, color, false);
 		r.source = this;
 		r.bucket = this.bucket;
 		return r;

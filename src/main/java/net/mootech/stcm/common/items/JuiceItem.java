@@ -30,27 +30,25 @@ import net.mootech.stcm.util.Color;
  * @author Maxine Red
  *
  */
-public class StrawberryJuiceItem extends StrawberryEdibleBottleItem {
+public class JuiceItem extends EdibleBottleItem {
 	protected static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16).craftRemainder(StrawberryItems.GLASS_FLASK);
 	protected final Item crop;
 	protected final int craftAmount;
 	
-	public StrawberryJuiceItem(String id, Color color, Properties properties, Item crop) {
+	public JuiceItem(String id, Color color, Properties properties, Item crop) {
 		this(id, color, properties, crop, 1);
 	}
 	
-	public StrawberryJuiceItem(String id, Color color, Properties properties, Item crop, int craftAmount) {
-		super(id, color, properties);
-		this.crop = crop;
-		this.craftAmount = craftAmount;
-	}
-	
-	public StrawberryJuiceItem(String id, Color color, Food foodProperties, Item crop) {
+	public JuiceItem(String id, Color color, Food foodProperties, Item crop) {
 		this(id, color, foodProperties, crop, 1);
 	}
 	
-	public StrawberryJuiceItem(String id, Color color, Food foodProperties, Item crop, int craftAmount) {
-		super(id, color, BOTTLE_PROPERTIES.food(foodProperties));
+	public JuiceItem(String id, Color color, Food foodProperties, Item crop, int craftAmount) {
+		this(id, color, BOTTLE_PROPERTIES.food(foodProperties), crop, craftAmount);
+	}
+	
+	public JuiceItem(String id, Color color, Properties properties, Item crop, int craftAmount) {
+		super(id, color, properties);
 		StrawberryItems.JUICES.add(this);
 		this.crop = crop;
 		this.craftAmount = craftAmount;

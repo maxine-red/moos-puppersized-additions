@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "juice_convenience",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:golden_apple_juice_bucket"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "strawberrytwirl:golden_apple_juice",
+    "count": 4
+  }
+}

@@ -32,21 +32,19 @@ import net.mootech.stcm.util.Color;
  * @author Maxine Red
  *
  */
-public class StrawberryEdibleBottleItem extends StrawberryEdibleItem {
+public class EdibleBottleItem extends EdibleItem {
 	// TODO Make juice and jam bottles to have distinct drink sounds
-	// TODO: Make a special chorus subclass that implements chorus fruit behavior again
-	// TODO: Return glass bottle when done drinking
 	// TODO: Add apple pulp from golden apple juicing and add a shredding recipe from normal apples (that doesn't produce juice), mixing, cutting and crafting
 	protected final int color;
-	public StrawberryEdibleBottleItem(String id, Color color) {
+	public EdibleBottleItem(String id, Color color) {
 		this(id, color, new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.GLASS_BOTTLE));
 	}
 
-	public StrawberryEdibleBottleItem(String id, Color color, Properties properties) {
+	public EdibleBottleItem(String id, Color color, Properties properties) {
 		this(id, color, properties, -1);
 	}
 	
-	public StrawberryEdibleBottleItem(String id, Color color, Properties properties, int burn_time) {
+	public EdibleBottleItem(String id, Color color, Properties properties, int burn_time) {
 		super(id, properties, burn_time);
 		this.color = color.combine_rgb();
 	}
@@ -64,7 +62,7 @@ public class StrawberryEdibleBottleItem extends StrawberryEdibleItem {
 	 * @return this
 	 */
 	@Override
-	public StrawberryEdibleBottleItem setName(String name) {
+	public EdibleBottleItem setName(String name) {
 		this.name = name;
 		return this;
 	}

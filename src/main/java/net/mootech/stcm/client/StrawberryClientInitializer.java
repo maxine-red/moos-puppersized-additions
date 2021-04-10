@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.StrawberryEdibleBottleItem;
+import net.mootech.stcm.common.items.EdibleBottleItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.api.distmarker.Dist;
@@ -46,7 +46,7 @@ public class StrawberryClientInitializer {
     			}
     		}, bucket);
     	}
-    	for (StrawberryEdibleBottleItem bottle : StrawberryItems.JUICES) {
+    	for (EdibleBottleItem bottle : StrawberryItems.JUICES) {
     		LOGGER.debug("Registering color tinting for: " + bottle.getId());
     		event.getItemColors().register((stack, tintIndex) -> {
     			if (tintIndex == 1) {

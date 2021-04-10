@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "juice_convenience",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:sweet_berry_juice"
+    },
+    {
+      "item": "strawberrytwirl:sweet_berry_juice"
+    },
+    {
+      "item": "strawberrytwirl:sweet_berry_juice"
+    },
+    {
+      "item": "strawberrytwirl:sweet_berry_juice"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "strawberrytwirl:sweet_berry_juice_bucket"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "juice_convenience",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:golden_apple_juice"
+    },
+    {
+      "item": "strawberrytwirl:golden_apple_juice"
+    },
+    {
+      "item": "strawberrytwirl:golden_apple_juice"
+    },
+    {
+      "item": "strawberrytwirl:golden_apple_juice"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "strawberrytwirl:golden_apple_juice_bucket"
+  }
+}

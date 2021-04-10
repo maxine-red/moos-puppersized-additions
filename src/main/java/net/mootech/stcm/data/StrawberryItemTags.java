@@ -18,20 +18,36 @@
 
 package net.mootech.stcm.data;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
+import net.minecraft.item.Item;
+import net.minecraft.tags.ITag;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.mootech.stcm.common.StrawberryItems;
+import net.mootech.stcm.common.items.JuiceItem;
 
 /**
  * @author Maxine Red
  *
  */
-public class StrawberryTags extends ItemTagsProvider {
+public class StrawberryItemTags extends ItemTagsProvider {
+	
+	private ITag.INamedTag<Item> CREATE_UPRIGHT_ON_BELT = ItemTags.bind(new ResourceLocation("create", "upright_on_belt").toString());
 
-	public StrawberryTags(DataGenerator gen, BlockTagsProvider blockTagProvider, String modId, @Nullable ExistingFileHelper existingFileHelper) {
-		super(gen, blockTagProvider, modId, existingFileHelper);
+
+	// TODO add diet tags for sugar, fruit etc
+	// TODO add other items to upright on belt, that should be upright on create belts
+	public StrawberryItemTags(DataGenerator gen, BlockTagsProvider provider, String modId, ExistingFileHelper existingFileHelper) {
+		super(gen, provider, modId, existingFileHelper);
 	}
+
+    @Override
+    public void addTags() {
+    	for (JuiceItem juice : StrawberryItems.JUICES) {
+        	getOrCreateRawBuilder(CREATE_UPRIGHT_ON_BELT).addElement(juice.getRegistryName(), folder);
+    	}
+    }
 }

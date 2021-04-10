@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "juice_convenience",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:chorus_juice"
+    },
+    {
+      "item": "strawberrytwirl:chorus_juice"
+    },
+    {
+      "item": "strawberrytwirl:chorus_juice"
+    },
+    {
+      "item": "strawberrytwirl:chorus_juice"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "strawberrytwirl:chorus_juice_bucket"
+  }
+}

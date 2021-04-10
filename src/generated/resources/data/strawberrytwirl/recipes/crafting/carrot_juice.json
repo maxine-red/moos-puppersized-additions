@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "juice_making",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:glass_flask"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "item": "strawberrytwirl:carrot_juice"
+  }
+}

@@ -22,13 +22,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.mootech.stcm.common.fluids.JamFluid;
 import net.mootech.stcm.common.fluids.JuiceFluid;
@@ -49,42 +49,28 @@ public class StrawberryFluids {
 	public static final Color SWEET_BERRY_COLOR = new Color(130, 11, 5);
 	public static final Color CARROT_COLOR = new Color(255, 142, 9);
 	public static final Color GOLDEN_CARROT_COLOR = new Color(236, 203, 69);
+
+	public static final StrawberryFluid GELATIN = new StrawberryFluid("gelatin", new Color(232, 232, 211));
+	public static final StrawberryFluid SEED_OIL = new StrawberryFluid("seed_oil", new Color(229, 235, 174), 4000);
+
+	public static final JuiceFluid APPLE_JUICE = new JuiceFluid("apple", APPLE_COLOR, () -> StrawberryItems.APPLE_JUICE);
+	public static final JuiceFluid GOLDEN_APPLE_JUICE = new JuiceFluid("golden_apple", GOLDEN_APPLE_COLOR, () -> StrawberryItems.GOLDEN_APPLE_JUICE, Rarity.RARE);
+	public static final JuiceFluid MELON_JUICE = new JuiceFluid("melon", MELON_COLOR, () -> StrawberryItems.MELON_JUICE);
+	public static final JuiceFluid CHORUS_JUICE = new JuiceFluid("chorus", CHORUS_COLOR, () -> StrawberryItems.CHORUS_JUICE);
+	public static final JuiceFluid SWEET_BERRY_JUICE = new JuiceFluid("sweet_berry", SWEET_BERRY_COLOR, () -> StrawberryItems.SWEET_BERRY_JUICE);
+	public static final JuiceFluid CARROT_JUICE = new JuiceFluid("carrot", CARROT_COLOR, () -> StrawberryItems.CARROT_JUICE);
+	public static final JuiceFluid GOLDEN_CARROT_JUICE = new JuiceFluid("golden_carrot", GOLDEN_CARROT_COLOR, () -> StrawberryItems.GOLDEN_CARROT_JUICE, Rarity.UNCOMMON);
+
+	public static final JamFluid APPLE_JAM = new JamFluid("apple", APPLE_COLOR);
+	public static final JamFluid GOLDEN_APPLE_JAM = new JamFluid("golden_apple", GOLDEN_APPLE_COLOR);
+	public static final JamFluid MELON_JAM = new JamFluid("melon", MELON_COLOR);
+	public static final JamFluid CHORUS_JAM = new JamFluid("chorus", CHORUS_COLOR);
+	public static final JamFluid SWEET_BERRY_JAM = new JamFluid("sweet_berry", SWEET_BERRY_COLOR);
+	
     
     private static final Logger LOGGER = LogManager.getLogger();
-    
-    /**
-     * Prepare fruit fluids, to put all of them into one place
-     */
-    private static void prepareFluids() {
-    	HashMap<String, Color> fruits = new HashMap<>();
-    	HashMap<String, Color> veggies = new HashMap<>();
-    	// Minecraft vanilla fruits
-    	fruits.put("apple", APPLE_COLOR);
-    	fruits.put("golden_apple", GOLDEN_APPLE_COLOR);
-    	fruits.put("melon", MELON_COLOR);
-    	fruits.put("chorus", CHORUS_COLOR);
-    	fruits.put("sweet_berry", SWEET_BERRY_COLOR);
-    	
-    	// Minecraft vanilla veggies
-    	veggies.put("carrot", CARROT_COLOR);
-    	veggies.put("golden_carrot", GOLDEN_CARROT_COLOR);
-    	
-    	for (String fruit : fruits.keySet()) {
-        	LOGGER.debug("Adding juice and jam for " + fruit + " to registry.");
-        	new JuiceFluid(fruit, fruits.get(fruit));
-        	new JamFluid(fruit, fruits.get(fruit).darken(0.239).saturate(0.068));
-    	}
-    	
-    	for (String veggy : veggies.keySet()) {
-        	LOGGER.debug("Adding juice and jam for " + veggy + " to registry.");
-        	new JuiceFluid(veggy, veggies.get(veggy));
-    	}
-    	// Add more here, if special juices or jams (e.g. with burn time are needed
-    	// new MagicEssenceFluid(essence, new Color(), 0);
-    }
 
     public static void init(IEventBus modEventBus) {
-    	prepareFluids();
     	LOGGER.debug("Registering strawberry fluids");
     	for (StrawberryFluid fluid : REGISTERED_FLUIDS) {
     		LOGGER.debug("Registering: " + fluid.getID());

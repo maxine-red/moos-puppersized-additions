@@ -30,14 +30,14 @@ import net.minecraft.world.World;
  * @author Maxine Red
  *
  */
-public class StrawberryEdibleItem extends StrawberryItem {
+public class EdibleItem extends StrawberryItem {
 	protected final boolean isChorus;
 	
-	public StrawberryEdibleItem(String id, Properties properties) {
+	public EdibleItem(String id, Properties properties) {
 		this(id, properties, -1);
 	}
 	
-	public StrawberryEdibleItem(String id, Properties properties, int burn_time) {
+	public EdibleItem(String id, Properties properties, int burn_time) {
 		super(id, properties, burn_time);
 		this.isChorus = Pattern.compile("chorus").matcher(id).find();
 	}
