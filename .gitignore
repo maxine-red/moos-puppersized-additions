@@ -25,4 +25,5 @@ run
 forge*changelog.txt
 
 # Project specific
-src/main/resources/assets/strawberrytwirl/textures/fluids/templates
+templates/
+model_creation/
