@@ -18,6 +18,8 @@
 
 package net.mootech.stcm.data;
 
+import java.util.regex.Pattern;
+
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
@@ -36,6 +38,15 @@ import net.mootech.stcm.common.items.JuiceItem;
 public class StrawberryItemTags extends ItemTagsProvider {
 	
 	private ITag.INamedTag<Item> CREATE_UPRIGHT_ON_BELT = ItemTags.bind(new ResourceLocation("create", "upright_on_belt").toString());
+	private ITag.INamedTag<Item> DIET_FRUITS = ItemTags.bind(new ResourceLocation("diet", "fruits").toString());
+	private ITag.INamedTag<Item> DIET_VEGETABLES = ItemTags.bind(new ResourceLocation("diet", "vegetables").toString());
+	private ITag.INamedTag<Item> DIET_PROTEINS = ItemTags.bind(new ResourceLocation("diet", "proteins").toString());
+	private ITag.INamedTag<Item> DIET_GRAINS = ItemTags.bind(new ResourceLocation("diet", "grains").toString());
+	private ITag.INamedTag<Item> DIET_SUGARS = ItemTags.bind(new ResourceLocation("diet", "sugars").toString());
+	private ITag.INamedTag<Item> DIET_WATER = ItemTags.bind(new ResourceLocation("diet", "water").toString());
+	private ITag.INamedTag<Item> FORGE_EDIBLES = ItemTags.bind(new ResourceLocation("forge", "edibles").toString());
+	
+	private final Pattern carrot_pattern = Pattern.compile("carrot");
 
 
 	// TODO add diet tags for sugar, fruit etc
@@ -48,6 +59,14 @@ public class StrawberryItemTags extends ItemTagsProvider {
     public void addTags() {
     	for (JuiceItem juice : StrawberryItems.JUICES) {
         	getOrCreateRawBuilder(CREATE_UPRIGHT_ON_BELT).addElement(juice.getRegistryName(), folder);
+        	if (carrot_pattern.matcher(juice.getId()).find()) {
+            	getOrCreateRawBuilder(DIET_VEGETABLES).addElement(juice.getRegistryName(), folder);
+        	}
+        	else {
+            	getOrCreateRawBuilder(DIET_FRUITS).addElement(juice.getRegistryName(), folder);
+        	}
+        	getOrCreateRawBuilder(DIET_WATER).addElement(juice.getRegistryName(), folder);
+        	getOrCreateRawBuilder(FORGE_EDIBLES).addElement(juice.getRegistryName(), folder);
     	}
     }
 }

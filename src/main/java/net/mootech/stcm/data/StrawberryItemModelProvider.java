@@ -28,6 +28,7 @@ import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.items.StrawberryItem;
 import net.mootech.stcm.common.items.JuiceItem;
+import net.mootech.stcm.common.items.StrawberryBlockItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 /**
@@ -37,10 +38,9 @@ import net.mootech.stcm.common.items.StrawberryBucketItem;
  */
 public class StrawberryItemModelProvider extends ItemModelProvider {
 	private static final String GENERATED = "item/generated";
+	private static final String HAND_HELD = "item/handheld";
 
 	private static final ResourceLocation bucket_base = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_base");
-	private static final ResourceLocation bucket_overlay_thin = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_overlay_thin");
-	private static final ResourceLocation bucket_overlay_drink = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_overlay_drink");
 	
 	private static final ResourceLocation bottle_base = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bottle_base");
 	private static final ResourceLocation bottle_overlay = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bottle_overlay");
@@ -48,8 +48,6 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 	//private static final ResourceLocation jar_base = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/jar_base");
 	//private static final ResourceLocation jar_overlay = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/jar_overlay");
 	
-	private static final Pattern juice_pattern = Pattern.compile("_juice");
-	private static final Pattern jam_pattern = Pattern.compile("_jam");
 	private static final Pattern chorus_pattern = Pattern.compile("chorus");
 
 	/**
@@ -63,21 +61,13 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-		for (StrawberryItem item : StrawberryItems.REGISTERED_ITEMS) {
-			if(!(StrawberryItems.JUICES.contains(item))) {
-				withExistingParent(item.getId(), GENERATED).texture("layer0", "item/" + item.getId());
-			}
-			
+		for(StrawberryBlockItem block : StrawberryItems.REGISTERED_BLOCK_ITEMS) {
+			withExistingParent(block.getId(), block.getBlock().getRegistryName());
 		}
+		
 		for (StrawberryBucketItem bucket : StrawberryItems.BUCKETS) {
-			if (juice_pattern.matcher(bucket.getId()).find()) {
-				withExistingParent(bucket.getId(), GENERATED).texture("layer0", bucket_base);
-				withExistingParent(bucket.getId(), GENERATED).texture("layer1", bucket_overlay_drink);
-			}
-			else if (jam_pattern.matcher(bucket.getId()).find()) {
-				withExistingParent(bucket.getId(), GENERATED).texture("layer0", bucket_base);
-				withExistingParent(bucket.getId(), GENERATED).texture("layer1", bucket_overlay_thin);
-			}
+			withExistingParent(bucket.getId(), GENERATED).texture("layer0", bucket_base);
+			withExistingParent(bucket.getId(), GENERATED).texture("layer1", bucket.getOverlay());
 		}
 		
 		for (JuiceItem juice : StrawberryItems.JUICES) {
@@ -100,6 +90,13 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 					withExistingParent(bottle.getId(), GENERATED).texture("layer1", "item/jar_overlay_chorus");
 				}
 			}*/
+		
+		// Register Items, that are not in other groups
+		for (StrawberryItem item : StrawberryItems.REGISTERED_ITEMS) {
+			if(!(StrawberryItems.JUICES.contains(item))) {
+				withExistingParent(item.getId(), GENERATED).texture("layer0", "item/" + item.getId());
+			}
+		}
 	}
 
 }

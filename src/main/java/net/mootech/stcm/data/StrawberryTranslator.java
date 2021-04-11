@@ -18,13 +18,17 @@
 
 package net.mootech.stcm.data;
 
+import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.StrawberryBlocks;
 import net.mootech.stcm.common.StrawberryFluids;
 import net.mootech.stcm.common.StrawberryItems;
+import net.mootech.stcm.common.block.StrawberryBlock;
 import net.mootech.stcm.common.fluids.StrawberryFluid;
+import net.mootech.stcm.common.items.StrawberryBlockItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 import net.mootech.stcm.common.items.StrawberryItem;
 
@@ -47,6 +51,12 @@ public class StrawberryTranslator extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		add("itemGroup.strawberrytwirl", "Strawberry Twirl");
+		for (StrawberryBlock block : StrawberryBlocks.REGISTERED_BLOCKS) {
+			add((Block)block, block.getName().getString());
+		}
+		for (StrawberryBlockItem item : StrawberryItems.REGISTERED_BLOCK_ITEMS) {
+			add((Item)item, item.getName());
+		}
 		for (StrawberryItem item : StrawberryItems.REGISTERED_ITEMS) {
 			add((Item)item, item.getName());
 		}

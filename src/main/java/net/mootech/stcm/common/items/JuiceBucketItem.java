@@ -19,6 +19,7 @@ public class JuiceBucketItem extends StrawberryBucketItem {
 		super(fluid, DEFAULT_BUCKET_PROPERTIES.rarity(rarity));
 		this.bottle = bottle;
 		StrawberryItems.JUICE_BUCKETS.add(this);
+		this.overlay = OVERLAY_DRINK;
 	}
 
 	

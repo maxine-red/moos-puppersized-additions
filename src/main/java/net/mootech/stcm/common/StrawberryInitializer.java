@@ -38,8 +38,9 @@ public class StrawberryInitializer {
     };
 	
 	public static void init(IEventBus modEventBus) {
-		LOGGER.debug("Initializing modded items/blocks/fluids");
+		LOGGER.debug("Initializing modded fluids, blocks and items");
         StrawberryFluids.init(modEventBus);
+        StrawberryBlocks.init(modEventBus);
         StrawberryItems.init(modEventBus);
 	}
 

@@ -36,13 +36,18 @@ import net.mootech.stcm.common.items.JuiceBucketItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
 import net.mootech.stcm.common.items.StrawberryItem;
 import net.mootech.stcm.common.items.JuiceItem;
+import net.mootech.stcm.common.items.StrawberryBlockItem;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
 	public static final List<StrawberryItem> REGISTERED_ITEMS = new ArrayList<>();
+	public static final List<StrawberryBlockItem> REGISTERED_BLOCK_ITEMS = new ArrayList<>();
 
 	public static final List<StrawberryBucketItem> BUCKETS = new ArrayList<>();
 	public static final List<JuiceBucketItem> JUICE_BUCKETS = new ArrayList<>();
+	
+	// Block items
+	public static final StrawberryBlockItem SALT_CRYSTAL = new StrawberryBlockItem("salt_crystal", StrawberryBlocks.SALT_CRYSTAL.get(), new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP));
 	
 	public static final StrawberryItem GLASS_FLASK = new StrawberryItem("glass_flask");
 	public static final StrawberryItem GLASS_JAR = new StrawberryItem("glass_jar");
@@ -75,11 +80,15 @@ public class StrawberryItems {
     public static void init(IEventBus modEventBus) {
     	LOGGER.debug("Registering strawberry items");
     	for (StrawberryBucketItem bucket : BUCKETS) {
-    		LOGGER.debug("Registering: " + bucket.getId());
+    		LOGGER.debug("Registering bucket: " + bucket.getId());
     		ITEMS.register(bucket.getId(), () -> bucket);
     	}
+    	for (StrawberryBlockItem block_item : REGISTERED_BLOCK_ITEMS) {
+    		LOGGER.debug("Registering block item: " + block_item.getId());
+    		ITEMS.register(block_item.getId(), () -> block_item);
+    	}
     	for (StrawberryItem item : REGISTERED_ITEMS) {
-    		LOGGER.debug("Registering: " + item.getId());
+    		LOGGER.debug("Registering item: " + item.getId());
     		ITEMS.register(item.getId(), () -> item);
     	}
         ITEMS.register(modEventBus);

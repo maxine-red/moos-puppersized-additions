@@ -28,8 +28,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
+import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
 import net.mootech.stcm.common.fluids.StrawberryFluid;
@@ -46,10 +48,14 @@ public class StrawberryBucketItem extends BucketItem {
 	protected final String id;
 	protected final int burn_time;
 	protected final String name;
+	protected ResourceLocation overlay;
 	
 	private final int color;
 	
 	protected static final Item.Properties DEFAULT_BUCKET_PROPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.BUCKET);
+
+	protected static final ResourceLocation OVERLAY_THIN = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_overlay_thin");
+	protected static final ResourceLocation OVERLAY_DRINK = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_overlay_drink");
 
 	/**
 	 * Custom bucket class constructor, to allow for ID handling.
@@ -66,6 +72,7 @@ public class StrawberryBucketItem extends BucketItem {
 		this.name = fluid.get().getName() + " Bucket";
 		this.color = fluid.get().getColor();
 		this.burn_time = burn_time;
+		this.overlay = OVERLAY_THIN;
 		StrawberryItems.BUCKETS.add(this);
 	}
 	
@@ -91,6 +98,10 @@ public class StrawberryBucketItem extends BucketItem {
 	 */
 	public int getColor() {
 		return color;
+	}
+	
+	public ResourceLocation getOverlay() {
+		return this.overlay;
 	}
 	
 	@Override
