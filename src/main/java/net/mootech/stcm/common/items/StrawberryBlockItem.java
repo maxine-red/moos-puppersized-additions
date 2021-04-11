@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.block.StrawberryBlock;
 import net.mootech.stcm.util.StringID;
 
 public class StrawberryBlockItem extends BlockItem {
@@ -26,7 +25,7 @@ public class StrawberryBlockItem extends BlockItem {
 		this.id = id;
 		this.burn_time = burn_time;
 		this.name = name;
-		StrawberryItems.REGISTERED_BLOCK_ITEMS.add(this);
+		//StrawberryItems.REGISTERED_BLOCK_ITEMS.add(this);
 	}
 	
 	/**

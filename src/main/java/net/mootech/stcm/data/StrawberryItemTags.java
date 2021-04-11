@@ -57,7 +57,7 @@ public class StrawberryItemTags extends ItemTagsProvider {
 
     @Override
     public void addTags() {
-    	for (JuiceItem juice : StrawberryItems.JUICES) {
+    	/*for (JuiceItem juice : StrawberryItems.JUICES) {
         	getOrCreateRawBuilder(CREATE_UPRIGHT_ON_BELT).addElement(juice.getRegistryName(), folder);
         	if (carrot_pattern.matcher(juice.getId()).find()) {
             	getOrCreateRawBuilder(DIET_VEGETABLES).addElement(juice.getRegistryName(), folder);
@@ -67,6 +67,6 @@ public class StrawberryItemTags extends ItemTagsProvider {
         	}
         	getOrCreateRawBuilder(DIET_WATER).addElement(juice.getRegistryName(), folder);
         	getOrCreateRawBuilder(FORGE_EDIBLES).addElement(juice.getRegistryName(), folder);
-    	}
+    	}*/
     }
 }

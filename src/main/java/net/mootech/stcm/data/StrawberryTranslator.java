@@ -51,7 +51,8 @@ public class StrawberryTranslator extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		add("itemGroup.strawberrytwirl", "Strawberry Twirl");
-		for (StrawberryBlock block : StrawberryBlocks.REGISTERED_BLOCKS) {
+		// TODO redo translations
+		/*for (StrawberryBlock block : StrawberryBlocks.REGISTERED_BLOCKS) {
 			add((Block)block, block.getName().getString());
 		}
 		for (StrawberryBlockItem item : StrawberryItems.REGISTERED_BLOCK_ITEMS) {
@@ -65,7 +66,7 @@ public class StrawberryTranslator extends LanguageProvider {
 		}
 		for (StrawberryFluid fluid : StrawberryFluids.SOURCE_FLUIDS) {
 			add("fluid." + StrawberryTwirlCompanion.ID + "." + fluid.getID(), fluid.getName());
-		}
+		}*/
 	}
 
 }

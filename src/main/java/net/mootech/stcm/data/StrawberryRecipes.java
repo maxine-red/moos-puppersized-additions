@@ -59,13 +59,13 @@ public class StrawberryRecipes extends RecipeProvider {
 
 	@Override
 	protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
-		addGlassContainerRecipe(consumer);
-		addJuiceRecipes(consumer);
-		addJuiceBucketRecipes(consumer);
-		addJuiceBucketToBottlesRecipes(consumer);
-		addJuiceBottlesToBucketRecipes(consumer);
+		//addGlassContainerRecipe(consumer);
+		//addJuiceRecipes(consumer);
+		//addJuiceBucketRecipes(consumer);
+		//addJuiceBucketToBottlesRecipes(consumer);
+		//addJuiceBottlesToBucketRecipes(consumer);
 	}
-	
+	/*
 	private void addGlassContainerRecipe(Consumer<IFinishedRecipe> consumer) {
 		ShapedRecipeBuilder.shaped(StrawberryItems.GLASS_FLASK, 4).pattern("g g").pattern("g g").define('g', Items.GLASS)
 		.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))
@@ -108,5 +108,5 @@ public class StrawberryRecipes extends RecipeProvider {
 			.unlockedBy("has_" + bottle.getId(), InventoryChangeTrigger.Instance.hasItems(bottle)).group("juice_convenience")
 			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + bucket.getId() + "_from_" + bottle.getId()));
 		}
-	}
+	}*/
 }

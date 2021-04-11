@@ -31,7 +31,7 @@ import net.mootech.stcm.util.Color;
  *
  */
 public class JuiceItem extends EdibleBottleItem {
-	protected static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16).craftRemainder(StrawberryItems.GLASS_FLASK);
+	protected static final Item.Properties BOTTLE_PROPERTIES = new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16).craftRemainder(StrawberryItems.GLASS_FLASK.get());
 	protected final Item crop;
 	protected final int craftAmount;
 	
@@ -49,7 +49,7 @@ public class JuiceItem extends EdibleBottleItem {
 	
 	public JuiceItem(String id, Color color, Properties properties, Item crop, int craftAmount) {
 		super(id, color, properties);
-		StrawberryItems.JUICES.add(this);
+		//StrawberryItems.JUICES.add(this);
 		this.crop = crop;
 		this.craftAmount = craftAmount;
 	}
@@ -76,7 +76,7 @@ public class JuiceItem extends EdibleBottleItem {
 	 * @return Item
 	 */
 	public Item getCraftingRemainderItem() {
-		return StrawberryItems.GLASS_FLASK;
+		return StrawberryItems.GLASS_FLASK.get();
 	}
 	
 	@Override

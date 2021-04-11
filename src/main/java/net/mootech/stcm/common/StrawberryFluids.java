@@ -38,9 +38,6 @@ import net.mootech.stcm.util.Color;
 public class StrawberryFluids {
 	
 	private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, StrawberryTwirlCompanion.ID);
-	public static final List<StrawberryFluid> REGISTERED_FLUIDS = new ArrayList<>();
-	
-	public static final List<StrawberryFluid> SOURCE_FLUIDS = new ArrayList<>();
 
 	public static final Color APPLE_COLOR = new Color(219, 162, 19);
 	public static final Color GOLDEN_APPLE_COLOR = new Color(234, 238, 87);
@@ -50,7 +47,7 @@ public class StrawberryFluids {
 	public static final Color CARROT_COLOR = new Color(255, 142, 9);
 	public static final Color GOLDEN_CARROT_COLOR = new Color(236, 203, 69);
 
-	public static final StrawberryFluid GELATIN = new StrawberryFluid("gelatin", new Color(232, 232, 211));
+	/*public static final StrawberryFluid GELATIN = new StrawberryFluid("gelatin", new Color(232, 232, 211));
 	public static final StrawberryFluid SEED_OIL = new StrawberryFluid("seed_oil", new Color(229, 235, 174), 4000);
 
 	public static final JuiceFluid APPLE_JUICE = new JuiceFluid("apple", APPLE_COLOR, () -> StrawberryItems.APPLE_JUICE);
@@ -65,17 +62,13 @@ public class StrawberryFluids {
 	public static final JamFluid GOLDEN_APPLE_JAM = new JamFluid("golden_apple", GOLDEN_APPLE_COLOR);
 	public static final JamFluid MELON_JAM = new JamFluid("melon", MELON_COLOR);
 	public static final JamFluid CHORUS_JAM = new JamFluid("chorus", CHORUS_COLOR);
-	public static final JamFluid SWEET_BERRY_JAM = new JamFluid("sweet_berry", SWEET_BERRY_COLOR);
+	public static final JamFluid SWEET_BERRY_JAM = new JamFluid("sweet_berry", SWEET_BERRY_COLOR);*/
 	
     
     private static final Logger LOGGER = LogManager.getLogger();
 
     public static void init(IEventBus modEventBus) {
     	LOGGER.debug("Registering strawberry fluids");
-    	for (StrawberryFluid fluid : REGISTERED_FLUIDS) {
-    		LOGGER.debug("Registering: " + fluid.getID());
-    		FLUIDS.register(fluid.getID(), () -> fluid);
-    	}
         FLUIDS.register(modEventBus);
     }
 

@@ -73,7 +73,7 @@ public class StrawberryBucketItem extends BucketItem {
 		this.color = fluid.get().getColor();
 		this.burn_time = burn_time;
 		this.overlay = OVERLAY_THIN;
-		StrawberryItems.BUCKETS.add(this);
+		//StrawberryItems.BUCKETS.add(this);
 	}
 	
 	/**

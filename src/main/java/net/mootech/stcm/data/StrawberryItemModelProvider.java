@@ -61,7 +61,7 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-		for(StrawberryBlockItem block : StrawberryItems.REGISTERED_BLOCK_ITEMS) {
+		/*for(StrawberryBlockItem block : StrawberryItems.REGISTERED_BLOCK_ITEMS) {
 			withExistingParent(block.getId(), block.getBlock().getRegistryName());
 		}
 		
@@ -79,7 +79,7 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 				withExistingParent(juice.getId(), GENERATED).texture("layer0", "item/bottle_base_chorus");
 				withExistingParent(juice.getId(), GENERATED).texture("layer1", "item/bottle_overlay_chorus");
 			}
-		}
+		}*/
 			/*else if (jam_pattern.matcher(bottle.getId()).find()) {
 				if (!chorus_pattern.matcher(bottle.getId()).find()) {
 					withExistingParent(bottle.getId(), GENERATED).texture("layer0", jar_base);
@@ -92,11 +92,11 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 			}*/
 		
 		// Register Items, that are not in other groups
-		for (StrawberryItem item : StrawberryItems.REGISTERED_ITEMS) {
+		/*for (StrawberryItem item : StrawberryItems.REGISTERED_ITEMS) {
 			if(!(StrawberryItems.JUICES.contains(item))) {
 				withExistingParent(item.getId(), GENERATED).texture("layer0", "item/" + item.getId());
 			}
-		}
+		}*/
 	}
 
 }

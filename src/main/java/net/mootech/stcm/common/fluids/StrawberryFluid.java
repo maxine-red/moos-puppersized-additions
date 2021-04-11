@@ -141,7 +141,7 @@ public class StrawberryFluid extends FlowingFluid {
 		this.is_source = is_source;
 		this.name = StringID.idToName(id);
 		this.color = color;
-		StrawberryFluids.REGISTERED_FLUIDS.add(this);
+		//StrawberryFluids.REGISTERED_FLUIDS.add(this);
 		if (!this.is_source) {
 			this.id = id + "_flowing";
 			this.flowing = this;
@@ -153,7 +153,7 @@ public class StrawberryFluid extends FlowingFluid {
 				this.bucket = new StrawberryBucketItem(() -> this, BUCKET_PROPERTIES, burn_time);
 			}
 			this.flowing = createFlowingFromSource();
-			StrawberryFluids.SOURCE_FLUIDS.add(this);
+			//StrawberryFluids.SOURCE_FLUIDS.add(this);
 		}
 		LOGGER.debug("Created fluid: " + id);
 	}

@@ -28,6 +28,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
 import net.minecraft.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
@@ -40,23 +41,20 @@ import net.mootech.stcm.common.items.StrawberryBlockItem;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
-	public static final List<StrawberryItem> REGISTERED_ITEMS = new ArrayList<>();
-	public static final List<StrawberryBlockItem> REGISTERED_BLOCK_ITEMS = new ArrayList<>();
-
-	public static final List<StrawberryBucketItem> BUCKETS = new ArrayList<>();
-	public static final List<JuiceBucketItem> JUICE_BUCKETS = new ArrayList<>();
+	
+	private static final Item.Properties DEFAULT_PORPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP);
 	
 	// Block items
-	public static final StrawberryBlockItem SALT_CRYSTAL = new StrawberryBlockItem("salt_crystal", StrawberryBlocks.SALT_CRYSTAL.get(), new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP));
+	//public static final StrawberryBlockItem SALT_CRYSTAL = new StrawberryBlockItem("salt_crystal", StrawberryBlocks.SALT_CRYSTAL.get(), new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP));
 	
-	public static final StrawberryItem GLASS_FLASK = new StrawberryItem("glass_flask");
-	public static final StrawberryItem GLASS_JAR = new StrawberryItem("glass_jar");
-	public static final StrawberryItem GELATIN = new StrawberryItem("gelatin");
-	public static final StrawberryItem BEES_WAX = new StrawberryItem("bees_wax", new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP), 400, "Bee's Wax");
-	public static final EdibleItem SALT = new EdibleItem("salt", new Item.Properties().tab(ItemGroup.TAB_FOOD).food(StrawberryFoods.SALT));
-	public static final StrawberryItem WET_APPLE_PULP = new StrawberryItem("wet_apple_pulp");
-	public static final StrawberryItem DRYT_APPLE_PULP = new StrawberryItem("dry_apple_pulp");
-	public static final StrawberryItem UNPREPARED_APPLE_LEATHER = new StrawberryItem("unprepared_apple_leather");
+	public static final RegistryObject<Item> GLASS_FLASK = ITEMS.register("glass_flask", () -> new Item(DEFAULT_PORPERTIES));
+	//public static final StrawberryItem GLASS_JAR = new StrawberryItem("glass_jar");
+	//public static final StrawberryItem GELATIN = new StrawberryItem("gelatin");
+	//public static final StrawberryItem BEES_WAX = new StrawberryItem("bees_wax", new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP), 400, "Bee's Wax");
+	//public static final EdibleItem SALT = new EdibleItem("salt", new Item.Properties().tab(ItemGroup.TAB_FOOD).food(StrawberryFoods.SALT));
+	//public static final StrawberryItem WET_APPLE_PULP = new StrawberryItem("wet_apple_pulp");
+	//public static final StrawberryItem DRYT_APPLE_PULP = new StrawberryItem("dry_apple_pulp");
+	//public static final StrawberryItem UNPREPARED_APPLE_LEATHER = new StrawberryItem("unprepared_apple_leather");
 	
 	// TODO work over jam items and also work over recipes (vanilla based and integrations) (it's 1 to 1 flask, crop, create integration is then 3 for a bucket)
 	// TODO melon and sweet berry are always double crop
@@ -66,7 +64,7 @@ public class StrawberryItems {
 	// TODO have vegetable oil bottles, to use in recipe
 	// TODO add recipes for salt making
 
-	public static final List<JuiceItem> JUICES = new ArrayList<>();
+	/*public static final List<JuiceItem> JUICES = new ArrayList<>();
 	public static final JuiceItem APPLE_JUICE = new JuiceItem("apple_juice", StrawberryFluids.APPLE_COLOR, StrawberryFoods.APPLE_JUICE, Items.APPLE);
 	public static final JuiceItem GOLDEN_APPLE_JUICE = new JuiceItem("golden_apple_juice", StrawberryFluids.GOLDEN_APPLE_COLOR,  new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16).craftRemainder(StrawberryItems.GLASS_FLASK).food(StrawberryFoods.GOLDEN_APPLE_JUICE).rarity(Rarity.RARE), Items.GOLDEN_APPLE);
 	public static final JuiceItem MELON_JUICE = new JuiceItem("melon_juice", StrawberryFluids.MELON_COLOR, StrawberryFoods.MELON_JUICE, Items.MELON_SLICE, 2);
@@ -74,23 +72,11 @@ public class StrawberryItems {
 	public static final JuiceItem SWEET_BERRY_JUICE = new JuiceItem("sweet_berry_juice", StrawberryFluids.SWEET_BERRY_COLOR, StrawberryFoods.SWEET_BERRY_JUICE, Items.SWEET_BERRIES, 2);
 	public static final JuiceItem CARROT_JUICE = new JuiceItem("carrot_juice", StrawberryFluids.CARROT_COLOR, StrawberryFoods.CARROT_JUICE, Items.CARROT);
 	public static final JuiceItem GOLDEN_CARROT_JUICE = new JuiceItem("golden_carrot_juice", StrawberryFluids.GOLDEN_CARROT_COLOR, new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16).craftRemainder(StrawberryItems.GLASS_FLASK).food(StrawberryFoods.GOLDEN_CARROT_JUICE).rarity(Rarity.UNCOMMON), Items.GOLDEN_CARROT);
- 
+ */
 	private static final Logger LOGGER = LogManager.getLogger();
 	
     public static void init(IEventBus modEventBus) {
     	LOGGER.debug("Registering strawberry items");
-    	for (StrawberryBucketItem bucket : BUCKETS) {
-    		LOGGER.debug("Registering bucket: " + bucket.getId());
-    		ITEMS.register(bucket.getId(), () -> bucket);
-    	}
-    	for (StrawberryBlockItem block_item : REGISTERED_BLOCK_ITEMS) {
-    		LOGGER.debug("Registering block item: " + block_item.getId());
-    		ITEMS.register(block_item.getId(), () -> block_item);
-    	}
-    	for (StrawberryItem item : REGISTERED_ITEMS) {
-    		LOGGER.debug("Registering item: " + item.getId());
-    		ITEMS.register(item.getId(), () -> item);
-    	}
         ITEMS.register(modEventBus);
     }
 }

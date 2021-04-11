@@ -52,7 +52,7 @@ public class StrawberryItem extends Item {
 		this.id = id;
 		this.name = name;
 		this.burn_time = burn_time;
-		StrawberryItems.REGISTERED_ITEMS.add(this);
+		//StrawberryItems.REGISTERED_ITEMS.add(this);
 	}
 	
 	/**

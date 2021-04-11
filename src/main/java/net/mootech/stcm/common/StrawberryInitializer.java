@@ -33,7 +33,7 @@ public class StrawberryInitializer {
     public static final ItemGroup ITEM_GROUP = new ItemGroup(StrawberryTwirlCompanion.ID) {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(StrawberryItems.GLASS_FLASK);
+            return new ItemStack(StrawberryItems.GLASS_FLASK.get());
         }
     };
 	
