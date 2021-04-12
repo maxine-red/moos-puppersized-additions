@@ -1,6 +1,8 @@
 {
   "block.strawberrytwirl.salt_block": "Salt Block",
   "fluid.strawberrytwirl.apple_juice": "Apple Juice",
+  "fluid.strawberrytwirl.salty_water": "Salty Water",
+  "item.strawberrytwirl.apple_juice": "Apple Juice",
   "item.strawberrytwirl.apple_juice_bucket": "Apple Juice Bucket",
   "item.strawberrytwirl.bees_wax": "Bee's Wax",
   "item.strawberrytwirl.dry_apple_pulp": "Dry Apple Pulp",
@@ -8,6 +10,7 @@
   "item.strawberrytwirl.glass_flask": "Glass Flask",
   "item.strawberrytwirl.glass_jar": "Glass Jar",
   "item.strawberrytwirl.salt": "Salt",
+  "item.strawberrytwirl.salty_water_bucket": "Salty Water Bucket",
   "item.strawberrytwirl.unprepared_apple_leather": "Unprepared Apple Leather",
   "item.strawberrytwirl.wet_apple_pulp": "Wet Apple Pulp",
   "itemGroup.strawberrytwirl": "Strawberry Twirl"

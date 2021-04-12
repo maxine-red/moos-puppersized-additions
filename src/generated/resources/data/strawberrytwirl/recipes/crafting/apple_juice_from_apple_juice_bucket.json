@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "juice_convenience",
+  "ingredients": [
+    {
+      "item": "strawberrytwirl:glass_flask"
+    },
+    {
+      "item": "strawberrytwirl:glass_flask"
+    },
+    {
+      "item": "strawberrytwirl:glass_flask"
+    },
+    {
+      "item": "strawberrytwirl:glass_flask"
+    },
+    {
+      "item": "strawberrytwirl:apple_juice_bucket"
+    }
+  ],
+  "result": {
+    "item": "strawberrytwirl:apple_juice",
+    "count": 4
+  }
+}
