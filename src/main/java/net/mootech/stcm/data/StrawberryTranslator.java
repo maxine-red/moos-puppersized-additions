@@ -18,19 +18,16 @@
 
 package net.mootech.stcm.data;
 
-import net.minecraft.block.Block;
+import java.util.Set;
+
 import net.minecraft.data.DataGenerator;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.StrawberryBlocks;
-import net.mootech.stcm.common.StrawberryFluids;
+import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.block.StrawberryBlock;
-import net.mootech.stcm.common.fluids.StrawberryFluid;
-import net.mootech.stcm.common.items.StrawberryBlockItem;
-import net.mootech.stcm.common.items.StrawberryBucketItem;
-import net.mootech.stcm.common.items.StrawberryItem;
+import net.mootech.stcm.util.StringID;
 
 /**
  * @author Maxine Red
@@ -51,6 +48,9 @@ public class StrawberryTranslator extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		add("itemGroup.strawberrytwirl", "Strawberry Twirl");
+		addItems();
+		addFluids();
+		
 		// TODO redo translations
 		/*for (StrawberryBlock block : StrawberryBlocks.REGISTERED_BLOCKS) {
 			add((Block)block, block.getName().getString());
@@ -67,6 +67,26 @@ public class StrawberryTranslator extends LanguageProvider {
 		for (StrawberryFluid fluid : StrawberryFluids.SOURCE_FLUIDS) {
 			add("fluid." + StrawberryTwirlCompanion.ID + "." + fluid.getID(), fluid.getName());
 		}*/
+	}
+	
+	private void addItems() {
+		Set<Item> items = StrawberryInitializer.getRegisteredModItems(StrawberryTwirlCompanion.ID);
+		
+		add(StrawberryItems.BEES_WAX.get(), "Bee's Wax");
+		items.remove(StrawberryItems.BEES_WAX.get());
+		// Use a simple approach for remaining items
+		items.forEach((item) -> translateSimpleItem(item));
+	}
+	
+	private void translateSimpleItem(Item item) {
+		add(item, StringID.idToName(item.getRegistryName().getPath()));
+	}
+
+	
+	private void addFluids() {
+		Set<Fluid> fluids = StrawberryInitializer.getRegisteredModFluids(StrawberryTwirlCompanion.ID);
+		
+		fluids.forEach((fluid) -> add("fluid." + StrawberryTwirlCompanion.ID + "." + fluid.getRegistryName().getPath(), StringID.idToName(fluid.getRegistryName().getPath())));
 	}
 
 }

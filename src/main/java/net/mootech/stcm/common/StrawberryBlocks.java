@@ -21,6 +21,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -32,7 +33,9 @@ public class StrawberryBlocks {
 	
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, StrawberryTwirlCompanion.ID);
 	
-	public static final RegistryObject<Block> SALT_CRYSTAL = BLOCKS.register("salt_crystal", () -> new Block(Block.Properties.of(Material.ICE)));
+    // TODO Crystals need special class to handle different hit boxes and render types
+	//public static final RegistryObject<Block> SALT_CRYSTAL = BLOCKS.register("salt_crystal", () -> new Block(Block.Properties.of(Material.ICE)));
+	public static final RegistryObject<Block> SALT_BLOCK = BLOCKS.register("salt_block", () -> new Block(Block.Properties.of(Material.WOOL).sound(SoundType.WOOL)));
 	
 	private static final Logger LOGGER = LogManager.getLogger();
 	

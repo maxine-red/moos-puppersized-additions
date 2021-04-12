@@ -30,12 +30,11 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.JuiceBucketItem;
-import net.mootech.stcm.common.items.JuiceItem;
 
 /**
  * @author Maxine Red
@@ -59,16 +58,29 @@ public class StrawberryRecipes extends RecipeProvider {
 
 	@Override
 	protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+		addSaltRecipes(consumer);
 		//addGlassContainerRecipe(consumer);
 		//addJuiceRecipes(consumer);
 		//addJuiceBucketRecipes(consumer);
 		//addJuiceBucketToBottlesRecipes(consumer);
 		//addJuiceBottlesToBucketRecipes(consumer);
 	}
+	
+	private void addSaltRecipes(Consumer<IFinishedRecipe> consumer) {
+		String unlock_by_string = "has_salt";
+		Item salt = StrawberryItems.SALT.get();
+		Item salt_block = StrawberryItems.SALT_BLOCK.get();
+		// Salt to salt block
+		ShapedRecipeBuilder.shaped(salt_block).pattern("##").pattern("##").define('#', salt).unlockedBy(unlock_by_string, InventoryChangeTrigger.Instance.hasItems(salt))
+		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/salt_block"));
+		ShapelessRecipeBuilder.shapeless(salt).requires(salt_block)
+		.unlockedBy(unlock_by_string + "_block", InventoryChangeTrigger.Instance.hasItems(salt_block))
+		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/salt_from_salt_block"));
+	}
 	/*
 	private void addGlassContainerRecipe(Consumer<IFinishedRecipe> consumer) {
 		ShapedRecipeBuilder.shaped(StrawberryItems.GLASS_FLASK, 4).pattern("g g").pattern("g g").define('g', Items.GLASS)
-		.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))
+		.unlockedBy("has_glass", )
 		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/empty_juice_bottle"));
 		ShapedRecipeBuilder.shaped(StrawberryItems.GLASS_JAR, 4).pattern("g g").pattern("g g").pattern("ggg").define('g', Items.GLASS)
 		.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))

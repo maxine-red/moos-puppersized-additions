@@ -29,7 +29,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.JuiceItem;
+import net.mootech.stcm.common.items.legacy.JuiceItem;
 
 /**
  * @author Maxine Red

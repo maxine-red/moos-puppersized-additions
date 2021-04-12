@@ -1,20 +1,26 @@
 package net.mootech.stcm.common.fluids;
 
-import java.util.function.Supplier;
+import net.minecraft.util.ResourceLocation;
+import net.mootech.stcm.StrawberryTwirlCompanion;
 
-import net.minecraft.item.Rarity;
-import net.mootech.stcm.common.items.JuiceBucketItem;
-import net.mootech.stcm.common.items.JuiceItem;
-import net.mootech.stcm.util.Color;
+public abstract class JuiceFluid {
+	
+	public static final ResourceLocation BUCKET_RESOURCE = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/bucket_overlay_drink"); 
+	
+	public static class Source extends StrawberryFluid.Source {
 
-public class JuiceFluid extends StrawberryFluid {
-
-	public JuiceFluid(String id, Color color, Supplier<JuiceItem> bottle) {
-		this(id, color, bottle, Rarity.COMMON);
+		public Source(Properties properties) {
+			super(properties);
+		}
+		
 	}
 	
-	public JuiceFluid(String id, Color color, Supplier<JuiceItem> bottle, Rarity rarity) {
-		super(id + "_juice", color, -1, false);
-		this.bucket = new JuiceBucketItem(() -> this, bottle, rarity);
+	public static class Flowing extends StrawberryFluid.Flowing {
+
+		public Flowing(Properties properties) {
+			super(properties);
+		}
+		
 	}
+	
 }

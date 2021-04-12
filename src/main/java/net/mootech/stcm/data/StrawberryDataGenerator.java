@@ -40,14 +40,15 @@ public class StrawberryDataGenerator {
 		ExistingFileHelper helper = event.getExistingFileHelper();
 		DataGenerator generator = event.getGenerator();
 		if(event.includeClient()) {
-			BlockTags blockTags = new BlockTags(generator, StrawberryTwirlCompanion.ID, helper);
-			generator.addProvider(new StrawberryTranslator(generator, "en_us"));
-			generator.addProvider(new StrawberryItemModelProvider(generator, helper));
-			generator.addProvider(new StrawberryItemTags(generator, blockTags, StrawberryTwirlCompanion.ID, helper));
+			generator.addProvider(new BlockStates(generator, helper));
+			generator.addProvider(new ItemModels(generator, helper));
 		}
 		
 		if (event.includeServer()) {
+			BlockTags blockTags = new BlockTags(generator, StrawberryTwirlCompanion.ID, helper);
 			generator.addProvider(new StrawberryRecipes(generator));
+			generator.addProvider(new StrawberryTranslator(generator, "en_us"));
+			generator.addProvider(new StrawberryItemTags(generator, blockTags, StrawberryTwirlCompanion.ID, helper));
 		}
 	}
 }

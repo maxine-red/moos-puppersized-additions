@@ -16,7 +16,7 @@
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.mootech.stcm.common.items;
+package net.mootech.stcm.common.items.legacy;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

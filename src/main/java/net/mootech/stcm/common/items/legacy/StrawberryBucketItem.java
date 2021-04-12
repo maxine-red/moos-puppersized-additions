@@ -16,34 +16,13 @@
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.mootech.stcm.common.items;
-
-import java.util.function.Supplier;
-
-import javax.annotation.Nullable;
-
-import net.minecraft.fluid.Fluid;
-import net.minecraft.item.BucketItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
-import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.StrawberryInitializer;
-import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.fluids.StrawberryFluid;
+package net.mootech.stcm.common.items.legacy;
 
 /**
  * @author Maxine Red
  *
  */
-public class StrawberryBucketItem extends BucketItem {
-	/**
-	 * Parts of this class are inspired by IEFluid, from the ImmersiveEngineering project, created by luSunrize.
-	 */
+/*public class StrawberryBucketItem extends BucketItem {
 	
 	protected final String id;
 	protected final int burn_time;
@@ -61,7 +40,7 @@ public class StrawberryBucketItem extends BucketItem {
 	 * Custom bucket class constructor, to allow for ID handling.
 	 * @param fluid VirtualFluid that is contained by this bucket
 	 * @param properties Item properties for this bucket
-	 */
+	 *
 	public StrawberryBucketItem(Supplier<StrawberryFluid> fluid, Properties properties) {
 		this(fluid, properties, -1);
 	}
@@ -79,7 +58,7 @@ public class StrawberryBucketItem extends BucketItem {
 	/**
 	 * String ID for this bucket
 	 * @return String
-	 */
+	 *
 	public String getId() {
 		return this.id;
 	}
@@ -87,7 +66,7 @@ public class StrawberryBucketItem extends BucketItem {
 	/**
 	 * Get in-game name of item
 	 * @return String
-	 */
+	 *
 	public String getName() {
 		return this.name;
 	}
@@ -95,7 +74,7 @@ public class StrawberryBucketItem extends BucketItem {
 	/**
 	 * Get color information from fluid
 	 * @return integer
-	 */
+	 *
 	public int getColor() {
 		return color;
 	}
@@ -125,4 +104,4 @@ public class StrawberryBucketItem extends BucketItem {
 		return burn_time;
 	}
 
-}
+}*/

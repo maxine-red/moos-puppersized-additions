@@ -1,4 +1,4 @@
-package net.mootech.stcm.common.items;
+package net.mootech.stcm.common.items.legacy;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;

@@ -17,17 +17,18 @@
  */
 package net.mootech.stcm.client;
 
+import java.util.Set;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.EdibleBottleItem;
-import net.mootech.stcm.common.items.StrawberryBucketItem;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.StrawberryInitializer;
+import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 @Mod.EventBusSubscriber(modid = StrawberryTwirlCompanion.ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class StrawberryClientInitializer {
@@ -35,8 +36,9 @@ public class StrawberryClientInitializer {
 	private static final Logger LOGGER = LogManager.getLogger();
 	@SubscribeEvent
 	public static void registerItemColor(ColorHandlerEvent.Item event) {
-    	/*for (StrawberryBucketItem bucket : StrawberryItems.BUCKETS) {
-    		LOGGER.debug("Registering color tinting for: " + bucket.getId());
+		Set<StrawberryBucketItem> buckets = StrawberryInitializer.getRegisteredModBuckets(StrawberryTwirlCompanion.ID);
+		buckets.forEach((bucket) -> {
+    		LOGGER.debug("Registering color tinting for: " + bucket.getRegistryName().getPath());
     		event.getItemColors().register((stack, tintIndex) -> {
     			if (tintIndex == 1) {
     				return bucket.getColor();
@@ -45,8 +47,8 @@ public class StrawberryClientInitializer {
     				return 0xFFFFFFFF;
     			}
     		}, bucket);
-    	}
-    	for (EdibleBottleItem bottle : StrawberryItems.JUICES) {
+		});
+    	/*for (EdibleBottleItem bottle : StrawberryItems.JUICES) {
     		LOGGER.debug("Registering color tinting for: " + bottle.getId());
     		event.getItemColors().register((stack, tintIndex) -> {
     			if (tintIndex == 1) {

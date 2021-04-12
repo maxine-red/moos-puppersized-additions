@@ -17,44 +17,44 @@
  */
 package net.mootech.stcm.common;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
-import net.minecraft.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.items.EdibleItem;
-import net.mootech.stcm.common.items.JuiceBucketItem;
+import net.mootech.stcm.common.items.BurnAbleItem;
 import net.mootech.stcm.common.items.StrawberryBucketItem;
-import net.mootech.stcm.common.items.StrawberryItem;
-import net.mootech.stcm.common.items.JuiceItem;
-import net.mootech.stcm.common.items.StrawberryBlockItem;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
 	
 	private static final Item.Properties DEFAULT_PORPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP);
+	private static final Item.Properties DEFAULT_BUCKET_PORPERTIES = DEFAULT_PORPERTIES.craftRemainder(Items.BUCKET);
 	
 	// Block items
-	//public static final StrawberryBlockItem SALT_CRYSTAL = new StrawberryBlockItem("salt_crystal", StrawberryBlocks.SALT_CRYSTAL.get(), new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP));
+	//public static final RegistryObject<BlockItem> SALT_CRYSTAL = ITEMS.register("salt_crystal", () -> new BlockItem(StrawberryBlocks.SALT_CRYSTAL.get(), DEFAULT_PORPERTIES));
+	public static final RegistryObject<BlockItem> SALT_BLOCK = ITEMS.register("salt_block", () -> new BlockItem(StrawberryBlocks.SALT_BLOCK.get(), DEFAULT_PORPERTIES));
 	
+	// Simple items
 	public static final RegistryObject<Item> GLASS_FLASK = ITEMS.register("glass_flask", () -> new Item(DEFAULT_PORPERTIES));
-	//public static final StrawberryItem GLASS_JAR = new StrawberryItem("glass_jar");
-	//public static final StrawberryItem GELATIN = new StrawberryItem("gelatin");
-	//public static final StrawberryItem BEES_WAX = new StrawberryItem("bees_wax", new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP), 400, "Bee's Wax");
-	//public static final EdibleItem SALT = new EdibleItem("salt", new Item.Properties().tab(ItemGroup.TAB_FOOD).food(StrawberryFoods.SALT));
-	//public static final StrawberryItem WET_APPLE_PULP = new StrawberryItem("wet_apple_pulp");
-	//public static final StrawberryItem DRYT_APPLE_PULP = new StrawberryItem("dry_apple_pulp");
-	//public static final StrawberryItem UNPREPARED_APPLE_LEATHER = new StrawberryItem("unprepared_apple_leather");
+	public static final RegistryObject<Item> GLASS_JAR = ITEMS.register("glass_jar", () -> new Item(DEFAULT_PORPERTIES));
+	public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", () -> new Item(DEFAULT_PORPERTIES));
+	public static final RegistryObject<Item> BEES_WAX = ITEMS.register("bees_wax", () -> new BurnAbleItem(DEFAULT_PORPERTIES, 400));
+	public static final RegistryObject<Item> SALT = ITEMS.register("salt", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_FOOD).food(StrawberryFoods.SALT)));
+	public static final RegistryObject<Item> WET_APPLE_PULP = ITEMS.register("wet_apple_pulp", () -> new Item(DEFAULT_PORPERTIES));
+	public static final RegistryObject<Item> DRYT_APPLE_PULP = ITEMS.register("dry_apple_pulp", () -> new Item(DEFAULT_PORPERTIES));
+	public static final RegistryObject<Item> UNPREPARED_APPLE_LEATHER = ITEMS.register("unprepared_apple_leather", () -> new Item(DEFAULT_PORPERTIES));
+	
+	// Bucket Items
+	public static final RegistryObject<BucketItem> APPLE_JUICE_BUCKET = ITEMS.register("apple_juice_bucket", () -> new StrawberryBucketItem(StrawberryFluids.APPLE_JUICE, DEFAULT_BUCKET_PORPERTIES, StrawberryFluids.APPLE_COLOR));
 	
 	// TODO work over jam items and also work over recipes (vanilla based and integrations) (it's 1 to 1 flask, crop, create integration is then 3 for a bucket)
 	// TODO melon and sweet berry are always double crop

@@ -18,25 +18,30 @@
 
 package net.mootech.stcm.data;
 
+import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
+import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.StrawberryFluids;
+import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.StrawberryItem;
-import net.mootech.stcm.common.items.JuiceItem;
-import net.mootech.stcm.common.items.StrawberryBlockItem;
-import net.mootech.stcm.common.items.StrawberryBucketItem;
+import net.mootech.stcm.common.fluids.JuiceFluid;
 
 /**
  * @author Maxine Red
  *
  *	Creates models for items, these can be layered or not.
  */
-public class StrawberryItemModelProvider extends ItemModelProvider {
+public class ItemModels extends ItemModelProvider {
 	private static final String GENERATED = "item/generated";
 	private static final String HAND_HELD = "item/handheld";
 
@@ -49,18 +54,31 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 	//private static final ResourceLocation jar_overlay = new ResourceLocation(StrawberryTwirlCompanion.ID, "item/jar_overlay");
 	
 	private static final Pattern chorus_pattern = Pattern.compile("chorus");
+	private static final Pattern juice_pattern = Pattern.compile("_juice");
 
 	/**
 	 * Item Model generator
 	 * @param generator Generator from generation event
 	 * @param existingFileHelper Helper to check if files exist
 	 */
-	public StrawberryItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+	public ItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, StrawberryTwirlCompanion.ID, existingFileHelper);
 	}
 
 	@Override
 	protected void registerModels() {
+		Set<Item> items = StrawberryInitializer.getRegisteredModItems(StrawberryTwirlCompanion.ID);
+		Set<Block> blocks = StrawberryInitializer.getRegisteredModBlocks(StrawberryTwirlCompanion.ID);
+		Set<Fluid> fluids = StrawberryInitializer.getRegisteredModFluids(StrawberryTwirlCompanion.ID);
+
+		// Register item models for simple blocks
+		blocks.forEach((block) -> registerBlockItem(block, items));
+		
+		// Register buckets for simple fluids
+		fluids.forEach((fluid) -> registerFluidBucketItem(fluid, items));
+		
+		// Use a simple approach for remaining items
+		items.forEach((item) -> registerSimpleItem(item));
 		/*for(StrawberryBlockItem block : StrawberryItems.REGISTERED_BLOCK_ITEMS) {
 			withExistingParent(block.getId(), block.getBlock().getRegistryName());
 		}
@@ -97,6 +115,25 @@ public class StrawberryItemModelProvider extends ItemModelProvider {
 				withExistingParent(item.getId(), GENERATED).texture("layer0", "item/" + item.getId());
 			}
 		}*/
+	}
+	
+	private void registerSimpleItem(Item item) {
+		String item_id = item.getRegistryName().getPath();
+		withExistingParent(item_id, GENERATED).texture("layer0", "item/" + item_id);
+	}
+	
+	private void registerBlockItem(Block block, Set<Item> items) {
+		withExistingParent(block.asItem().getRegistryName().getPath(), StrawberryTwirlCompanion.ID + ":block/" + block.getRegistryName().getPath());
+		items.remove(block.asItem());
+	}
+	
+	private void registerFluidBucketItem(Fluid juice, Set<Item> items) {
+		String bucket_id = juice.getBucket().getRegistryName().getPath();
+		withExistingParent(bucket_id, GENERATED).texture("layer0", bucket_base);
+		if (juice_pattern.matcher(bucket_id).find()) {
+			withExistingParent(bucket_id, GENERATED).texture("layer1", JuiceFluid.BUCKET_RESOURCE);
+		}
+		items.remove(juice.getBucket());
 	}
 
 }

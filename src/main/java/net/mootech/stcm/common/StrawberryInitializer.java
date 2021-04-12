@@ -17,15 +17,25 @@
  */
 package net.mootech.stcm.common;
 
-import net.mootech.stcm.StrawberryTwirlCompanion;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.block.Block;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 @Mod.EventBusSubscriber(modid = StrawberryTwirlCompanion.ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class StrawberryInitializer {
@@ -38,10 +48,59 @@ public class StrawberryInitializer {
     };
 	
 	public static void init(IEventBus modEventBus) {
-		LOGGER.debug("Initializing modded fluids, blocks and items");
-        StrawberryFluids.init(modEventBus);
+		LOGGER.info("Initializing modded blocks");
         StrawberryBlocks.init(modEventBus);
+		LOGGER.info("Initializing modded fluids");
+        StrawberryFluids.init(modEventBus);
+		LOGGER.info("Initializing modded itemss");
         StrawberryItems.init(modEventBus);
+	}
+	
+	/**
+	 * Gather and return all items for a certain mod
+	 * @param modID String mod id
+	 * @return Set<Item> All items of said mod, that got registered
+	 */
+	public static Set<Item> getRegisteredModItems(String modID) {
+		return ForgeRegistries.ITEMS.getValues().stream().filter(i -> modID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace())).collect(Collectors.toSet());
+	}
+	
+	/**
+	 * Gather and return all items for a certain mod
+	 * @param modID String mod id
+	 * @return Set<Item> All items of said mod, that got registered
+	 */
+	public static Set<StrawberryBucketItem> getRegisteredModBuckets(String modID) {
+		Set<StrawberryBucketItem> set = new HashSet<StrawberryBucketItem>(); // Ugly, but does the job
+		ForgeRegistries.ITEMS.getValues().stream().filter(i -> modID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace())).collect(Collectors.toSet()).forEach((i) -> set.add((StrawberryBucketItem)i));
+		return set;
+	}
+
+	
+	/**
+	 * Gather and return all blocks for a certain mod
+	 * @param modID String mod id
+	 * @return Set<Item> All blocks of said mod, that got registered
+	 */
+	public static Set<Block> getRegisteredModBlocks(String modID) {
+		return ForgeRegistries.BLOCKS.getValues().stream().filter(b -> modID.equals(ForgeRegistries.BLOCKS.getKey(b).getNamespace())).collect(Collectors.toSet());
+	}
+
+	
+	/**
+	 * Gather and return all fluids for a certain mod
+	 * @param modID String mod id
+	 * @return Set<Item> All fluids of said mod, that got registered
+	 */
+	public static Set<Fluid> getRegisteredModFluids(String modID) {
+		return ForgeRegistries.FLUIDS.getValues().stream().filter(f -> findNotFlowingFluids(f, modID)).collect(Collectors.toSet());
+	}
+	
+	private static final Pattern flowing_pattern = Pattern.compile("flowing");
+	
+	private static boolean findNotFlowingFluids(Fluid f, String modID) {
+		ResourceLocation loc = ForgeRegistries.FLUIDS.getKey(f); 
+		return modID.equals(loc.getNamespace()) && !flowing_pattern.matcher(loc.getPath()).find();
 	}
 
 }
