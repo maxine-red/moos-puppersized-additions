@@ -17,7 +17,6 @@
  */
 package net.mootech.stcm.common;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -35,7 +34,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
-import net.mootech.stcm.common.items.StrawberryBucketItem;
 
 @Mod.EventBusSubscriber(modid = StrawberryTwirlCompanion.ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class StrawberryInitializer {
@@ -52,7 +50,7 @@ public class StrawberryInitializer {
         StrawberryBlocks.init(modEventBus);
 		LOGGER.info("Initializing modded fluids");
         StrawberryFluids.init(modEventBus);
-		LOGGER.info("Initializing modded itemss");
+		LOGGER.info("Initializing modded items");
         StrawberryItems.init(modEventBus);
 	}
 	
@@ -63,17 +61,6 @@ public class StrawberryInitializer {
 	 */
 	public static Set<Item> getRegisteredModItems(String modID) {
 		return ForgeRegistries.ITEMS.getValues().stream().filter(i -> modID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace())).collect(Collectors.toSet());
-	}
-	
-	/**
-	 * Gather and return all items for a certain mod
-	 * @param modID String mod id
-	 * @return Set<Item> All items of said mod, that got registered
-	 */
-	public static Set<StrawberryBucketItem> getRegisteredModBuckets(String modID) {
-		Set<StrawberryBucketItem> set = new HashSet<StrawberryBucketItem>(); // Ugly, but does the job
-		ForgeRegistries.ITEMS.getValues().stream().filter(i -> modID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace())).collect(Collectors.toSet()).forEach((i) -> set.add((StrawberryBucketItem)i));
-		return set;
 	}
 
 	

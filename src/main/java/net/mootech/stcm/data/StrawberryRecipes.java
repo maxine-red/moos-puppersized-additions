@@ -18,10 +18,11 @@
 
 package net.mootech.stcm.data;
 
+import java.util.Set;
 import java.util.function.Consumer;
+import java.util.regex.Pattern;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
@@ -33,7 +34,9 @@ import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.StrawberryInitializer;
 import net.mootech.stcm.common.StrawberryItems;
 
 /**
@@ -63,7 +66,8 @@ public class StrawberryRecipes extends RecipeProvider {
 		//addJuiceRecipes(consumer);
 		//addJuiceBucketRecipes(consumer);
 		//addJuiceBucketToBottlesRecipes(consumer);
-		//addJuiceBottlesToBucketRecipes(consumer);
+		Set<Item> items = StrawberryInitializer.getRegisteredModItems(StrawberryTwirlCompanion.ID);
+		items.forEach(i -> registerRecipesForItems(i, consumer));
 	}
 	
 	private void addSaltRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -73,9 +77,18 @@ public class StrawberryRecipes extends RecipeProvider {
 		// Salt to salt block
 		ShapedRecipeBuilder.shaped(salt_block).pattern("##").pattern("##").define('#', salt).unlockedBy(unlock_by_string, InventoryChangeTrigger.Instance.hasItems(salt))
 		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/salt_block"));
-		ShapelessRecipeBuilder.shapeless(salt).requires(salt_block)
+		ShapelessRecipeBuilder.shapeless(salt, 4).requires(salt_block)
 		.unlockedBy(unlock_by_string + "_block", InventoryChangeTrigger.Instance.hasItems(salt_block))
 		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/salt_from_salt_block"));
+	}
+	
+	private static final Pattern juice_pattern = Pattern.compile("juice$");
+	
+	private void registerRecipesForItems(Item item,Consumer<IFinishedRecipe> consumer) {
+		String item_id = item.getRegistryName().getPath();
+		if (juice_pattern.matcher(item_id).find()) {
+			addBottlesToBucketRecipe(item, consumer);
+		}
 	}
 	/*
 	private void addGlassContainerRecipe(Consumer<IFinishedRecipe> consumer) {
@@ -111,14 +124,15 @@ public class StrawberryRecipes extends RecipeProvider {
 			.unlockedBy("has_" + bucket.getId(), InventoryChangeTrigger.Instance.hasItems(bucket)).group("juice_convenience")
 			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + bottle.getId() + "_from_" + bucket.getId()));
 		}
-	}
-	
-	private void addJuiceBottlesToBucketRecipes(Consumer<IFinishedRecipe> consumer) {
-		for (JuiceBucketItem bucket : StrawberryItems.JUICE_BUCKETS) {
-			JuiceItem bottle = bucket.getBottle();
-			ShapelessRecipeBuilder.shapeless(bucket, 1).requires(bottle, 4).requires(Items.BUCKET)
-			.unlockedBy("has_" + bottle.getId(), InventoryChangeTrigger.Instance.hasItems(bottle)).group("juice_convenience")
-			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + bucket.getId() + "_from_" + bottle.getId()));
-		}
 	}*/
+	
+	private void addBottlesToBucketRecipe(Item item, Consumer<IFinishedRecipe> consumer) {
+		Item bucket = ForgeRegistries.ITEMS.getValue(new ResourceLocation(item.getRegistryName().getNamespace(), item.getRegistryName().getPath() + "_bucket"));
+		ShapelessRecipeBuilder.shapeless(bucket, 1).requires(item, 4).requires(Items.BUCKET)
+			.unlockedBy("has_" + item.getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(item)).group("juice_convenience")
+			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + bucket.getRegistryName().getPath() + "_from_" + item.getRegistryName().getPath()));
+		ShapelessRecipeBuilder.shapeless(item, 4).requires(StrawberryItems.GLASS_FLASK.get(), 4).requires(bucket)
+		.unlockedBy("has_" + bucket.getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(bucket)).group("juice_convenience")
+		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + item.getRegistryName().getPath() + "_from_" + bucket.getRegistryName().getPath()));
+	}
 }

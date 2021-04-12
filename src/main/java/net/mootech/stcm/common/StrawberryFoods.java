@@ -35,7 +35,7 @@ public class StrawberryFoods {
 	private static final EffectInstance ABSORPTION = new EffectInstance(Effects.ABSORPTION, 2400, 0);
 	private static final EffectInstance REGENERATION = new EffectInstance(Effects.REGENERATION, 100, 1);
 	private static final EffectInstance NIGHT_VISION = new EffectInstance(Effects.NIGHT_VISION, 1800, 0);
-	private static final EffectInstance SALT_HUNGER = new EffectInstance(Effects.HUNGER, 2200, 0);
+	private static final EffectInstance SALT_HUNGER = new EffectInstance(Effects.HUNGER, 300, 0);
 	
 	private static final float juice_saturation_multiplier = 0.85f;
 	private static final int juice_nutrition = 4;

@@ -31,13 +31,14 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.items.BurnAbleItem;
-import net.mootech.stcm.common.items.StrawberryBucketItem;
+import net.mootech.stcm.common.items.JuiceItem;
 
 public class StrawberryItems {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
+	private static final DeferredRegister<Item> JUICES = DeferredRegister.create(ForgeRegistries.ITEMS, StrawberryTwirlCompanion.ID);
 	
 	private static final Item.Properties DEFAULT_PORPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP);
-	private static final Item.Properties DEFAULT_BUCKET_PORPERTIES = DEFAULT_PORPERTIES.craftRemainder(Items.BUCKET);
+	private static final Item.Properties DEFAULT_BUCKET_PORPERTIES = new Item.Properties().tab(StrawberryInitializer.ITEM_GROUP).stacksTo(1).craftRemainder(Items.BUCKET);
 	
 	// Block items
 	//public static final RegistryObject<BlockItem> SALT_CRYSTAL = ITEMS.register("salt_crystal", () -> new BlockItem(StrawberryBlocks.SALT_CRYSTAL.get(), DEFAULT_PORPERTIES));
@@ -53,8 +54,16 @@ public class StrawberryItems {
 	public static final RegistryObject<Item> DRYT_APPLE_PULP = ITEMS.register("dry_apple_pulp", () -> new Item(DEFAULT_PORPERTIES));
 	public static final RegistryObject<Item> UNPREPARED_APPLE_LEATHER = ITEMS.register("unprepared_apple_leather", () -> new Item(DEFAULT_PORPERTIES));
 	
+	// Juices
+	private static final Item.Properties DEFAULT_JUICE_PORPERTIES = new Item.Properties().tab(ItemGroup.TAB_FOOD).stacksTo(16);
+	// TODO Need to get crafting remainder in here somehow
+	public static final RegistryObject<Item> APPLE_JUICE = ITEMS.register("apple_juice", () -> new JuiceItem(DEFAULT_JUICE_PORPERTIES.food(StrawberryFoods.APPLE_JUICE).craftRemainder(GLASS_FLASK.get()), false));
+	
 	// Bucket Items
-	public static final RegistryObject<BucketItem> APPLE_JUICE_BUCKET = ITEMS.register("apple_juice_bucket", () -> new StrawberryBucketItem(StrawberryFluids.APPLE_JUICE, DEFAULT_BUCKET_PORPERTIES, StrawberryFluids.APPLE_COLOR));
+	public static final RegistryObject<BucketItem> APPLE_JUICE_BUCKET = ITEMS.register("apple_juice_bucket", () -> new BucketItem(StrawberryFluids.APPLE_JUICE, DEFAULT_BUCKET_PORPERTIES));
+	public static final RegistryObject<BucketItem> SALTY_WATER_BUCKET = ITEMS.register("salty_water_bucket", () -> new BucketItem(StrawberryFluids.SALTY_WATER, DEFAULT_BUCKET_PORPERTIES));
+	
+	// TODO use pupper salt color on salty wter bucket
 	
 	// TODO work over jam items and also work over recipes (vanilla based and integrations) (it's 1 to 1 flask, crop, create integration is then 3 for a bucket)
 	// TODO melon and sweet berry are always double crop

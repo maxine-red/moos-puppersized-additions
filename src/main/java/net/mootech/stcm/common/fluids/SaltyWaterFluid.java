@@ -7,10 +7,10 @@ import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.StrawberryFluids;
 import net.mootech.stcm.common.StrawberryItems;
 
-public class AppleJuiceFluid {
-	public static final String ID = "apple_juice";
+public class SaltyWaterFluid {
+	public static final String ID = "salty_water";
 	private static final FluidAttributes.Builder ATTRIBUTES = FluidAttributes.builder(new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + ID), new ResourceLocation(StrawberryTwirlCompanion.ID, "fluids/" + ID + "_flow"));
-	private static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.APPLE_JUICE, StrawberryFluids.APPLE_JUICE_FLOWING, ATTRIBUTES).bucket(StrawberryItems.APPLE_JUICE_BUCKET);
+	private static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(StrawberryFluids.SALTY_WATER, StrawberryFluids.SALTY_WATER_FLOWING, ATTRIBUTES).bucket(StrawberryItems.SALTY_WATER_BUCKET);
 	
 	public static class Source extends StrawberryFluid.Source {
 

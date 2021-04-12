@@ -27,14 +27,18 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.stcm.StrawberryTwirlCompanion;
 import net.mootech.stcm.common.fluids.AppleJuiceFluid;
+import net.mootech.stcm.common.fluids.SaltyWaterFluid;
 import net.mootech.stcm.util.Color;
 
 public class StrawberryFluids {
 	
 	private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, StrawberryTwirlCompanion.ID);
 	
-	public static final RegistryObject<Fluid> APPLE_JUICE = FLUIDS.register("apple_juice", () -> new AppleJuiceFluid.Source());
-	public static final RegistryObject<Fluid> APPLE_JUICE_FLOWING = FLUIDS.register("apple_juice_flowing", () -> new AppleJuiceFluid.Flowing());
+	public static final RegistryObject<Fluid> APPLE_JUICE = FLUIDS.register(AppleJuiceFluid.ID, () -> new AppleJuiceFluid.Source());
+	public static final RegistryObject<Fluid> APPLE_JUICE_FLOWING = FLUIDS.register(AppleJuiceFluid.ID + "_flowing", () -> new AppleJuiceFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> SALTY_WATER = FLUIDS.register(SaltyWaterFluid.ID, () -> new SaltyWaterFluid.Source());
+	public static final RegistryObject<Fluid> SALTY_WATER_FLOWING = FLUIDS.register(SaltyWaterFluid.ID + "_flowing", () -> new SaltyWaterFluid.Flowing());
 	
 	public static final Color APPLE_COLOR = new Color(219, 162, 19);
 	public static final Color GOLDEN_APPLE_COLOR = new Color(234, 238, 87);

@@ -16,33 +16,27 @@
  * along with Strawberry Twirl Companion.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.mootech.stcm.common.items.legacy;
-
-import java.util.regex.Pattern;
+package net.mootech.stcm.common.items;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 /**
+ * Edible items, with special behavior for chorus items
  * @author Maxine Red
  *
  */
-public class EdibleItem extends StrawberryItem {
+public class EdibleItem extends Item {
 	protected final boolean isChorus;
 	
-	public EdibleItem(String id, Properties properties) {
-		this(id, properties, -1);
+	public EdibleItem(Properties properties, boolean isChorus) {
+		super(properties);
+		this.isChorus = isChorus;
 	}
-	
-	public EdibleItem(String id, Properties properties, int burn_time) {
-		super(id, properties, burn_time);
-		this.isChorus = Pattern.compile("chorus").matcher(id).find();
-	}
-
-
 	
 	/**
 	 * Create chorus fruit effect

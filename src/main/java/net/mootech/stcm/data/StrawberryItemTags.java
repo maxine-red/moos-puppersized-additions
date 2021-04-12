@@ -18,6 +18,7 @@
 
 package net.mootech.stcm.data;
 
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import net.minecraft.data.BlockTagsProvider;
@@ -28,8 +29,8 @@ import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.mootech.stcm.common.StrawberryItems;
-import net.mootech.stcm.common.items.legacy.JuiceItem;
+import net.mootech.stcm.StrawberryTwirlCompanion;
+import net.mootech.stcm.common.StrawberryInitializer;
 
 /**
  * @author Maxine Red
@@ -45,28 +46,36 @@ public class StrawberryItemTags extends ItemTagsProvider {
 	private ITag.INamedTag<Item> DIET_SUGARS = ItemTags.bind(new ResourceLocation("diet", "sugars").toString());
 	private ITag.INamedTag<Item> DIET_WATER = ItemTags.bind(new ResourceLocation("diet", "water").toString());
 	private ITag.INamedTag<Item> FORGE_EDIBLES = ItemTags.bind(new ResourceLocation("forge", "edibles").toString());
-	
+
 	private final Pattern carrot_pattern = Pattern.compile("carrot");
+	private final Pattern juice_pattern = Pattern.compile("juice");
+	private final Pattern bucket_pattern = Pattern.compile("bucket");
 
 
 	// TODO add diet tags for sugar, fruit etc
 	// TODO add other items to upright on belt, that should be upright on create belts
-	public StrawberryItemTags(DataGenerator gen, BlockTagsProvider provider, String modId, ExistingFileHelper existingFileHelper) {
-		super(gen, provider, modId, existingFileHelper);
+	public StrawberryItemTags(DataGenerator gen, BlockTagsProvider provider, ExistingFileHelper existingFileHelper) {
+		super(gen, provider,  StrawberryTwirlCompanion.ID, existingFileHelper);
 	}
 
     @Override
     public void addTags() {
-    	/*for (JuiceItem juice : StrawberryItems.JUICES) {
-        	getOrCreateRawBuilder(CREATE_UPRIGHT_ON_BELT).addElement(juice.getRegistryName(), folder);
-        	if (carrot_pattern.matcher(juice.getId()).find()) {
-            	getOrCreateRawBuilder(DIET_VEGETABLES).addElement(juice.getRegistryName(), folder);
+    	Set<Item> items = StrawberryInitializer.getRegisteredModItems(modId);
+    	items.forEach(i -> addItemsToTags(i));
+    }
+    
+    private void addItemsToTags(Item item) {
+    	String item_id = item.getRegistryName().getPath();
+    	if (juice_pattern.matcher(item_id).find() && !bucket_pattern.matcher(item_id).find()) {
+        	getOrCreateRawBuilder(CREATE_UPRIGHT_ON_BELT).addElement(item.getRegistryName(), folder);
+        	getOrCreateRawBuilder(FORGE_EDIBLES).addElement(item.getRegistryName(), folder);
+        	getOrCreateRawBuilder(DIET_WATER).addElement(item.getRegistryName(), folder);
+        	if (carrot_pattern.matcher(item_id).find()) {
+            	getOrCreateRawBuilder(DIET_VEGETABLES).addElement(item.getRegistryName(), folder);
         	}
         	else {
-            	getOrCreateRawBuilder(DIET_FRUITS).addElement(juice.getRegistryName(), folder);
+            	getOrCreateRawBuilder(DIET_FRUITS).addElement(item.getRegistryName(), folder);
         	}
-        	getOrCreateRawBuilder(DIET_WATER).addElement(juice.getRegistryName(), folder);
-        	getOrCreateRawBuilder(FORGE_EDIBLES).addElement(juice.getRegistryName(), folder);
-    	}*/
+    	}
     }
 }

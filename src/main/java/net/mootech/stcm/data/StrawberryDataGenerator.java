@@ -48,7 +48,7 @@ public class StrawberryDataGenerator {
 			BlockTags blockTags = new BlockTags(generator, StrawberryTwirlCompanion.ID, helper);
 			generator.addProvider(new StrawberryRecipes(generator));
 			generator.addProvider(new StrawberryTranslator(generator, "en_us"));
-			generator.addProvider(new StrawberryItemTags(generator, blockTags, StrawberryTwirlCompanion.ID, helper));
+			generator.addProvider(new StrawberryItemTags(generator, blockTags, helper));
 		}
 	}
 }

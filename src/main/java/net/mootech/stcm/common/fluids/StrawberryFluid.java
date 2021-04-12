@@ -17,9 +17,6 @@
  */
 package net.mootech.stcm.common.fluids;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import net.minecraft.fluid.FluidState;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
@@ -27,11 +24,8 @@ public abstract class StrawberryFluid {
 	
 	public static class Source extends ForgeFlowingFluid.Source {
 
-		private static final Logger LOGGER = LogManager.getLogger();
-
 		public Source(Properties properties) {
 			super(properties);
-			LOGGER.info(properties.toString());
 		}
 		
 		@Override
