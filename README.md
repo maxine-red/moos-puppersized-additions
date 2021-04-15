@@ -1,16 +1,11 @@
-# Strawberry Twirl Companion
+# Moo's Puppersized Additions
 
-![Strawberry Twirl icon by Ulvra](src/main/resources/project_icon.png)
+![Moo's Puppersized Additions icon by Ulvra](src/main/resources/project_icon.png)
 
 ## About the mod
 
-Strawberry Twirl Companion adds content, that cannot be added through other means. It adds blocks, items and fluids in a way, that is more natural to Minecraft and not currently possible through content adding mods.
-
-## Dependencies (Optional)
-
-These mods are not necessary, but unlock additional content for this mos. That content is meant for compability purposes to other mods.
-
-- [Fruit Trees](https://www.curseforge.com/minecraft/mc-mods/fruit-trees)
+Moo's Puppersized Additions, is a mod that concentrates on small additions, that don't change vanilla too much, but make life easier.
+Most changes are food related, or about gaining access to resources in more pupper friendly ways (like gun powder, black dye, etc)
 
 
 ## Supported MC versions (Java)

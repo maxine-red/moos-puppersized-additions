@@ -13,8 +13,8 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = "${version_major}.${version_minor}.${version_patch}"
-group = 'net.mootech.stcm' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'StrawberryTwirlCompanion'
+group = 'net.mootech.mpa' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'MoosPuppersizedAdditions'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
@@ -28,7 +28,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                strawberrytwirl {
+                moospuppersizedadditions {
                     source sourceSets.main
                 }
             }
@@ -40,7 +40,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                strawberrytwirl {
+                moospuppersizedadditions {
                     source sourceSets.main
                 }
             }
@@ -54,7 +54,7 @@ minecraft {
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                strawberrytwirl {
+                moospuppersizedadditions {
                     source sourceSets.main
                 }
             }

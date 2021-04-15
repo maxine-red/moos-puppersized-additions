@@ -1,0 +1,21 @@
+{
+  "parent": "block/block",
+  "loader": "forge:multi-layer",
+  "layers": {
+    "solid": {
+      "parent": "block/cube_all",
+      "textures": {
+        "all": "block/stone"
+      }
+    },
+    "translucent": {
+      "parent": "block/cube_all",
+      "textures": {
+        "all": "strawberrytwirl:block/salt_ore"
+      }
+    }
+  },
+  "textures": {
+    "particle": "block/stone"
+  }
+}

@@ -1,5 +1,18 @@
 # TODO
 
+Moo magic mod idea:
+Make a tile entity that allows you to move enchantments from tools to books
+- there is a chance to lose enchantment levels or complete enchantments
+- curses are **always** transferred
+- chances of transferring get increased by copying said enchentments and also by studying books, inlcuding those enchantments
+- movin over will never be 100% and max out before
+- treasure enchantments are always either go all levels or nothing (for a specific enchantment)
+- studying books gives more proficiency, returns empty books
+- essences can increase efficiency of learning (for enchantment specific essence)
+- mastering an enchantment allows to selectively remove only that ones
+
+- [ ] Update project icon to new icon
+
 ## Goals
 
 - make adding items, blocks and fluids as easy as possible
