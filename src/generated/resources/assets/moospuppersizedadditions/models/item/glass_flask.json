@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "strawberrytwirl:item/glass_flask"
+    "layer0": "moospuppersizedadditions:item/glass_flask"
   }
 }

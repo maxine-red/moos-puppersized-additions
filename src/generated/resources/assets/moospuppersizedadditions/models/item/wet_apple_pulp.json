@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "strawberrytwirl:item/wet_apple_pulp"
+    "layer0": "moospuppersizedadditions:item/wet_apple_pulp"
   }
 }

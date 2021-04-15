@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "strawberrytwirl:item/unprepared_apple_leather"
+    "layer0": "moospuppersizedadditions:item/unprepared_apple_leather"
   }
 }

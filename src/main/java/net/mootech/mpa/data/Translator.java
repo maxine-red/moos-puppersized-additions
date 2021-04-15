@@ -47,7 +47,7 @@ public class Translator extends LanguageProvider {
 
 	@Override
 	protected void addTranslations() {
-		add("itemGroup.strawberrytwirl", "Strawberry Twirl");
+		add("itemGroup.moospuppersizedadditions", "Moo's Puppersized Additions");
 		addItems();
 		addFluids();
 		

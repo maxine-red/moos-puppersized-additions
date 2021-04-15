@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "strawberrytwirl:item/bees_wax"
+    "layer0": "moospuppersizedadditions:item/bees_wax"
   }
 }

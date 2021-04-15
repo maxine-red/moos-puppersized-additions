@@ -3,23 +3,23 @@
   "group": "juice_convenience",
   "ingredients": [
     {
-      "item": "strawberrytwirl:glass_flask"
+      "item": "moospuppersizedadditions:glass_flask"
     },
     {
-      "item": "strawberrytwirl:glass_flask"
+      "item": "moospuppersizedadditions:glass_flask"
     },
     {
-      "item": "strawberrytwirl:glass_flask"
+      "item": "moospuppersizedadditions:glass_flask"
     },
     {
-      "item": "strawberrytwirl:glass_flask"
+      "item": "moospuppersizedadditions:glass_flask"
     },
     {
-      "item": "strawberrytwirl:apple_juice_bucket"
+      "item": "moospuppersizedadditions:apple_juice_bucket"
     }
   ],
   "result": {
-    "item": "strawberrytwirl:apple_juice",
+    "item": "moospuppersizedadditions:apple_juice",
     "count": 4
   }
 }

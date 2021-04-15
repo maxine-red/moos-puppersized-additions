@@ -3,22 +3,22 @@
   "group": "juice_convenience",
   "ingredients": [
     {
-      "item": "strawberrytwirl:apple_juice"
+      "item": "moospuppersizedadditions:apple_juice"
     },
     {
-      "item": "strawberrytwirl:apple_juice"
+      "item": "moospuppersizedadditions:apple_juice"
     },
     {
-      "item": "strawberrytwirl:apple_juice"
+      "item": "moospuppersizedadditions:apple_juice"
     },
     {
-      "item": "strawberrytwirl:apple_juice"
+      "item": "moospuppersizedadditions:apple_juice"
     },
     {
       "item": "minecraft:bucket"
     }
   ],
   "result": {
-    "item": "strawberrytwirl:apple_juice_bucket"
+    "item": "moospuppersizedadditions:apple_juice_bucket"
   }
 }

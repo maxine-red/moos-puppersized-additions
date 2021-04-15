@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "strawberrytwirl:salt_block"
+      "item": "moospuppersizedadditions:salt_block"
     }
   ],
   "result": {
-    "item": "strawberrytwirl:salt",
+    "item": "moospuppersizedadditions:salt",
     "count": 4
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "strawberrytwirl:item/salty_water_bucket"
+    "layer0": "moospuppersizedadditions:item/salty_water_bucket"
   }
 }

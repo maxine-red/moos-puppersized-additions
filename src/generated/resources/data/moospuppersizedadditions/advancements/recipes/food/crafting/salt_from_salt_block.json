@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "strawberrytwirl:crafting/salt_from_salt_block"
+      "moospuppersizedadditions:crafting/salt_from_salt_block"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "strawberrytwirl:salt_block"
+            "item": "moospuppersizedadditions:salt_block"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "strawberrytwirl:crafting/salt_from_salt_block"
+        "recipe": "moospuppersizedadditions:crafting/salt_from_salt_block"
       }
     }
   },

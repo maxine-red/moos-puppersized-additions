@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "strawberrytwirl:crafting/apple_juice_bucket_from_apple_juice"
+      "moospuppersizedadditions:crafting/apple_juice_bucket_from_apple_juice"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "strawberrytwirl:apple_juice"
+            "item": "moospuppersizedadditions:apple_juice"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "strawberrytwirl:crafting/apple_juice_bucket_from_apple_juice"
+        "recipe": "moospuppersizedadditions:crafting/apple_juice_bucket_from_apple_juice"
       }
     }
   },

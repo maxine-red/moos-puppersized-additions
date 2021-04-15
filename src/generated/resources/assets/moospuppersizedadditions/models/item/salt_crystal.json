@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "strawberrytwirl:item/salt_crystal"
+    "layer0": "moospuppersizedadditions:item/salt_crystal"
   }
 }
