@@ -1,29 +1,27 @@
 modLoader="javafml"
 loaderVersion="[36,)"
 license="GNU GPLv3"
-issueTrackerURL="https://github.com/maxine-red/strawberry-twirl-companion/issues"
+issueTrackerURL="https://github.com/maxine-red/moos-puppersized-additions/issues"
 [[mods]]
-modId="strawberrytwirl"
+modId="moospuppersizedadditions"
 version="${file.jarVersion}"
-displayName="Strawberry Twirl Companion"
-displayURL="https://github.com/maxine-red/strawberry-twirl-companion"
+displayName="Moo's Puppersized Additions"
+displayURL="https://github.com/maxine-red/moos-puppersized-additions"
 logoFile="project_icon.png"
 #credits=""
 
-authors="Maxine Red"
+authors="Maxine Red, Ulvra"
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-A mod to add content for 'Strawberry Twirl'.
-
-No recipes are added by this mod alone! It's meant to be used in mod packs.
+Small, vanilla friendly additions.
 '''
-[[dependencies.strawberrytwirl]]
+[[dependencies.moospuppersizedadditions]]
     modId="forge"
     mandatory=true
     versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.strawberrytwirl]]
+[[dependencies.moospuppersizedadditions]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.5,1.17)"

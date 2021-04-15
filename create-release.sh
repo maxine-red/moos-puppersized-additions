@@ -19,5 +19,5 @@ git checkout development && git pull && \
   echo "Pushed new tag $full_version" && \
   cd build/libs && \
   gh release create "$full_version" -F ../../CHANGELOG.md \
-  StrawberryTwirlCompanion-"$(echo $full_version|sed 's/v//')".jar && \
+  MoosPuppersizedAdditions-"$(echo $full_version|sed 's/v//')".jar && \
   echo "Created release for $full_version"
