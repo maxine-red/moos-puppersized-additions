@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "salt_bag_storage",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:salt_bag"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:salt",
+    "count": 9
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "sweet_berry_juice_convenience",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:sweet_berry_juice_bucket"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:sweet_berry_juice",
+    "count": 4
+  }
+}

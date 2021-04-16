@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wheat_seed_bag_storage",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:wheat_seed_bag"
+    }
+  ],
+  "result": {
+    "item": "minecraft:wheat_seeds",
+    "count": 9
+  }
+}

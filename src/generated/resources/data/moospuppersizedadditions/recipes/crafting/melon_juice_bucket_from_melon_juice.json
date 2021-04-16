@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "melon_juice_convenience",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:melon_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:melon_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:melon_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:melon_juice"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:melon_juice_bucket"
+  }
+}

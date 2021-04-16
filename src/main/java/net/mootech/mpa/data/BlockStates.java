@@ -43,7 +43,11 @@ public class BlockStates extends BlockStateProvider {
 	protected void registerStatesAndModels() {
 		this.simpleBlock(ModBlocks.SALT_BLOCK.get());
 		this.customDirectionalBlock(ModBlocks.SALT_CRYSTAL.get());
-		this.directionalStorageBlock(ModBlocks.SALT_SACK.get());
+		this.directionalStorageBlock(ModBlocks.SALT_BAG.get());
+		this.directionalStorageBlock(ModBlocks.WHEAT_SEED_BAG.get());
+		this.directionalStorageBlock(ModBlocks.BEETROOT_SEED_BAG.get());
+		this.directionalStorageBlock(ModBlocks.PUMPKIN_SEED_BAG.get());
+		this.directionalStorageBlock(ModBlocks.MELON_SEED_BAG.get());
 	}
 	
 	private void directionalStorageBlock(Block block) {

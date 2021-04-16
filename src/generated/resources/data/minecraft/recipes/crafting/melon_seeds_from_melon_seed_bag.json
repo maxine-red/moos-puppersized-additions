@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "melon_seed_bag_storage",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:melon_seed_bag"
+    }
+  ],
+  "result": {
+    "item": "minecraft:melon_seeds",
+    "count": 9
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "golden_apple_juice_convenience",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:golden_apple_juice_bucket"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:golden_apple_juice",
+    "count": 4
+  }
+}

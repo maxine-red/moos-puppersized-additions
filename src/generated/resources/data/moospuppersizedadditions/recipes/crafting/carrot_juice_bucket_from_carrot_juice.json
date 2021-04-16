@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "carrot_juice_convenience",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:carrot_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:carrot_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:carrot_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:carrot_juice"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:carrot_juice_bucket"
+  }
+}

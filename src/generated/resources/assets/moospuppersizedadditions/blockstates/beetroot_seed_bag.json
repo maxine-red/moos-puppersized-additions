@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "moospuppersizedadditions:block/beetroot_seed_bag_closed",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "moospuppersizedadditions:block/beetroot_seed_bag"
+    },
+    "facing=north": {
+      "model": "moospuppersizedadditions:block/beetroot_seed_bag_closed",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "moospuppersizedadditions:block/beetroot_seed_bag_closed",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "moospuppersizedadditions:block/beetroot_seed_bag_closed",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "moospuppersizedadditions:block/beetroot_seed_bag_closed",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

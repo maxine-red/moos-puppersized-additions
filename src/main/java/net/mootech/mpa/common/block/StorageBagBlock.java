@@ -31,13 +31,13 @@ import net.minecraft.state.properties.BlockStateProperties;
  * @author Maxine Red
  *
  */
-public class StorageSackBlock extends Block {
+public class StorageBagBlock extends Block {
 
 	public static final DirectionProperty FACING = BlockStateProperties.FACING;
 	
 	private static final Properties PROPERTIES = Block.Properties.of(Material.WOOL).sound(SoundType.WOOL);
 	
-	public StorageSackBlock() {
+	public StorageBagBlock() {
 		super(PROPERTIES);
 	}
 

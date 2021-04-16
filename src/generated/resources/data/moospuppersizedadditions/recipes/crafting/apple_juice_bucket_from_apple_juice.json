@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "juice_convenience",
+  "group": "apple_juice_convenience",
   "ingredients": [
     {
       "item": "moospuppersizedadditions:apple_juice"

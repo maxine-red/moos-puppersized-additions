@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moospuppersizedadditions:crafting/carrot_juice_from_carrot_juice_bucket"
+    ]
+  },
+  "criteria": {
+    "has_carrot_juice_bucket": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moospuppersizedadditions:carrot_juice_bucket"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moospuppersizedadditions:crafting/carrot_juice_from_carrot_juice_bucket"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carrot_juice_bucket",
+      "has_the_recipe"
+    ]
+  ]
+}

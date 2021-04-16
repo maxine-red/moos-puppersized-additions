@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moospuppersizedadditions:crafting/golden_carrot_juice_bucket_from_golden_carrot_juice"
+    ]
+  },
+  "criteria": {
+    "has_golden_carrot_juice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moospuppersizedadditions:golden_carrot_juice"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moospuppersizedadditions:crafting/golden_carrot_juice_bucket_from_golden_carrot_juice"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_carrot_juice",
+      "has_the_recipe"
+    ]
+  ]
+}

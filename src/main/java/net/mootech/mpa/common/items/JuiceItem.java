@@ -40,7 +40,7 @@ public class JuiceItem extends DrinkableItem {
 	}
 
 	public JuiceItem(Properties properties, Item cropItem, BucketItem bucket, boolean isChorus) {
-		super(properties, isChorus);
+		super(properties.rarity(cropItem.getDefaultInstance().getRarity()), isChorus);
 		this.cropItem = cropItem;
 		this.bucket = bucket;
 		this.cropMultiplier = (cropItem == Items.SWEET_BERRIES || cropItem == Items.MELON_SLICE ? 2 : 1);

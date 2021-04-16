@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "moospuppersizedadditions:block/salt_bag_side",
+    "bottom": "moospuppersizedadditions:block/salt_bag_bottom",
+    "top": "moospuppersizedadditions:block/salt_bag_top"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "moospuppersizedadditions:block/melon_seed_bag_side",
+    "bottom": "moospuppersizedadditions:block/melon_seed_bag_bottom",
+    "top": "moospuppersizedadditions:block/melon_seed_bag_top"
+  }
+}

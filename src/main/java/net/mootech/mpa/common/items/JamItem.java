@@ -17,8 +17,11 @@
  */
 package net.mootech.mpa.common.items;
 
+import net.minecraft.item.BucketItem;
+import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.mootech.mpa.common.ModItems;
 
 /**
  * Jam jars, to have their own drink sound
@@ -26,11 +29,26 @@ import net.minecraft.util.SoundEvents;
  *
  */
 public class JamItem extends DrinkableItem {
+	
+	private final BucketItem bucket;
 
-	public JamItem(Properties properties, boolean isChorus) {
-		super(properties, isChorus);
+	public JamItem(Properties properties, Item cropItem, BucketItem bucket) {
+		this(properties, cropItem, bucket, false);
 	}
 
+	public JamItem(Properties properties, Item cropItem, BucketItem bucket, boolean isChorus) {
+		super(properties.rarity(cropItem.getDefaultInstance().getRarity()), isChorus);
+		this.bucket = bucket;
+		ModItems.JAMS.add(this);
+	}
+
+	/**
+	 * @return the bucket
+	 */
+	public BucketItem getBucket() {
+		return bucket;
+	}
+	
 	/**
 	 * Override drinking sound
 	 */

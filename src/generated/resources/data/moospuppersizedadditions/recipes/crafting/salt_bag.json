@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "salt_bag_storage",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    },
+    {
+      "item": "moospuppersizedadditions:salt"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:salt_bag"
+  }
+}

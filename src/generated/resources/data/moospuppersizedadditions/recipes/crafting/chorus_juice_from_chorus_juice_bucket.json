@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chorus_juice_convenience",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:chorus_juice_bucket"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:chorus_juice",
+    "count": 4
+  }
+}

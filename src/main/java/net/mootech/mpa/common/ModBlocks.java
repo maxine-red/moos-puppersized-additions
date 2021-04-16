@@ -34,7 +34,7 @@ import net.mootech.mpa.MoosPuppersizedAdditions;
 import net.mootech.mpa.common.block.ExpOreBlock;
 import net.mootech.mpa.common.block.FallingExpOreBlock;
 import net.mootech.mpa.common.block.SaltCrystalBlock;
-import net.mootech.mpa.common.block.StorageSackBlock;
+import net.mootech.mpa.common.block.StorageBagBlock;
 
 public class ModBlocks {
 	
@@ -47,9 +47,16 @@ public class ModBlocks {
 	public static final RegistryObject<Block> SALT_BLOCK = BLOCKS.register("salt_block", () -> new FallingBlock(DEFAULT_SAND_PROPERTIES));
 	public static final RegistryObject<Block> SALT_SAND_ORE = BLOCKS.register("salt_sand_ore", () -> new FallingExpOreBlock(DEFAULT_SAND_PROPERTIES));
 	public static final RegistryObject<Block> SALT_STONE_ORE = BLOCKS.register("salt_stone_ore", () -> new ExpOreBlock(DEFAULT_STONE_PROPERTIERS));
-	public static final RegistryObject<Block> SALT_SACK = BLOCKS.register("salt_sack", StorageSackBlock::new);
 	
+	// TODO add jelly storage blocks
+	// Storage bags
+	public static final RegistryObject<Block> SALT_BAG = BLOCKS.register("salt_bag", StorageBagBlock::new);
+	public static final RegistryObject<Block> WHEAT_SEED_BAG = BLOCKS.register("wheat_seed_bag", StorageBagBlock::new);
+	public static final RegistryObject<Block> BEETROOT_SEED_BAG = BLOCKS.register("beetroot_seed_bag", StorageBagBlock::new);
+	public static final RegistryObject<Block> PUMPKIN_SEED_BAG = BLOCKS.register("pumpkin_seed_bag", StorageBagBlock::new);
+	public static final RegistryObject<Block> MELON_SEED_BAG = BLOCKS.register("melon_seed_bag", StorageBagBlock::new);
 	
+	// TODO add in world spawning behavior for ores and other salt blocks (pneumaticcraft does it, so look there)
 	private static final Logger LOGGER = LogManager.getLogger();
 	
 	public static void init(IEventBus modEventBus) {

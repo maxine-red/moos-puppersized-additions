@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "beetroot_seed_bag_storage",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:beetroot_seed_bag"
+    }
+  ],
+  "result": {
+    "item": "minecraft:beetroot_seeds",
+    "count": 9
+  }
+}

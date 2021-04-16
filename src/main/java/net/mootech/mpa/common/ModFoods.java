@@ -41,7 +41,8 @@ public class ModFoods {
 	private static final int juice_nutrition = 4;
 	
 	public static final Food SALT = (new Food.Builder()).nutrition(1).saturationMod(0).alwaysEat().effect(() -> SALT_HUNGER, 0.75f).build();
-	
+
+	// Juices
 	public static final Food APPLE_JUICE = create_juice_food_builder(Items.APPLE).build();
 	public static final Food GOLDEN_APPLE_JUICE = create_juice_food_builder(Items.GOLDEN_APPLE).effect(() -> ABSORPTION, 1.0f).effect(() -> REGENERATION, 1.0f).build();
 	public static final Food MELON_JUICE = create_juice_food_builder(Items.MELON_SLICE).build();
@@ -49,6 +50,15 @@ public class ModFoods {
 	public static final Food SWEET_BERRY_JUICE = create_juice_food_builder(Items.SWEET_BERRIES).build();
 	public static final Food CARROT_JUICE = create_juice_food_builder(Items.CARROT).build();
 	public static final Food GOLDEN_CARROT_JUICE = create_juice_food_builder(Items.GOLDEN_CARROT).effect(() -> NIGHT_VISION, 1.0f).build();
+	
+	// Jams
+	public static final Food APPLE_JAM = create_jam_food_builder(APPLE_JUICE).build();
+	public static final Food GOLDEN_APPLE_JAM = create_jam_food_builder(GOLDEN_APPLE_JUICE).effect(() -> ABSORPTION, 1.0f).effect(() -> REGENERATION, 1.0f).build();
+	public static final Food MELON_JAM = create_jam_food_builder(MELON_JUICE).build();
+	public static final Food CHORUS_JAM = create_jam_food_builder(CHORUS_JUICE).build();
+	public static final Food SWEET_BERRY_JAM = create_jam_food_builder(SWEET_BERRY_JUICE).build();
+	
+	// TODO add jelly items
 
 	/**
 	 * Helper method to create food properties (need to call `.build()` on
@@ -64,5 +74,11 @@ public class ModFoods {
 	
 	public static final Food.Builder create_juice_food_builder(Item crop) {
 		return create_juice_food_builder(crop, 1);
+	}
+	
+
+	
+	public static final Food.Builder create_jam_food_builder(Food juice) {
+		return (new Food.Builder()).nutrition(juice.getNutrition() * 2).saturationMod(juice.getSaturationModifier() * 1.25f);
 	}
 }

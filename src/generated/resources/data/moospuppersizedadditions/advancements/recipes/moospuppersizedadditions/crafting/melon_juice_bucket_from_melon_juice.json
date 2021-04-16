@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moospuppersizedadditions:crafting/melon_juice_bucket_from_melon_juice"
+    ]
+  },
+  "criteria": {
+    "has_melon_juice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moospuppersizedadditions:melon_juice"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moospuppersizedadditions:crafting/melon_juice_bucket_from_melon_juice"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_melon_juice",
+      "has_the_recipe"
+    ]
+  ]
+}

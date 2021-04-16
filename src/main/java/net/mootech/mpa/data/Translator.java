@@ -50,23 +50,6 @@ public class Translator extends LanguageProvider {
 		add("itemGroup.moospuppersizedadditions", "Moo's Puppersized Additions");
 		addItems();
 		addFluids();
-		
-		// TODO redo translations
-		/*for (StrawberryBlock block : StrawberryBlocks.REGISTERED_BLOCKS) {
-			add((Block)block, block.getName().getString());
-		}
-		for (StrawberryBlockItem item : StrawberryItems.REGISTERED_BLOCK_ITEMS) {
-			add((Item)item, item.getName());
-		}
-		for (StrawberryItem item : StrawberryItems.REGISTERED_ITEMS) {
-			add((Item)item, item.getName());
-		}
-		for (StrawberryBucketItem bucket : StrawberryItems.BUCKETS) {
-			add((Item)bucket, bucket.getName());
-		}
-		for (StrawberryFluid fluid : StrawberryFluids.SOURCE_FLUIDS) {
-			add("fluid." + StrawberryTwirlCompanion.ID + "." + fluid.getID(), fluid.getName());
-		}*/
 	}
 	
 	private void addItems() {
@@ -79,8 +62,6 @@ public class Translator extends LanguageProvider {
 		items.remove(ModItems.SALT_SAND_ORE.get());
 		add(ModItems.SALT_STONE_ORE.get(), "Rock Salt");
 		items.remove(ModItems.SALT_STONE_ORE.get());
-		add(ModItems.SALT_SACK.get(), "Sack of Salt");
-		items.remove(ModItems.SALT_SACK.get());
 		
 		// Use a simple approach for remaining items
 		items.forEach((item) -> translateSimpleItem(item));

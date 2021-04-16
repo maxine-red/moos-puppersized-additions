@@ -32,7 +32,7 @@ import net.mootech.mpa.common.fluids.VirtualFluid;
 public class GoldenAppleJuiceFluid {
 	public static final String ID = "golden_apple_juice";
 	private static final FluidAttributes.Builder ATTRIBUTES = FluidAttributes.builder(new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "fluids/" + ID), new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "fluids/" + ID + "_flow"));
-	private static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(ModFluids.GOLDEN_APPLE_JUICE, ModFluids.GOLDEN_APPLE_JUICE_FLOWING, ATTRIBUTES).bucket(ModItems.APPLE_JUICE_BUCKET);
+	private static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(ModFluids.GOLDEN_APPLE_JUICE, ModFluids.GOLDEN_APPLE_JUICE_FLOWING, ATTRIBUTES).bucket(ModItems.GOLDEN_APPLE_JUICE_BUCKET);
 	
 	public static class Source extends VirtualFluid.Source {
 

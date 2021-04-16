@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chorus_juice_convenience",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:chorus_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:chorus_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:chorus_juice"
+    },
+    {
+      "item": "moospuppersizedadditions:chorus_juice"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:chorus_juice_bucket"
+  }
+}

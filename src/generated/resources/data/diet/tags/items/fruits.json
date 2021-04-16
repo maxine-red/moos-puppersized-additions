@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "moospuppersizedadditions:apple_juice"
+    "moospuppersizedadditions:apple_juice",
+    "moospuppersizedadditions:melon_juice",
+    "moospuppersizedadditions:golden_apple_juice",
+    "moospuppersizedadditions:sweet_berry_juice",
+    "moospuppersizedadditions:chorus_juice"
   ]
 }

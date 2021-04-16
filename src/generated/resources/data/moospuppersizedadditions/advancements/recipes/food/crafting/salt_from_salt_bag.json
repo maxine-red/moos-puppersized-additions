@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moospuppersizedadditions:crafting/salt_from_salt_bag"
+    ]
+  },
+  "criteria": {
+    "has_salt_bag": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moospuppersizedadditions:salt_bag"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moospuppersizedadditions:crafting/salt_from_salt_bag"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_salt_bag",
+      "has_the_recipe"
+    ]
+  ]
+}

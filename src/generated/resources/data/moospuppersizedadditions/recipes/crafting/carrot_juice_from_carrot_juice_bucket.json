@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "carrot_juice_convenience",
+  "ingredients": [
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:glass_flask"
+    },
+    {
+      "item": "moospuppersizedadditions:carrot_juice_bucket"
+    }
+  ],
+  "result": {
+    "item": "moospuppersizedadditions:carrot_juice",
+    "count": 4
+  }
+}
