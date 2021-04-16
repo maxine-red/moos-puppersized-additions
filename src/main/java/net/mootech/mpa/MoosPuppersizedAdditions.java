@@ -19,7 +19,9 @@ package net.mootech.mpa;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.mootech.mpa.client.ModClientInitializer;
 import net.mootech.mpa.common.ModCommonInitializer;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -30,7 +32,12 @@ public class MoosPuppersizedAdditions
 	public static final String NAME = "Moo's Puppersized Additions";
 
     public MoosPuppersizedAdditions() {
-    	ModCommonInitializer.init(FMLJavaModLoadingContext.get().getModEventBus());
+    	ModCommonInitializer.init(FMLJavaModLoadingContext.get().getModEventBus()); // this is used to register content. The <Content>.register() methods require an IeventBus object
+    	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(this);
+    }
+    
+    private void clientSetup(final FMLClientSetupEvent event) {
+    	ModClientInitializer.init(event);
     }
 }

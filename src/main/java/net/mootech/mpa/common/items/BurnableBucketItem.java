@@ -17,25 +17,35 @@
  */
 package net.mootech.mpa.common.items;
 
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import java.util.function.Supplier;
+
+import net.minecraft.fluid.Fluid;
+import net.minecraft.item.BucketItem;
+import net.minecraft.item.ItemStack;
 
 /**
- * Jam jars, to have their own drink sound
  * @author Maxine Red
  *
  */
-public class JamItem extends DrinkableItem {
+public class BurnableBucketItem extends BucketItem {
+	
+	private final int burnTime; 
 
-	public JamItem(Properties properties, boolean isChorus) {
-		super(properties, isChorus);
+	/**
+	 * @param supplier Fluid for this bucket
+	 * @param builder Properties
+	 */
+	public BurnableBucketItem(Supplier<? extends Fluid> supplier, Properties builder, int burnTime) {
+		super(supplier, builder);
+		this.burnTime = burnTime;
 	}
 
 	/**
-	 * Override drinking sound
+	 * @return the burnTime
 	 */
 	@Override
-	public SoundEvent getEatingSound() {
-		return SoundEvents.HONEY_DRINK;
+	public int getBurnTime(ItemStack stack) {
+		return burnTime;
 	}
+
 }

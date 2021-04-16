@@ -18,13 +18,8 @@
 
 package net.mootech.mpa.data;
 
-import java.util.Set;
 import java.util.function.Consumer;
-import java.util.regex.Pattern;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
@@ -34,18 +29,15 @@ import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.mpa.MoosPuppersizedAdditions;
-import net.mootech.mpa.common.ModCommonInitializer;
 import net.mootech.mpa.common.ModItems;
+import net.mootech.mpa.common.items.JuiceItem;
 
 /**
  * @author Maxine Red
  *
  * Create recipes automatically.
  */
-@ParametersAreNonnullByDefault
-@MethodsReturnNonnullByDefault
 public class ModRecipes extends RecipeProvider {
 
 	/**
@@ -62,12 +54,10 @@ public class ModRecipes extends RecipeProvider {
 	@Override
 	protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
 		addSaltRecipes(consumer);
-		//addGlassContainerRecipe(consumer);
-		//addJuiceRecipes(consumer);
+		addGlassContainerRecipe(consumer);
+		addJuiceRecipes(consumer);
 		//addJuiceBucketRecipes(consumer);
 		//addJuiceBucketToBottlesRecipes(consumer);
-		Set<Item> items = ModCommonInitializer.getRegisteredModItems(MoosPuppersizedAdditions.MOD_ID);
-		items.forEach(i -> registerRecipesForItems(i, consumer));
 	}
 	
 	private void addSaltRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -82,57 +72,37 @@ public class ModRecipes extends RecipeProvider {
 		.save(consumer, new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "crafting/salt_from_salt_block"));
 	}
 	
-	private static final Pattern juice_pattern = Pattern.compile("juice$");
-	
-	private void registerRecipesForItems(Item item,Consumer<IFinishedRecipe> consumer) {
-		String item_id = item.getRegistryName().getPath();
-		if (juice_pattern.matcher(item_id).find()) {
-			addBottlesToBucketRecipe(item, consumer);
-		}
-	}
-	/*
+	/**
+	 * Add mod glass container (flask and jar)
+	 * @param consumer
+	 */
 	private void addGlassContainerRecipe(Consumer<IFinishedRecipe> consumer) {
-		ShapedRecipeBuilder.shaped(StrawberryItems.GLASS_FLASK, 4).pattern("g g").pattern("g g").define('g', Items.GLASS)
-		.unlockedBy("has_glass", )
-		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/empty_juice_bottle"));
-		ShapedRecipeBuilder.shaped(StrawberryItems.GLASS_JAR, 4).pattern("g g").pattern("g g").pattern("ggg").define('g', Items.GLASS)
+		ShapedRecipeBuilder.shaped(ModItems.GLASS_FLASK.get(), 4).pattern("g g").pattern("g g").define('g', Items.GLASS)
 		.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))
-		.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/empty_jar"));
+		.save(consumer, new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "crafting/glass_flask"));
+		ShapedRecipeBuilder.shaped(ModItems.GLASS_JAR.get(), 4).pattern("g g").pattern("g g").pattern("ggg").define('g', Items.GLASS)
+		.unlockedBy("has_glass", InventoryChangeTrigger.Instance.hasItems(Items.GLASS))
+		.save(consumer, new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "crafting/glass_jar"));
 	}
 	
+	/**
+	 * Make recipes for juices
+	 * @param consumer Recipe consumer
+	 */
 	private void addJuiceRecipes(Consumer<IFinishedRecipe> consumer) {
-		for (JuiceItem juice : StrawberryItems.JUICES) {
-			ShapelessRecipeBuilder.shapeless(juice).requires(juice.getCraftingRemainderItem()).requires(juice.getCrop(), juice.getCraftAmount())
-			.unlockedBy("has_" + juice.getCrop().getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(juice.getCrop())).group("juice_making")
-			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + juice.getId()));
+		// TODO add crushing tub recipes for juice making
+		for (JuiceItem juice : ModItems.JUICES) {
+			Item bucket = juice.getBucket();
+			// bucket from 4 bottles
+			ShapelessRecipeBuilder.shapeless(bucket, 1).requires(juice, 4).requires(Items.BUCKET)
+			.unlockedBy("has_" + juice.getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(juice)).group("juice_convenience")
+			.save(consumer, new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "crafting/" + bucket.getRegistryName().getPath() + "_from_" + juice.getRegistryName().getPath()));
+			
+			// 4 bottles from bucket
+			ShapelessRecipeBuilder.shapeless(juice, 4).requires(ModItems.GLASS_FLASK.get(), 4).requires(bucket)
+			.unlockedBy("has_" + bucket.getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(bucket)).group("juice_convenience")
+			.save(consumer, new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "crafting/" + juice.getRegistryName().getPath() + "_from_" + bucket.getRegistryName().getPath()));
 		}
-	}
-	
-	private void addJuiceBucketRecipes(Consumer<IFinishedRecipe> consumer) {
-		for (JuiceBucketItem bucket : StrawberryItems.JUICE_BUCKETS) {
-			JuiceItem bottle = bucket.getBottle();
-			ShapelessRecipeBuilder.shapeless(bucket).requires(Items.BUCKET).requires(bottle.getCrop(), 4 * bottle.getCraftAmount())
-			.unlockedBy("has_" + bottle.getCrop().getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(bottle.getCrop())).group("juice_making")
-			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + bucket.getId()));
-		}
-	}
-	
-	private void addJuiceBucketToBottlesRecipes(Consumer<IFinishedRecipe> consumer) {
-		for (JuiceBucketItem bucket : StrawberryItems.JUICE_BUCKETS) {
-			JuiceItem bottle = bucket.getBottle();
-			ShapelessRecipeBuilder.shapeless(bottle, 4).requires(bucket).requires(Items.GLASS_BOTTLE, 4)
-			.unlockedBy("has_" + bucket.getId(), InventoryChangeTrigger.Instance.hasItems(bucket)).group("juice_convenience")
-			.save(consumer, new ResourceLocation(StrawberryTwirlCompanion.ID, "crafting/" + bottle.getId() + "_from_" + bucket.getId()));
-		}
-	}*/
-	
-	private void addBottlesToBucketRecipe(Item item, Consumer<IFinishedRecipe> consumer) {
-		Item bucket = ForgeRegistries.ITEMS.getValue(new ResourceLocation(item.getRegistryName().getNamespace(), item.getRegistryName().getPath() + "_bucket"));
-		ShapelessRecipeBuilder.shapeless(bucket, 1).requires(item, 4).requires(Items.BUCKET)
-			.unlockedBy("has_" + item.getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(item)).group("juice_convenience")
-			.save(consumer, new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "crafting/" + bucket.getRegistryName().getPath() + "_from_" + item.getRegistryName().getPath()));
-		ShapelessRecipeBuilder.shapeless(item, 4).requires(ModItems.GLASS_FLASK.get(), 4).requires(bucket)
-		.unlockedBy("has_" + bucket.getRegistryName().getPath(), InventoryChangeTrigger.Instance.hasItems(bucket)).group("juice_convenience")
-		.save(consumer, new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "crafting/" + item.getRegistryName().getPath() + "_from_" + bucket.getRegistryName().getPath()));
+
 	}
 }

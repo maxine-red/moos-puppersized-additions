@@ -14,6 +14,14 @@ Most changes are food related, or about gaining access to resources in more pupp
 
 ## Credits
 
-### Project specific content
-
 - Project icon and item textures are made by [Ulvra](https://www.furaffinity.net/user/ulvra)
+
+## FAQ
+
+Q: Do you port to 1.12?
+
+A: No. Simply speaking, 1.12 was another era and I rather look forward than backward.
+
+Q: Do you port to Fabric?
+
+A: No. Figuring out one mod loader is enough. Forge still has more mods on it and most important, I am only one developer and don't have the to support multiple loaders.

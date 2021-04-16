@@ -26,47 +26,76 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.mpa.MoosPuppersizedAdditions;
-import net.mootech.mpa.common.fluids.AppleJuiceFluid;
+import net.mootech.mpa.common.fluids.GelatinFluid;
 import net.mootech.mpa.common.fluids.SaltyWaterFluid;
-import net.mootech.mpa.util.Color;
+import net.mootech.mpa.common.fluids.SeedOilFluid;
+import net.mootech.mpa.common.fluids.jams.AppleJamFluid;
+import net.mootech.mpa.common.fluids.jams.ChorusJamFluid;
+import net.mootech.mpa.common.fluids.jams.GoldenAppleJamFluid;
+import net.mootech.mpa.common.fluids.jams.MelonJamFluid;
+import net.mootech.mpa.common.fluids.jams.SweetBerryJamFluid;
+import net.mootech.mpa.common.fluids.juices.AppleJuiceFluid;
+import net.mootech.mpa.common.fluids.juices.CarrotJuiceFluid;
+import net.mootech.mpa.common.fluids.juices.ChorusJuiceFluid;
+import net.mootech.mpa.common.fluids.juices.GoldenAppleJuiceFluid;
+import net.mootech.mpa.common.fluids.juices.GoldenCarrotJuiceFluid;
+import net.mootech.mpa.common.fluids.juices.MelonJuiceFluid;
+import net.mootech.mpa.common.fluids.juices.SweetBerryJuiceFluid;
 
 public class ModFluids {
 	
 	private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, MoosPuppersizedAdditions.MOD_ID);
 	
+	// Juices
 	public static final RegistryObject<Fluid> APPLE_JUICE = FLUIDS.register(AppleJuiceFluid.ID, () -> new AppleJuiceFluid.Source());
 	public static final RegistryObject<Fluid> APPLE_JUICE_FLOWING = FLUIDS.register(AppleJuiceFluid.ID + "_flowing", () -> new AppleJuiceFluid.Flowing());
 	
+	public static final RegistryObject<Fluid> GOLDEN_APPLE_JUICE = FLUIDS.register(GoldenAppleJuiceFluid.ID, () -> new GoldenAppleJuiceFluid.Source());
+	public static final RegistryObject<Fluid> GOLDEN_APPLE_JUICE_FLOWING = FLUIDS.register(GoldenAppleJuiceFluid.ID + "_flowing", () -> new GoldenAppleJuiceFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> MELON_JUICE = FLUIDS.register(MelonJuiceFluid.ID, () -> new MelonJuiceFluid.Source());
+	public static final RegistryObject<Fluid> MELON_JUICE_FLOWING = FLUIDS.register(MelonJuiceFluid.ID + "_flowing", () -> new MelonJuiceFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> CHORUS_JUICE = FLUIDS.register(ChorusJuiceFluid.ID, () -> new ChorusJuiceFluid.Source());
+	public static final RegistryObject<Fluid> CHORUS_JUICE_FLOWING = FLUIDS.register(ChorusJuiceFluid.ID + "_flowing", () -> new ChorusJuiceFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> SWEET_BERRY_JUICE = FLUIDS.register(SweetBerryJuiceFluid.ID, () -> new SweetBerryJuiceFluid.Source());
+	public static final RegistryObject<Fluid> SWEET_BERRY_JUICE_FLOWING = FLUIDS.register(SweetBerryJuiceFluid.ID + "_flowing", () -> new SweetBerryJuiceFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> CARROT_JUICE = FLUIDS.register(CarrotJuiceFluid.ID, () -> new CarrotJuiceFluid.Source());
+	public static final RegistryObject<Fluid> CARROT_JUICE_FLOWING = FLUIDS.register(CarrotJuiceFluid.ID + "_flowing", () -> new CarrotJuiceFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> GOLDEN_CARROT_JUICE = FLUIDS.register(GoldenCarrotJuiceFluid.ID, () -> new GoldenCarrotJuiceFluid.Source());
+	public static final RegistryObject<Fluid> GOLDEN_CARROT_JUICE_FLOWING = FLUIDS.register(GoldenCarrotJuiceFluid.ID + "_flowing", () -> new GoldenCarrotJuiceFluid.Flowing());
+	
+	// Jams
+	public static final RegistryObject<Fluid> APPLE_JAM = FLUIDS.register(AppleJamFluid.ID, () -> new AppleJamFluid.Source());
+	public static final RegistryObject<Fluid> APPLE_JAM_FLOWING = FLUIDS.register(AppleJamFluid.ID + "_flowing", () -> new AppleJamFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> GOLDEN_APPLE_JAM = FLUIDS.register(GoldenAppleJamFluid.ID, () -> new GoldenAppleJamFluid.Source());
+	public static final RegistryObject<Fluid> GOLDEN_APPLE_JAM_FLOWING = FLUIDS.register(GoldenAppleJamFluid.ID + "_flowing", () -> new GoldenAppleJamFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> MELON_JAM = FLUIDS.register(MelonJamFluid.ID, () -> new MelonJamFluid.Source());
+	public static final RegistryObject<Fluid> MELON_JAM_FLOWING = FLUIDS.register(MelonJamFluid.ID + "_flowing", () -> new MelonJamFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> CHORUS_JAM = FLUIDS.register(ChorusJamFluid.ID, () -> new ChorusJamFluid.Source());
+	public static final RegistryObject<Fluid> CHORUS_JAM_FLOWING = FLUIDS.register(ChorusJamFluid.ID + "_flowing", () -> new ChorusJamFluid.Flowing());
+	
+	public static final RegistryObject<Fluid> SWEET_BERRY_JAM = FLUIDS.register(SweetBerryJamFluid.ID, () -> new SweetBerryJamFluid.Source());
+	public static final RegistryObject<Fluid> SWEET_BERRY_JAM_FLOWING = FLUIDS.register(SweetBerryJamFluid.ID + "_flowing", () -> new SweetBerryJamFluid.Flowing());
+	
+	// Other
 	public static final RegistryObject<Fluid> SALTY_WATER = FLUIDS.register(SaltyWaterFluid.ID, () -> new SaltyWaterFluid.Source());
 	public static final RegistryObject<Fluid> SALTY_WATER_FLOWING = FLUIDS.register(SaltyWaterFluid.ID + "_flowing", () -> new SaltyWaterFluid.Flowing());
+
+	public static final RegistryObject<Fluid> GELATIN = FLUIDS.register(GelatinFluid.ID, () -> new GelatinFluid.Source());
+	public static final RegistryObject<Fluid> GELATIN_FLOWING = FLUIDS.register(GelatinFluid.ID + "_flowing", () -> new GelatinFluid.Flowing());
+
+	public static final RegistryObject<Fluid> SEED_OIL = FLUIDS.register(SeedOilFluid.ID, () -> new SeedOilFluid.Source());
+	public static final RegistryObject<Fluid> SEED_OIL_FLOWING = FLUIDS.register(SeedOilFluid.ID + "_flowing", () -> new SeedOilFluid.Flowing());
+
 	
-	public static final Color APPLE_COLOR = new Color(219, 162, 19);
-	public static final Color GOLDEN_APPLE_COLOR = new Color(234, 238, 87);
-	public static final Color MELON_COLOR = new Color(193, 60, 45);
-	public static final Color CHORUS_COLOR = new Color(143, 102, 141);
-	public static final Color SWEET_BERRY_COLOR = new Color(130, 11, 5);
-	public static final Color CARROT_COLOR = new Color(255, 142, 9);
-	public static final Color GOLDEN_CARROT_COLOR = new Color(236, 203, 69);
-
-	/*public static final StrawberryFluid GELATIN = new StrawberryFluid("gelatin", new Color(232, 232, 211));
-	public static final StrawberryFluid SEED_OIL = new StrawberryFluid("seed_oil", new Color(229, 235, 174), 4000);
-
-	public static final JuiceFluid APPLE_JUICE = new JuiceFluid("apple", APPLE_COLOR, () -> StrawberryItems.APPLE_JUICE);
-	public static final JuiceFluid GOLDEN_APPLE_JUICE = new JuiceFluid("golden_apple", GOLDEN_APPLE_COLOR, () -> StrawberryItems.GOLDEN_APPLE_JUICE, Rarity.RARE);
-	public static final JuiceFluid MELON_JUICE = new JuiceFluid("melon", MELON_COLOR, () -> StrawberryItems.MELON_JUICE);
-	public static final JuiceFluid CHORUS_JUICE = new JuiceFluid("chorus", CHORUS_COLOR, () -> StrawberryItems.CHORUS_JUICE);
-	public static final JuiceFluid SWEET_BERRY_JUICE = new JuiceFluid("sweet_berry", SWEET_BERRY_COLOR, () -> StrawberryItems.SWEET_BERRY_JUICE);
-	public static final JuiceFluid CARROT_JUICE = new JuiceFluid("carrot", CARROT_COLOR, () -> StrawberryItems.CARROT_JUICE);
-	public static final JuiceFluid GOLDEN_CARROT_JUICE = new JuiceFluid("golden_carrot", GOLDEN_CARROT_COLOR, () -> StrawberryItems.GOLDEN_CARROT_JUICE, Rarity.UNCOMMON);
-
-	public static final JamFluid APPLE_JAM = new JamFluid("apple", APPLE_COLOR);
-	public static final JamFluid GOLDEN_APPLE_JAM = new JamFluid("golden_apple", GOLDEN_APPLE_COLOR);
-	public static final JamFluid MELON_JAM = new JamFluid("melon", MELON_COLOR);
-	public static final JamFluid CHORUS_JAM = new JamFluid("chorus", CHORUS_COLOR);
-	public static final JamFluid SWEET_BERRY_JAM = new JamFluid("sweet_berry", SWEET_BERRY_COLOR);*/
-	
-    
-    private static final Logger LOGGER = LogManager.getLogger();
+	private static final Logger LOGGER = LogManager.getLogger();
 
     public static void init(IEventBus modEventBus) {
     	LOGGER.debug("Registering strawberry fluids");

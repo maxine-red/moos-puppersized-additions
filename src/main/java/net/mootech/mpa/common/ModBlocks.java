@@ -33,6 +33,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.mootech.mpa.MoosPuppersizedAdditions;
 import net.mootech.mpa.common.block.ExpOreBlock;
 import net.mootech.mpa.common.block.FallingExpOreBlock;
+import net.mootech.mpa.common.block.SaltCrystalBlock;
+import net.mootech.mpa.common.block.StorageSackBlock;
 
 public class ModBlocks {
 	
@@ -41,13 +43,12 @@ public class ModBlocks {
     private static final Block.Properties DEFAULT_SAND_PROPERTIES = Block.Properties.of(Material.SAND, MaterialColor.SAND).harvestTool(ToolType.SHOVEL).sound(SoundType.SAND);
     private static final Block.Properties DEFAULT_STONE_PROPERTIERS = Block.Properties.of(Material.STONE, MaterialColor.STONE).harvestLevel(1).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE);
 	
-    // TODO Crystals need special class to handle different hit boxes and render types
-    // TODO Ore need render type to work, find out how
-    // TODO Change salt block texture and try it out for pupper
-	public static final RegistryObject<Block> SALT_CRYSTAL = BLOCKS.register("salt_crystal", () -> new Block(Block.Properties.of(Material.ICE)));
+	public static final RegistryObject<Block> SALT_CRYSTAL = BLOCKS.register("salt_crystal", SaltCrystalBlock::new);
 	public static final RegistryObject<Block> SALT_BLOCK = BLOCKS.register("salt_block", () -> new FallingBlock(DEFAULT_SAND_PROPERTIES));
 	public static final RegistryObject<Block> SALT_SAND_ORE = BLOCKS.register("salt_sand_ore", () -> new FallingExpOreBlock(DEFAULT_SAND_PROPERTIES));
 	public static final RegistryObject<Block> SALT_STONE_ORE = BLOCKS.register("salt_stone_ore", () -> new ExpOreBlock(DEFAULT_STONE_PROPERTIERS));
+	public static final RegistryObject<Block> SALT_SACK = BLOCKS.register("salt_sack", StorageSackBlock::new);
+	
 	
 	private static final Logger LOGGER = LogManager.getLogger();
 	

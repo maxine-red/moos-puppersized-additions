@@ -41,9 +41,9 @@ public class ModItemTags extends ItemTagsProvider {
 	private ITag.INamedTag<Item> CREATE_UPRIGHT_ON_BELT = ItemTags.bind(new ResourceLocation("create", "upright_on_belt").toString());
 	private ITag.INamedTag<Item> DIET_FRUITS = ItemTags.bind(new ResourceLocation("diet", "fruits").toString());
 	private ITag.INamedTag<Item> DIET_VEGETABLES = ItemTags.bind(new ResourceLocation("diet", "vegetables").toString());
-	private ITag.INamedTag<Item> DIET_PROTEINS = ItemTags.bind(new ResourceLocation("diet", "proteins").toString());
-	private ITag.INamedTag<Item> DIET_GRAINS = ItemTags.bind(new ResourceLocation("diet", "grains").toString());
-	private ITag.INamedTag<Item> DIET_SUGARS = ItemTags.bind(new ResourceLocation("diet", "sugars").toString());
+	//private ITag.INamedTag<Item> DIET_PROTEINS = ItemTags.bind(new ResourceLocation("diet", "proteins").toString());
+	//private ITag.INamedTag<Item> DIET_GRAINS = ItemTags.bind(new ResourceLocation("diet", "grains").toString());
+	//private ITag.INamedTag<Item> DIET_SUGARS = ItemTags.bind(new ResourceLocation("diet", "sugars").toString());
 	private ITag.INamedTag<Item> DIET_WATER = ItemTags.bind(new ResourceLocation("diet", "water").toString());
 	private ITag.INamedTag<Item> FORGE_EDIBLES = ItemTags.bind(new ResourceLocation("forge", "edibles").toString());
 

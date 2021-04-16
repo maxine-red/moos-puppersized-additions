@@ -46,11 +46,11 @@ public class ModCommonInitializer {
     };
 	
 	public static void init(IEventBus modEventBus) {
-		LOGGER.info("Initializing modded blocks");
+		LOGGER.debug("Initializing modded blocks");
         ModBlocks.init(modEventBus);
-		LOGGER.info("Initializing modded fluids");
+		LOGGER.debug("Initializing modded fluids");
         ModFluids.init(modEventBus);
-		LOGGER.info("Initializing modded items");
+		LOGGER.debug("Initializing modded items");
         ModItems.init(modEventBus);
 	}
 	

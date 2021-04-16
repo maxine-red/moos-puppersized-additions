@@ -17,25 +17,29 @@
  */
 package net.mootech.mpa.common.items;
 
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 /**
- * Jam jars, to have their own drink sound
+ * Burnable items. One item is smelted in 200 ticks
  * @author Maxine Red
  *
  */
-public class JamItem extends DrinkableItem {
-
-	public JamItem(Properties properties, boolean isChorus) {
-		super(properties, isChorus);
-	}
-
+public class BurnableItem extends Item {
+	
+	private final int burnTime;
 	/**
-	 * Override drinking sound
+	 * Constructor for bunarbale items
+	 * @param properties Item properties
+	 * @param burnTime Burn time (200 ticks smelts one item in furnace)
 	 */
-	@Override
-	public SoundEvent getEatingSound() {
-		return SoundEvents.HONEY_DRINK;
+	public BurnableItem(Properties properties, int burnTime) {
+		super(properties);
+		this.burnTime = burnTime;
 	}
+	
+	@Override
+	public int getBurnTime(ItemStack item) {
+		return burnTime;
+	}
+
 }

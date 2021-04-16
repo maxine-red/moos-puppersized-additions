@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Moo's Puppersized Additions.  If not, see <https://www.gnu.org/licenses/>.
  */
-package net.mootech.mpa.common.fluids;
+package net.mootech.mpa.common.fluids.jams;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidAttributes;
@@ -23,11 +23,16 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.mootech.mpa.MoosPuppersizedAdditions;
 import net.mootech.mpa.common.ModFluids;
 import net.mootech.mpa.common.ModItems;
+import net.mootech.mpa.common.fluids.VirtualFluid;
 
-public class SaltyWaterFluid {
-	public static final String ID = "salty_water";
+/**
+ * @author Maxine Red
+ *
+ */
+public class AppleJamFluid {
+	public static final String ID = "apple_jam";
 	private static final FluidAttributes.Builder ATTRIBUTES = FluidAttributes.builder(new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "fluids/" + ID), new ResourceLocation(MoosPuppersizedAdditions.MOD_ID, "fluids/" + ID + "_flow"));
-	private static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(ModFluids.SALTY_WATER, ModFluids.SALTY_WATER_FLOWING, ATTRIBUTES).bucket(ModItems.SALTY_WATER_BUCKET);
+	private static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(ModFluids.APPLE_JAM, ModFluids.APPLE_JAM_FLOWING, ATTRIBUTES).bucket(ModItems.APPLE_JAM_BUCKET);
 	
 	public static class Source extends VirtualFluid.Source {
 
@@ -44,5 +49,4 @@ public class SaltyWaterFluid {
 		}
 		
 	}
-
 }

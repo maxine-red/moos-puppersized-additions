@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "moospuppersizedadditions:block/salt_crystal",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "moospuppersizedadditions:block/salt_crystal"
+    },
+    "facing=north": {
+      "model": "moospuppersizedadditions:block/salt_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "moospuppersizedadditions:block/salt_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "moospuppersizedadditions:block/salt_crystal",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "moospuppersizedadditions:block/salt_crystal",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

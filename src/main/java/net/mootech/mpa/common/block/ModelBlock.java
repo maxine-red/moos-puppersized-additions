@@ -15,27 +15,33 @@
  * You should have received a copy of the GNU General Public License
  * along with Moo's Puppersized Additions.  If not, see <https://www.gnu.org/licenses/>.
  */
-package net.mootech.mpa.common.items;
+package net.mootech.mpa.common.block;
 
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 
 /**
- * Jam jars, to have their own drink sound
+ * Generic class for blocks that are not full blocks
  * @author Maxine Red
  *
  */
-public class JamItem extends DrinkableItem {
-
-	public JamItem(Properties properties, boolean isChorus) {
-		super(properties, isChorus);
-	}
+public class ModelBlock extends Block {
+	
+	protected VoxelShape shape;
 
 	/**
-	 * Override drinking sound
+	 * @param properties Block properties
 	 */
+	public ModelBlock(Properties properties) {
+		super(properties);
+	}
+
 	@Override
-	public SoundEvent getEatingSound() {
-		return SoundEvents.HONEY_DRINK;
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		return shape;
 	}
 }
